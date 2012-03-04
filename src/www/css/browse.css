@@ -1,0 +1,376 @@
+/**
+ * This file is part of the Weblibre
+ *
+ * Copyright (c) 2012 Radim Kocman (xkocma03)
+ * @author  Radim Kocman 
+ */
+
+#browse #selection {
+	float: left;
+	width: 200px;
+	background: url('../img/browse-selection.png') no-repeat top;
+}
+#browse #selection2 {
+	padding: 1px 15px 30px 15px;
+}
+#browse #selection ul, 
+#browse #selection li {
+	display: inline;
+	list-style-type: none;
+	list-style-position: outside;
+	padding: 0;
+	margin: 0;
+}
+#browse #selection li {
+	display: block;
+	height: 36px;
+	background: url('../img/browse-selection-separation.png') repeat-x bottom;
+}
+#browse #selection a {
+	display: block;
+	height: 34px;
+	line-height: 33px;
+	padding-left: 24px;
+	color: Black;
+	text-decoration: none;
+}
+#browse #selection a span {
+	font-size: 16px;
+	color: #b5b5b5;
+	padding-left: 8px;
+  visibility: hidden;
+  position: relative;
+  top: 1px;
+}
+#browse #selection .selected,
+#browse #selection a:hover {
+	background-color: #f7f7f7;
+}
+#browse #selection .selected span {
+	visibility: visible;
+}
+
+#browse #content2 {
+	float: right;
+	width: 800px;
+}
+#browse #panel {
+	height: 49px;
+}
+
+#browse #sort-by {
+	float: left;
+	width: 290px;
+	height: 49px;
+}
+#browse #sort-by .content {
+	width: 275px;
+	height: 34px;
+}
+#browse #sort-by .title {
+	float: left;
+	width: 95px;
+	height: 34px;
+	padding-left: 3px;
+	line-height: 34px;
+	text-align: center;
+	cursor: default;
+}
+#browse #sort-by .form {
+	float: right;
+	width: 177px;
+	height: 34px;
+	line-height: 34px;
+}
+#browse #sort-by select {
+	border: 1px solid #e4e4e4;
+	background: #eeeeee;
+	width: 174px;
+	padding: 4px;
+}
+
+#browse #search {
+	float: right;
+	width: 430px;
+	height: 49px;
+}
+#browse #search .content {
+	width: 415px;
+	height: 34px;
+}
+#browse #search .field {
+	float: left;
+	width: 339px;
+   height: 34px;
+	text-align: right;
+	line-height: 34px;
+	vertical-align: middle;
+}
+#browse #search .field input {
+	border: 1px solid #e4e4e4;
+	background: #eeeeee;
+	width: 322px;
+	padding: 6px;
+}
+#browse #search .button {
+	float: right;
+	width: 73px;
+   height: 34px;
+}
+#browse #search .button input {
+	width: 70px;
+	height: 28px;
+	border: 0;
+	background: url('../img/browse-search.png') no-repeat;
+	margin-top: 3px;
+	cursor: pointer;
+	color: White;
+	padding-bottom: 1px;
+}
+
+#browse #mode {
+	float: right;
+	width: 80px;
+	height: 49px;
+}
+#browse #mode .content {
+	width: 65px;
+	height: 34px;
+}
+#browse #mode .modern {
+	float: left;
+	width: 31px;
+	height: 34px;
+}
+#browse #mode .modern a {
+	float: right;
+	width: 28px;
+	height: 28px;
+	background: url('../img/browse-mode-modern.png') no-repeat top;
+	margin-top: 3px;
+}
+#browse #mode .classic {
+	float: right;
+	width: 31px;
+	height: 34px;
+}
+#browse #mode .classic a {
+	float: left;
+	width: 28px;
+	height: 28px;
+	background: url('../img/browse-mode-classic.png') no-repeat top;
+	margin-top: 3px;
+}
+#browse #mode a:hover,
+#browse #mode a.selected {
+	background-position: bottom;
+}
+
+#browse #result {
+	float: right;
+	width: 800px;
+	padding-bottom: 15px; 
+}
+#browse #result .content {
+	width: 785px;
+}
+#browse #result .load {
+	text-align: center;
+	padding: 20px;
+}
+
+#browse .paging {
+	height: 26px;
+	background: url('../img/browse-selection-separation.png') repeat-x;
+	padding: 3px;
+	line-height: 26px;
+	text-align: center;
+	clear: both;
+}
+#browse .paging-top {
+	padding-bottom: 5px;
+	background-position: bottom;
+}
+#browse .paging-bottom {
+	padding-top: 5px;
+	background-position: top;
+}
+#browse .paging div {
+	float: left;
+	width: 100px;
+	height: 26px;
+	cursor: default;
+	background: url('../img/browse-paging-disabled.png') no-repeat;
+	color: White;
+}
+#browse .paging .info {
+	float: left;
+	width: 373px;
+	height: 26px;
+	background: none;
+	color: Black;
+}
+#browse .paging a {
+	float: left;
+	width: 100px;
+	height: 26px;
+	text-decoration: none;
+	background: url('../img/browse-paging.png') no-repeat;
+	color: White;
+}
+#browse .paging .previous {
+	margin-left: 3px;
+}
+#browse .paging .next {
+	margin-right: 3px;
+}
+
+#browse #result .modern {
+	float: left;
+	width: 759px;
+	padding: 13px;
+	padding-bottom: 15px;
+	background: url('../img/browse-selection-separation.png') repeat-x bottom;
+}
+#browse #result .modern-last {
+	padding-bottom: 13px;
+	background: none;
+}
+#browse #result .modern .cover {
+	float: left;
+	width: 120px;
+	height: 120px;
+	text-align: center;
+	padding-right: 13px;
+}
+#browse #result .modern .cover table {
+	width: 120px;
+	height: 120px;
+	border-collapse: collapse;
+}
+#browse #result .modern .cover td {
+	padding: 0;
+}
+#browse #result .modern .info1 {
+	float: left;
+	width: 230px;
+	line-height: 20px;
+	padding-left: 21px;
+}
+#browse #result .modern .info2 {
+	float: left;
+	width: 360px;
+	line-height: 20px;
+	padding-left: 15px;
+	padding-top: 3px;
+}
+#browse #result .modern h2 {
+	color: Black;
+	font-size: 14px;
+	padding-top: 6px;
+}
+#browse #result .modern .rating {
+	height: 16px;
+	padding: 4px 0;
+	position: relative;
+	left: -1px;
+}
+#browse #result .modern .rating img {
+	float: left;
+}
+#browse #result .modern .details {
+	padding-top: 17px;
+}
+
+#browse #result .classic {
+	width: 100%;
+	border-collapse: collapse;
+}
+#browse #result .classic th {
+	text-align: center;
+	background-color: #F7F7F7;
+	padding: 10px 5px;
+	cursor: default;
+}
+#browse #result .classic td {
+	padding: 5px;
+}
+#browse #result .classic .first {
+	padding-left: 10px;
+}
+#browse #result .classic .last {
+	padding-right: 10px; 
+}
+#browse #result .classic .rating {
+	width: 80px;
+}
+#browse #result .classic .rating img {
+	float: left;
+}
+#browse #result .classic .nowrap {
+	white-space: nowrap;
+}
+#browse #result .classic .center {
+	text-align: center;
+}
+#browse #result .classic h2 {
+	color: Black;
+}
+#browse #result .classic .next {
+	font-size: 11px;
+}
+#browse #result .classic .even {
+	background-color: #F7F7F7;
+}
+
+#browse #result .select {
+	padding: 1px 0;
+}
+#browse #result .select table {
+	width: 100%;
+	border-collapse: collapse;
+}
+#browse #result .select th {
+	text-align: center;
+	background-color: #F7F7F7;
+	padding: 10px 5px;
+	cursor: default;
+}
+#browse #result .select td {
+	text-align: center;
+	padding: 0;
+	line-height: 34px;
+}
+#browse #result .select .ratingWidth {
+	width: 200px;
+}
+#browse #result .select .rating {
+	width: 80px;
+	margin: auto;
+	height: 16px;
+	padding-top: 9px
+}
+#browse #result .select .rating img {
+	float: left;
+}
+#browse #result .select .nowrap {
+	white-space: nowrap;
+}
+#browse #result .select h2 {
+	color: Black;
+	line-height: 16px;
+	padding: 9px 0;
+}
+#browse #result .select .even {
+	background-color: #F7F7F7;
+}
+#browse #result .select a {
+	color: Black;
+	text-decoration: none;
+	display: block;
+	height: 34px;
+	line-height: 34px;
+}
+#browse #result .select .link:hover {
+	background: #ecebe6;
+}

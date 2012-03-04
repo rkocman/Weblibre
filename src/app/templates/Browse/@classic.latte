@@ -1,0 +1,72 @@
+{**
+ * This file is part of the Weblibre
+ *
+ * Copyright (c) 2012 Radim Kocman (xkocma03)
+ * @author  Radim Kocman
+ *
+ * @param string $class 
+ *}
+
+<table class="classic">
+
+  <tr>
+    <th class="first">{_("Title")}</th>
+    <th>{_("Author(s)")}</th>
+    <th>{_("Rating")}</th>
+    <th>{_("Date")}</th>
+    <th class="last">{_("Series")}</th>
+  </tr>
+  
+  {foreach $result['results'] as $book}
+    
+    <tr n:class="($iterator->even)? even">
+      <td class="first">
+        <h2>{$book['title']}</h2>
+        <div class="next">
+          <a n:href="Detail: $book['id']">{_("Details")}</a> |
+          {if empty($book['formats'])}
+            {_("No format")}
+          {else}
+            {foreach $book['formats'] as $format}
+              <a n:href="Download: $book['id'], format => $format['format']"
+                >{$format['format']}</a>{sep}, {/sep}
+            {/foreach}
+          {/if}
+          {if !empty($book['tags'])}
+            | {_("Tags")} = [{foreach 
+              $book['tags'] as $tag}{$tag['name']
+              }{sep}, {/sep}{/foreach}]
+          {/if}
+        </div>
+      </td>
+      <td class="center">
+        {foreach $book['authors'] as $author}
+          {$author['name']}{sep}, {/sep}
+        {/foreach}
+      </td>
+      <td class="rating nowrap">
+        {if $book['rating'] > 0}
+          {for $i = 2; $i < 12; $i += 2}
+            <img 
+            {if $book['rating'] >= $i}
+              src="{$basePath}/img/star-on.png"
+            {else}
+              src="{$basePath}/img/star-off.png"
+            {/if}
+            alt="" />
+          {/for}
+        {/if}
+      </td>
+      <td class="nowrap center">
+        {$book['timestamp']}
+      </td>
+      <td class="last">
+        {if !empty($book['series'])}
+          {$book['series']} [{$book['seriescount']}]
+        {/if}
+      </td>
+    </tr>
+  
+  {/foreach}
+  
+</table>

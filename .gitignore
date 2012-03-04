@@ -1,0 +1,12 @@
+src/calibre/0.8.34/*
+src/database/sample/*
+src/www/adminer/
+src/log/*.log
+src/log/*.html
+src/temp/*.dat
+src/temp/winexec/*
+src/temp/sessions/*
+src/temp/cache/_browse/*
+src/temp/cache/_Nette.Configurator/*
+src/temp/cache/_Nette.FileTemplate/*
+src/temp/cache/_Nette.RobotLoader/*

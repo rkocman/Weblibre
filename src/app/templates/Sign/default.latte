@@ -1,0 +1,76 @@
+{**
+ * This file is part of the Weblibre
+ *
+ * Copyright (c) 2012 Radim Kocman (xkocma03)
+ * @author  Radim Kocman
+ *}
+
+{layout none}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+  <title>{_("Sign In")} | Weblibre</title>
+  
+	<meta name="robots" content="noindex">
+
+	<link rel="stylesheet" type="text/css" href="{$basePath}/css/sign.css">
+	<link rel="shortcut icon" type="image/x-icon" href="{$basePath}/favicon.ico">
+
+	<script type="text/javascript" src="{$basePath}/js/netteForms.js"></script>
+</head>
+
+<body>
+	<div id="page"><div id="page2"><div id="page3">
+    <div id="main">
+      <div id="head">
+        <div id="logo"><div id="logo2">
+        
+          <a href="{link 'this'}"><img src="{$basePath}/img/weblibre.png" alt="Weblibre" /></a>
+          
+        </div></div>
+        <div id="lang"><div id="lang2">
+          {form selectLanguageForm}
+            
+            <table>
+              <tr>
+                <th>{_("Language:")}</th>
+                <td>
+                  {input language onChange => "this.form.submit();"}
+                </td>
+              </tr>
+            </table>
+          
+          {/form selectLanguageForm}
+        </div></div>
+      </div>
+      <div id="sign">
+        {form signInForm}
+          
+          <table>
+            <tr>
+              <th>{label login /}</th>
+              <td>{input login class => "field"}</td>
+            </tr>
+            <tr>
+              <th>{label password /}</th>
+              <td>{input password class => "field"}</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td class="send">{input send class => "button"}</td>
+            </tr>
+          </table>
+          
+        {/form signInForm}
+      </div>
+    </div>
+    <div id="status">
+    
+      <div n:foreach="$flashes as $flash" class="flash {$flash->type}">{$flash->message}</div>
+      
+    </div>
+  </div></div></div>
+</body>
+</html

@@ -1,0 +1,32 @@
+{**
+ * This file is part of the Weblibre
+ *
+ * Copyright (c) 2012 Radim Kocman (xkocma03)
+ * @author  Radim Kocman
+ *
+ * @param string $class 
+ *}
+
+{define #paging}
+  
+<div class="paging {$class}">
+  {if $page != 1}
+    <a n:href="this page => 1" class="first">{_("First")}</a>
+    <a n:href="this page => ($page-1)" class="previous">{_("Previous")}</a>
+  {else}
+    <div class="first">{_("First")}</div>
+    <div class="previous">{_("Previous")}</div>
+  {/if}
+  <div class="info">
+    {$firstRecord} - {$lastRecord} {_("of")} {$result['count']}
+  </div>
+  {if $page != $pageMax}
+    <a n:href="this page => ($page+1)" class="next">{_("Next")}</a>
+    <a n:href="this page => ($pageMax)" class="last">{_("Last")}</a>
+  {else}
+    <div class="next">{_("Next")}</div>
+    <div class="last">{_("Last")}</div>
+  {/if}
+</div>
+
+{/define}

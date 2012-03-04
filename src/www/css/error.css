@@ -1,0 +1,57 @@
+/**
+ * This file is part of the Weblibre
+ *
+ * Copyright (c) 2012 Radim Kocman (xkocma03)
+ * @author  Radim Kocman 
+ */
+
+body, html {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+body {
+	background: #414141 url('../img/background.jpg') repeat;
+	color: White;
+	padding: 40px 0;
+}
+#page {
+	width: 600px;
+	margin: 0 auto;
+	text-align: left;
+}
+#top {
+	width: 600px;
+	height: 5px;
+	line-height: 0;
+	font-size: 0;
+	background: url('../img/error-top.png') no-repeat;
+}
+#middle {
+	background: url('../img/error-middle.png') repeat-y;
+	padding: 38px 40px 9px 40px;
+	text-align: justify;
+}
+#bottom {
+	width: 600px;
+	height: 5px;
+	line-height: 0;
+	font-size: 0;
+	background: url('../img/error-bottom.png') no-repeat;
+}
+
+h1 {
+	margin: 0;
+	padding-bottom: 0.6em;
+	font: bold 47px sans-serif;
+}
+p {
+	margin: 0;
+	padding-bottom: 1.5em;
+	font: 21px/1.5 Georgia,serif;
+}
+small{
+	font-size: 70%;
+	color: gray;
+}

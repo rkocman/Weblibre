@@ -1,0 +1,34 @@
+{**
+ * This file is part of the Weblibre
+ *
+ * Copyright (c) 2012 Radim Kocman (xkocma03)
+ * @author  Radim Kocman
+ *
+ * @param int $lid 
+ * @param int $rating
+ *}
+
+{define #ratingAvg}
+
+{if $rating == NULL}
+  <a n:href="this id => $lid"></a>
+{else}
+  {var $rating = round($rating/2,1)}
+  <a n:href="this id => $lid" title="{_("Average rating")}: {$rating}">
+    <div class="rating">
+      {for $i = 1; $i <= 5; $i++}
+        <img 
+        {if $rating >= $i}
+          src="{$basePath}/img/star-on.png"
+        {elseif $rating > ($i-1)}
+          src="{$basePath}/img/star-half.png"
+        {else}
+          src="{$basePath}/img/star-off.png"
+        {/if}
+        alt="" />
+      {/for}
+    </div>
+  </a>
+{/if}
+
+{/define}

@@ -1,0 +1,163 @@
+/**
+ * This file is part of the Weblibre
+ *
+ * Copyright (c) 2012 Radim Kocman (xkocma03)
+ * @author  Radim Kocman 
+ */
+
+body, html {
+  height: 100%;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+body {
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	background: #414141 url('../img/background.jpg') repeat;
+	color: White;
+}
+img {
+	border: 0;
+}
+
+#page {
+  min-width: 502px;
+  min-height: 360px;
+  width: 100%;
+  height: 100%;
+  width: expression(document.body.clientWidth < 502? "502px": "100%" ); /* pro IE */
+  height:expression(document.body.clientHeight < 380? "360px": "100%" ); /* pro IE */
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+#page2 {
+  text-align: left;
+  margin: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+#page3 {
+  position: absolute; 
+  left: -251px;
+  top: -180px;
+  width: 502px;
+  height: 360px;
+  background: url('../img/sign.png') no-repeat top;
+}
+
+#main {
+	height: 302px;
+}
+#status {
+	padding: 8px 4px 6px 5px;
+}
+#status .flash {
+	color: White;
+	border: 1px solid #7d0404;	
+	background: #9a1717;
+	padding: 14px 20px;
+	text-align: center;
+	cursor: default;
+}
+
+form {
+	padding: 0;
+	margin: 0;
+}
+table {
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	padding: 0;
+	border-spacing: 0;
+}
+table td {
+	margin: 0;
+	padding: 0;
+}
+
+#head {
+	height: 105px;
+}
+
+#logo {
+	float: left;
+	width: 260px;
+	height: 105px;
+}
+#logo2 {
+	padding: 27px 0 0 41px;
+}
+
+#lang {
+	float: right;
+	width: 242px;
+	height: 105px;
+}
+#lang2 {
+	padding: 16px 18px 0 0;
+}
+#lang2 table {
+	float: right;
+}
+#lang2 th {
+	font-weight: normal;
+	font-size: 14px;
+	color: #dedede;
+	padding-right: 12px;
+	cursor: default;
+}
+#lang2 select {
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	border: 0;
+	background: #dedede;
+	width: 110px;
+	padding: 4px;
+}
+
+#sign {
+	padding: 19px 0 0 17px;
+}
+#sign th {
+	color: #dedede;
+	font-size: 17px;
+	font-weight: normal;
+	text-align: right;
+	vertical-align: top;
+	line-height: 28px;
+	padding-right: 25px;
+	cursor: default;
+	width: 125px;
+}
+#sign .field {
+	width: 237px;
+	height: 20px;
+	line-height: 20px;
+	border: 0;
+	background: url('../img/sign-field.png') no-repeat top left;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: 15px;
+	padding: 7px;
+}
+#sign .send {
+	text-align: right;
+}
+#sign .button {
+	width: 151px;
+	height: 36px;
+	border: 0;
+	background: url('../img/sign-button.png') no-repeat top left;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	color: White;
+	margin-top: 2px;
+	cursor: pointer;
+  padding-bottom: 2px;
+}
+#sign td {
+	padding-bottom: 15px;
+}

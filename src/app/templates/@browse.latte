@@ -1,0 +1,154 @@
+{**
+ * This file is part of the Weblibre
+ *
+ * Copyright (c) 2012 Radim Kocman (xkocma03)
+ * @author  Radim Kocman
+ *}
+
+{extends '@layout.latte'}
+
+{block title}{block #title2}{/block} | {_(Library)}{/block}
+{block content}
+
+
+
+<div id="browse">
+  <div id="selection"><div id="selection2">
+    <ul>
+      
+      {*Selection*}
+      <li n:foreach="$selection as $item">
+        <a n:href="{$item['href']} search => NULL, page => NULL"
+           n:class="$presenter->isLinkCurrent($item['href'])? selected"
+           >{_($item['title'])}<span>»</span></a>
+      </li>
+      {*/Selection*}
+      
+    </ul>
+  </div></div>
+  <div id="content2">
+    <div id="panel">
+      {if $presenter->isLinkCurrent('Browse:allBooks') ||
+        ($presenter->isLinkCurrent('Browse:authors') && isset($id)) ||
+        ($presenter->isLinkCurrent('Browse:languages') && isset($id)) ||
+        ($presenter->isLinkCurrent('Browse:publishers') && isset($id)) ||
+        ($presenter->isLinkCurrent('Browse:ratings') && isset($id)) ||
+        ($presenter->isLinkCurrent('Browse:series') && isset($id)) ||
+        ($presenter->isLinkCurrent('Browse:tags') && isset($id))
+      }
+      <div id="sort-by">
+
+        <div class="frame">
+          <div class="f1"><div class="f2">
+          <div class="f3"><div class="f4">
+          <div class="f5"><div class="f6">
+            <div class="content">
+              
+              {form sortByForm}
+              <div class="title">
+                {_("Sort by:")}
+              </div>
+              <div class="form">
+                {input sortBy onChange => "this.form.submit();"}
+              </div>
+              {/form sortByForm}
+
+            </div>
+          </div></div>
+          </div></div>
+          </div></div>
+        </div>
+
+      </div>
+      {/if}
+      <div id="search">
+            
+        <div class="frame">
+          <div class="f1"><div class="f2">
+          <div class="f3"><div class="f4">
+          <div class="f5"><div class="f6">
+            <div class="content">
+
+              {form searchForm}
+
+                <div class="field">
+                  {input search}
+                </div>
+                <div class="button">
+                  {input send}
+                </div>
+
+              {/form searchForm}
+
+            </div>
+          </div></div>
+          </div></div>
+          </div></div>
+        </div>
+
+      </div>
+      <div id="mode">
+              
+        <div class="frame">
+          <div class="f1"><div class="f2">
+          <div class="f3"><div class="f4">
+          <div class="f5"><div class="f6">
+            <div class="content">
+
+              <div class="modern">
+                <a n:href="this mode => 'Modern'" 
+                   n:class="($presenter->mode == 'Modern')? selected"
+                   title="{_('Modern')}"></a>
+              </div>
+              <div class="classic">
+                <a n:href="this mode => 'Classic'"
+                   n:class="($presenter->mode == 'Classic')? selected"
+                   title="{_('Classic')}"></a>
+              </div>
+
+            </div>
+          </div></div>
+          </div></div>
+          </div></div>
+        </div>
+
+      </div>
+    </div>
+    <div id="result">
+      <div class="frame">
+        <div class="f1"><div class="f2">
+        <div class="f3"><div class="f4">
+        <div class="f5"><div class="f6">
+          <div class="content">
+
+            {snippet result}
+              {if $presenter->isAjax()}
+            
+                {includeblock 'Browse/@paging.latte'}
+                {include #paging, class => 'paging-top'}
+                
+                {if $presenter->mode == 'Modern'}
+                  {includeblock 'Browse/@modern.latte'}
+                {else}
+                  {includeblock 'Browse/@classic.latte'}
+                {/if}
+            
+                {include #paging, class => 'paging-bottom'}
+                  
+              {else}
+                  
+                {include #content2}
+                  
+              {/if}
+            {/snippet}
+
+          </div>
+        </div></div>
+        </div></div>
+        </div></div>
+      </div>
+    </div>
+    
+  </div>
+  <div class="flush">&nbsp;</div>
+</div>

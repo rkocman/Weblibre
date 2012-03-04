@@ -1,0 +1,30 @@
+{**
+ * This file is part of the Weblibre
+ *
+ * Copyright (c) 2012 Radim Kocman (xkocma03)
+ * @author  Radim Kocman
+ *}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+  <title>{block #title}{/block} | Weblibre</title>
+  
+	<meta name="robots" content="noindex">
+
+	<link rel="stylesheet" type="text/css" href="{$basePath}/css/error.css">
+	<link rel="shortcut icon" type="image/x-icon" href="{$basePath}/favicon.ico">
+</head>
+
+<body>
+  <div id="page">
+    <div id="top"></div>
+    <div id="middle">
+      {include #content}
+    </div>
+    <div id="bottom"></div>
+  </div>
+</body>
+</html>

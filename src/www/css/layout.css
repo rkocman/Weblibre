@@ -1,0 +1,220 @@
+html, body {
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	line-height: 18px;
+	background: #414141 url('../img/background.jpg') repeat;
+	color: Black;
+	text-align: center;
+	height: 100%;
+	margin: 0;
+}
+a {
+	color: #c56711;
+	text-decoration: underline;
+}
+a:hover {
+	text-decoration: none;
+}
+p {
+	margin: 0 0 14px 0;
+}
+img {
+	border: 0;
+}
+h1, h2, h3, h4 {
+	margin: 0;
+	color: #c56711;
+	font-size: 12px;
+	line-height: 18px;
+}
+.hide {
+	display: none;
+}
+.flush {
+	clear: both;
+	font-size: 0;
+	height: 1px;
+	line-height: 0;
+	visibility: hidden;
+}
+form {
+	padding: 0;
+	margin: 0;
+}
+input, textarea {
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+}
+
+/* Nette */
+
+#ajax-spinner {
+	margin: 15px 0 0 15px;
+	padding: 13px;
+	background: white url('../img/spinner.gif') no-repeat 50% 50%;
+	font-size: 0;
+	z-index: 123456;
+	display: none;
+}
+#ajax-spinner2 {
+	padding: 13px;
+	background: white url('../img/spinner.gif') no-repeat 50% 50%;
+	font-size: 0;
+	z-index: 123456;
+}
+
+div.flash {
+	color: black;
+	background: #FFF9D7;
+	border: 1px solid #E2C822;
+	padding: 1em;
+	margin: 1em 0;
+}
+
+a[href^="error:"] {
+	background: red;
+	color: white;
+}
+
+/* \Nette*/
+
+#page {
+	width: 1000px;
+	min-height: 100%;
+	height: auto !important;
+  	height: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: left;
+	background: url('../img/page.png') repeat-y;
+}
+#page-browse {
+	width: 1000px;
+	min-height: 100%;
+	height: auto !important;
+  	height: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: left;
+	background: url('../img/page-browse.png') repeat-y;
+}
+
+#head {
+	height: 82px;
+	background: url('../img/head.png') repeat-x;
+}
+#weblibre {
+	float: left;
+	width: 258px;
+	height: 82px;
+}
+#weblibre2 {
+	padding: 7px 0 0 29px;
+}
+#head-panel {
+	float: right;
+	width: 742px;
+	height: 82px;
+}
+
+#login {
+	height: 49px;
+	padding-right: 21px;
+}
+#login2 {
+	float: right;
+	height: 26px;
+}
+#login .user {
+	float: left;
+	height: 26px;
+	background: url('../img/login-user.png') repeat-x;
+	cursor: default;
+}
+#login .user2 {
+	float: left;
+	height: 26px;
+	padding: 0 15px;
+	line-height: 25px;
+	color: Black;
+	background: url('../img/login-user2.png') no-repeat left;
+}
+#login a {
+	float: left;
+	width: 91px;
+	height: 26px;
+	background: url('../img/login-sign-out.png') no-repeat;
+	color: White;
+	text-align: center;
+	text-decoration: none;
+	line-height: 25px;
+}
+
+#menu {
+	height: 31px;
+	background: url('../img/menu.png') repeat-x bottom;
+}
+#menu ul, #menu li {
+	display: inline;
+	list-style-type: none;
+  list-style-position: outside;
+	padding: 0;
+	margin: 0;
+}
+#menu a {
+	float: left;
+	height: 24px;
+	padding: 0 18px;	
+	padding-top: 7px;
+	color: Black;
+	text-decoration: none;
+	line-height: 21px;
+}
+#menu a:hover {
+	color: White;
+}
+#menu .selected {
+	background: url('../img/menu-selected.png') repeat-x;
+	color: White;
+	height: 25px;
+	padding-top: 6px;
+}
+
+.frame {
+	background: url('../img/frame.png') repeat;
+	float: left;
+}
+.frame .f1 {
+	background: url('../img/frame-f1.png') repeat-x bottom;
+}
+.frame .f2 {
+	background: url('../img/frame-f1.png') repeat-y right;
+}
+.frame .f3 {
+	background: url('../img/frame-f3.png') no-repeat top left;
+}
+.frame .f4 {
+	background: url('../img/frame-f4.png') no-repeat top right;
+}
+.frame .f5 {
+	background: url('../img/frame-f5.png') no-repeat bottom left;
+}
+.frame .f6 {
+	background: url('../img/frame-f6.png') no-repeat bottom right;
+	padding: 0 1px 1px 0;
+}
+
+#navigation {
+	height: 45px;
+	background: url('../img/pcolor.png') repeat;
+	padding: 13px 0 0 15px;
+	cursor: default;
+}
+#navigation .content {
+	width: 970px;
+	height: 30px;
+}
+#navigation .content2 {
+	line-height: 30px;
+	padding: 0 21px;
+}
