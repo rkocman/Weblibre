@@ -6,7 +6,4 @@ src/log/*.html
 src/temp/*.dat
 src/temp/winexec/*
 src/temp/sessions/*
-src/temp/cache/_browse/*
-src/temp/cache/_Nette.Configurator/*
-src/temp/cache/_Nette.FileTemplate/*
-src/temp/cache/_Nette.RobotLoader/*
+src/temp/cache/*

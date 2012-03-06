@@ -7,6 +7,8 @@
  * @author  Radim Kocman 
  */
 
+use Nette\Caching\Cache;
+
 /**
  * Browse Calibre model
  *
@@ -14,6 +16,17 @@
  */
 final class BrowseCalibre extends BaseCalibre 
 { 
+  /**
+   * Set cache
+   * @param string $db 
+   */
+  public function __construct($db) {
+    parent::__construct($db);
+    
+    // Cache
+    $this->cache = new Cache($GLOBALS['container']->cacheStorage, 'browse');
+  }
+  
   
   /**
    * Complete search results about books

@@ -36,6 +36,9 @@ final class CoverPresenter extends SignedPresenter
   /** @var img */
   private $cover;
   
+  /** @var time */
+  private $time;
+  
   /**
    * Default action
    * @param int/string $id
@@ -46,12 +49,26 @@ final class CoverPresenter extends SignedPresenter
       $this->redirect('this', array('id' => 'none'));
     
     $this->cover = $this->calibre->loadCover($id, $size);
+    $this->time = $this->calibre->loadTime($id);
   }
   
   /**
-   * Render default
+   * Render cover
    */
   public function renderDefault() {
+    $http = $this->getHttpResponse();
+    $http->setHeader('Cache-Control', 'private, max-age=10800, pre-check=10800');
+    $http->setHeader('Pragma', 'private');
+    $http->setHeader('Expires', date(DATE_RFC822, strtotime(" 2 day")));
+    $http->setHeader('Last-Modified', gmdate('D, d M Y H:i:s', $this->time).' GMT');
+    
+    if (isset($_SERVER['HTTP_IF_MODIFIED_SINCE']) &&
+      (strtotime($_SERVER['HTTP_IF_MODIFIED_SINCE']) == $this->time)) 
+    {
+      $http->setCode(Nette\Http\IResponse::S304_NOT_MODIFIED);
+      $this->terminate();
+    }
+    
     $this->template->cover = $this->cover;
   }
 

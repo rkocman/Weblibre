@@ -13,7 +13,8 @@
     <div class="cover">
       <table><tr><td>
         <a n:href="Detail: $book['id']"><img 
-          src="{link 'Cover:' id => $book['id'], size => "browse"}" 
+          src="{link 'Cover:' id => $book['id'], size => "browse", 
+            user => $user['login']}" {** User for save caching in browser *}
           alt="{$book['title']}" /></a>
       </td></tr></table>
     </div>

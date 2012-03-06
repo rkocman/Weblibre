@@ -47,9 +47,6 @@ abstract class BaseCalibre extends Nette\Object
     $this->db = $db;
     $this->env = $GLOBALS['wconfig']['env'];
     $this->cacheResults = $GLOBALS['wconfig']['caheResults'];
-    
-    // Cache
-    $this->cache = new Cache($GLOBALS['container']->cacheStorage, 'browse');
   }
   
   /**
