@@ -8,6 +8,7 @@
  */
 
 use Nette\Caching\Cache;
+use Nette\Application as NA;
 
 /**
  * Browse Calibre model
@@ -123,8 +124,8 @@ final class BrowseCalibre extends BaseCalibre
    * Request execute Calibre
    * @param string sortBy
    * @param string search
-   * @throws CalibreError
    * @return array
+   * @throws Nette\Application\ApplicationException
    */
   private function requestExecuteCalibre($sortBy, $search) {
     $exe = escapeshellarg(realpath($this->calibre).DIRECTORY_SEPARATOR."calibredb");
@@ -156,7 +157,7 @@ final class BrowseCalibre extends BaseCalibre
     $result = $this->execute($command);
     
     if ($result['status'] != 0)
-      throw new Exception("Unable request calibre");
+      throw new NA\ApplicationException("Unable request calibre.");
     
     // Handle output
     $sequence = array();
@@ -175,7 +176,6 @@ final class BrowseCalibre extends BaseCalibre
    * Request Calibre
    * @param string sortBy
    * @param string search
-   * @throws CalibreError
    * @return array
    */
   private function requestCalibre($sortBy, $search) {

@@ -345,11 +345,12 @@ final class BrowsePresenter extends SignedPresenter
   
   /**
    * Action authors
+   * @param int|NULL $id
    * @return void
    */
   public function actionAuthors($id = NULL) {
     if (!$this->isAjax()) {
-      if ($id == NULL)
+      if ($id === NULL)
         $this->result = $this->calibre->getAuthors();
       else
         $this->result = $this->calibre->getAuthorName($id);
@@ -363,12 +364,13 @@ final class BrowsePresenter extends SignedPresenter
   
   /**
    * Render books by authors
+   * @param int|NULL $id
    * @return void
    */
   public function renderAuthors($id = NULL) {
     // Add navigation
     if (!$this->isAjax()) {
-      if ($id == NULL)
+      if ($id === NULL)
         $this->addNavigation('Authors', '');
       else {
         $this->addNavigation('Authors', 'Browse:authors');
@@ -383,11 +385,12 @@ final class BrowsePresenter extends SignedPresenter
   
   /**
    * Action languages
+   * @param int|NULL $id
    * @return void
    */
   public function actionLanguages($id = NULL) {
     if (!$this->isAjax()) {
-      if ($id == NULL)
+      if ($id === NULL)
         $this->result = $this->calibre->getLanguages();
       else
         $this->result = $this->calibre->getLanguageName($id);
@@ -401,12 +404,13 @@ final class BrowsePresenter extends SignedPresenter
   
   /**
    * Render books by languages
+   * @param int|NULL $id
    * @return void
    */
   public function renderLanguages($id = NULL) {
     // Add navigation
     if (!$this->isAjax()) {
-      if ($id == NULL)
+      if ($id === NULL)
         $this->addNavigation('Languages', '');
       else {
         $this->addNavigation('Languages', 'Browse:languages');
@@ -421,11 +425,12 @@ final class BrowsePresenter extends SignedPresenter
   
   /**
    * Action publishers
+   * @param int|NULL $id
    * @return void
    */
   public function actionPublishers($id = NULL) {
     if (!$this->isAjax()) {
-      if ($id == NULL)
+      if ($id === NULL)
         $this->result = $this->calibre->getPublishers();
       else
         $this->result = $this->calibre->getPublisherName($id);
@@ -439,12 +444,13 @@ final class BrowsePresenter extends SignedPresenter
   
   /**
    * Render books by publishers
+   * @param int|NULL $id
    * @return void
    */
   public function renderPublishers($id = NULL) {
     // Add navigation
     if (!$this->isAjax()) {
-      if ($id == NULL)
+      if ($id === NULL)
         $this->addNavigation('Publishers', '');
       else {
         $this->addNavigation('Publishers', 'Browse:publishers');
@@ -459,11 +465,12 @@ final class BrowsePresenter extends SignedPresenter
   
   /**
    * Action ratings
+   * @param int|NULL $id
    * @return void
    */
   public function actionRatings($id = NULL) {
     if (!$this->isAjax()) {
-      if ($id == NULL)
+      if ($id === NULL)
         $this->result = $this->calibre->getRatings();
       else
         $this->result = $this->calibre->getRatingName($id);
@@ -477,12 +484,13 @@ final class BrowsePresenter extends SignedPresenter
   
   /**
    * Render books by rating
+   * @param int|NULL $id
    * @return void
    */
   public function renderRatings($id = NULL) {
     // Add navigation
     if (!$this->isAjax()) {
-      if ($id == NULL)
+      if ($id === NULL)
         $this->addNavigation('Ratings', '');
       else {
         $this->addNavigation('Ratings', 'Browse:ratings');
@@ -497,11 +505,12 @@ final class BrowsePresenter extends SignedPresenter
   
   /**
    * Action series
+   * @param int|NULL $id
    * @return void
    */
   public function actionSeries($id = NULL) {
     if (!$this->isAjax()) {
-      if ($id == NULL)
+      if ($id === NULL)
         $this->result = $this->calibre->getSeries();
       else
         $this->result = $this->calibre->getSeriesName($id);
@@ -515,12 +524,13 @@ final class BrowsePresenter extends SignedPresenter
   
   /**
    * Render books by series
+   * @param int|NULL $id
    * @return void
    */
   public function renderSeries($id = NULL) {
     // Add navigation
     if (!$this->isAjax()) {
-      if ($id == NULL)
+      if ($id === NULL)
         $this->addNavigation('Series', '');
       else {
         $this->addNavigation('Series', 'Browse:series');
@@ -535,11 +545,12 @@ final class BrowsePresenter extends SignedPresenter
   
   /**
    * Action tags
+   * @param int|NULL $id
    * @return void
    */
   public function actionTags($id = NULL) {
     if (!$this->isAjax()) {
-      if ($id == NULL)
+      if ($id === NULL)
         $this->result = $this->calibre->getTags();
       else
         $this->result = $this->calibre->getTagName($id);
@@ -553,12 +564,13 @@ final class BrowsePresenter extends SignedPresenter
   
   /**
    * Render books by tags
+   * @param int|NULL $id
    * @return void
    */
   public function renderTags($id = NULL) {
     // Add navigation
     if (!$this->isAjax()) {
-      if ($id == NULL)
+      if ($id === NULL)
         $this->addNavigation('Tags', '');
       else {
         $this->addNavigation('Tags', 'Browse:tags');

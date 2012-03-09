@@ -8,6 +8,7 @@
  */
 
 use Nette\Caching\Cache;
+use Nette\Application as NA;
 
 /**
  * Base communication model with Calibre
@@ -60,8 +61,8 @@ abstract class BaseCalibre extends Nette\Object
   /**
    * Execute on Widnows
    * @param string $command
-   * @throws DirError
    * @return array
+   * @throws Nette\Application\ApplicationException
    */
   private function executeOnWidnows($command) {
     $path = "../temp/winexec/";
@@ -69,7 +70,7 @@ abstract class BaseCalibre extends Nette\Object
     // Create dir
     if (!is_dir($path))
       if (!mkdir($path, 0777))
-        throw new Exception("Unable create temp directory");
+        throw new NA\ApplicationException("Unable create temp directory.");
     
     // Create .bat file
     do {

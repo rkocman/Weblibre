@@ -10,7 +10,7 @@
 use Nette\Application\UI;
 
 /**
- * Cover library presenter
+ * Cover presenter
  *
  * @author     Radim Kocman
  */
@@ -41,7 +41,7 @@ final class CoverPresenter extends SignedPresenter
   
   /**
    * Default action
-   * @param int/string $id
+   * @param int|string $id
    * @param string $size 
    */
   public function actionDefault($id, $size) {

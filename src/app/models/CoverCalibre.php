@@ -8,6 +8,7 @@
  */
 
 use Nette\Caching\Cache;
+use Nette\Application as NA;
 
 /**
  * Cover Calibre model
@@ -61,8 +62,8 @@ final class CoverCalibre extends BaseCalibre
    * @param int/string $id
    * @param int $width
    * @param int $height
-   * @throws ImgError
    * @return img 
+   * @throws Nette\Application\ApplicationException
    */
   private function prepareImg($id, $width, $height) {
     $file = $this->getPath($id);
@@ -71,7 +72,7 @@ final class CoverCalibre extends BaseCalibre
     $size = getimagesize($file);
     
     if (!$size[0] || !$size[1] || !$img)
-      throw new Exception("Unable load img");
+      throw new NA\ApplicationException("Unable load image.");
     
     // Set max size
     if ($size[0] > $size[1]) {
