@@ -69,6 +69,11 @@ div.flash {
 	border: 1px solid #E2C822;
 	padding: 1em;
 	margin: 1em 0;
+  text-align: left;
+}
+div.ok {
+  background: #EBFFD7;
+  border: 1px solid #8AE222;
 }
 
 a[href^="error:"] {

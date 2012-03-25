@@ -1,10 +1,10 @@
 # Gettext keys exported by GettextTranslator and Translation Panel
-# Created: 2012-03-04 17:18:29
+# Created: 2012-03-25 17:42:41
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2012-03-04 17:18+0100\n"
+"PO-Revision-Date: 2012-03-25 17:42+0200\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -15,6 +15,9 @@ msgstr ""
 
 msgid "Add new books"
 msgstr "Přidat nové knihy"
+
+msgid "Add to library"
+msgstr "Přidat do knihovny"
 
 msgid "All books"
 msgstr "Všechny knihy"
@@ -36,6 +39,9 @@ msgstr "Průměrné hodnocení"
 
 msgid "Books"
 msgstr "Knihy"
+
+msgid "Books have been successfully added to your library."
+msgstr "Knihy byly úspěšně přidány do knihovny."
 
 msgid "Browse library"
 msgstr "Procházet knihovnu"
@@ -148,6 +154,9 @@ msgstr "Řadit podle:"
 msgid "Stars"
 msgstr "Hvězd"
 
+msgid "Tag"
+msgstr "Štítek"
+
 msgid "Tags"
 msgstr "Štítky"
 
@@ -166,9 +175,12 @@ msgstr "Vítejte!"
 msgid "Wrong login or password!"
 msgstr "Byl zadán špatný login nebo heslo!"
 
+msgid "book"
+msgstr "kniha"
+
 msgid "of"
 msgstr "z"
 
-msgid "Tag"
-msgstr "Štítek"
+msgid "Error: Weblibre was unable to add some books into the library!"
+msgstr "Chyba: Některé knihy se nepodařilo přidat do knihovny!"
 

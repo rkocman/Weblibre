@@ -16,14 +16,26 @@ abstract class SignedPresenter extends BasePresenter
 {
 
   /** 
-   * Check signed user
+   * Mode of results
+   * @var string
+   * @persistent
+   */
+  public $mode = 'Modern';
+  
+  /** 
+   * Checks after start
    * @return void
    */
   protected function startup() {
     parent::startup();
     
+    // Check signed user
     if (!$this->user->isLoggedIn())
       $this->redirect('Sign:');
+    
+    // Check mode
+    if ($this->mode != 'Modern' && $this->mode != 'Classic')
+      $this->mode = 'Modern';
   }
   
   /**

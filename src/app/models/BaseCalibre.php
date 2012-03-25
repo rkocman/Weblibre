@@ -89,7 +89,7 @@ abstract class BaseCalibre extends Nette\Object
     
     // Discard unnecessary
     unlink($comp);
-    for ($i = 0; $i < 6; $i++)
+    for ($i = 0; $i < 5; $i++)
       unset($output[$i]);
     
     return array(
@@ -108,9 +108,6 @@ abstract class BaseCalibre extends Nette\Object
     // Exec
     exec($command, $output, $status);
     
-    // Discard unnecessary
-    unset($output[0]);
-    
     return array(
       'status' => $status,
       'output' => $output
@@ -121,8 +118,11 @@ abstract class BaseCalibre extends Nette\Object
    * Execute command
    * @param string $command
    * @return array
+   * @throws Nette\Application\ApplicationException
    */
   protected function execute($command) {
+    set_time_limit(120);
+    
     if ($this->env == "windows")
       return $this->executeOnWidnows($command);
     else

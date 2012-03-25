@@ -160,6 +160,7 @@ final class BrowseCalibre extends BaseCalibre
       throw new NA\ApplicationException("Unable request calibre.");
     
     // Handle output
+    array_shift($result['output']); // Skip header
     $sequence = array();
     foreach ($result['output'] as $line) {
       if (!empty($line)) {
@@ -322,7 +323,7 @@ final class BrowseCalibre extends BaseCalibre
    * @param int $records
    * @param string $sortBy
    * @param int $id
-   * @return $array
+   * @return array
    */
   public function getAuthorBooks($page, $records, $sortBy, $id) {
     
@@ -374,7 +375,7 @@ final class BrowseCalibre extends BaseCalibre
    * @param int $records
    * @param string $sortBy
    * @param int $id
-   * @return $array
+   * @return array
    */
   public function getLanguageBooks($page, $records, $sortBy, $id) {
     
@@ -426,7 +427,7 @@ final class BrowseCalibre extends BaseCalibre
    * @param int $records
    * @param string $sortBy
    * @param int $id
-   * @return $array
+   * @return array
    */
   public function getPublisherBooks($page, $records, $sortBy, $id) {
     
@@ -455,7 +456,7 @@ final class BrowseCalibre extends BaseCalibre
         LEFT JOIN books_ratings_link br ON b.id = br.book
         LEFT JOIN ratings r ON  br.rating = r.id
       ) tab
-      LEFT JOIN ratings r ON tab.rating=r.rating
+      JOIN ratings r ON tab.rating=r.rating
       GROUP BY r.id, tab.rating
       HAVING COUNT(tab.book) > 0
       ORDER BY tab.rating
@@ -481,7 +482,7 @@ final class BrowseCalibre extends BaseCalibre
    * @param int $records
    * @param string $sortBy
    * @param int $id
-   * @return $array
+   * @return array
    */
   public function getRatingBooks($page, $records, $sortBy, $id) {
     
@@ -533,7 +534,7 @@ final class BrowseCalibre extends BaseCalibre
    * @param int $records
    * @param string $sortBy
    * @param int $id
-   * @return $array
+   * @return array
    */
   public function getSeriesBooks($page, $records, $sortBy, $id) {
     
@@ -585,7 +586,7 @@ final class BrowseCalibre extends BaseCalibre
    * @param int $records
    * @param string $sortBy
    * @param int $id
-   * @return $array
+   * @return array
    */
   public function getTagBooks($page, $records, $sortBy, $id) {
     

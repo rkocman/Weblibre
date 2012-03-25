@@ -31,13 +31,6 @@ final class BrowsePresenter extends SignedPresenter
   public $search;
   
   /** 
-   * Mode of results
-   * @var string
-   * @persistent
-   */
-  public $mode = 'Modern';
-  
-  /** 
    * Current page in paging
    * @var int
    * @persistent
@@ -110,10 +103,6 @@ final class BrowsePresenter extends SignedPresenter
     // Clean persistent parameters
     if ($this->view != 'allBooks')
       $this->search = '';
-    
-    // Check mode
-    if ($this->mode != 'Modern' && $this->mode != 'Classic')
-      $this->mode = 'Modern';
     
     // Number of records by page
     if ($this->mode == 'Classic')

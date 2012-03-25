@@ -4,6 +4,7 @@ src/www/adminer/
 src/log/*.log
 src/log/*.html
 src/temp/*.dat
-src/temp/winexec/*
-src/temp/sessions/*
 src/temp/cache/*
+src/temp/sessions/*
+src/temp/uploads/*
+src/temp/winexec/*

@@ -31,7 +31,7 @@ final class CoverCalibre extends BaseCalibre
   
   /**
    * Get img path
-   * @param int/string $id
+   * @param int|string $id
    * @return string
    */
   private function getPath($id) {
@@ -50,7 +50,7 @@ final class CoverCalibre extends BaseCalibre
   
   /**
    * Check if cover exist
-   * @param int/string $id
+   * @param int|string $id
    * @return bool
    */
   public function checkCover($id) { 
@@ -59,7 +59,7 @@ final class CoverCalibre extends BaseCalibre
   
   /**
    * Prepare img to selected max size
-   * @param int/string $id
+   * @param int|string $id
    * @param int $width
    * @param int $height
    * @return img 
@@ -91,7 +91,7 @@ final class CoverCalibre extends BaseCalibre
   
   /**
    * Get img with selected max size
-   * @param int/string $id
+   * @param int|string $id
    * @param string $size 
    * @return img
    */
@@ -108,7 +108,7 @@ final class CoverCalibre extends BaseCalibre
   
   /**
    * Load cover
-   * @param int/string $id
+   * @param int|string $id
    * @param string $size 
    */
   public function loadCover($id, $size) {
