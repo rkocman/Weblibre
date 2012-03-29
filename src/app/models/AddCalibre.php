@@ -64,9 +64,10 @@ final class AddCalibre extends BaseCalibre
     $exe = escapeshellarg(realpath($this->calibre).DIRECTORY_SEPARATOR."calibredb");
     $db = " --library-path ".escapeshellarg(realpath($this->db));
     $command = $exe
-      ." add --recurse "
-      .escapeshellarg(realpath($dir))
-      .$db;
+      ." add ";
+    foreach($files as $file)
+      $command .= escapeshellarg(realpath($file))." ";
+    $command .= $db;
     $result = $this->execute($command);
     
     // Discard unnecessary

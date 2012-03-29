@@ -67,7 +67,7 @@ final class BrowseCalibre extends BaseCalibre
     
     // Load formats
     $formats = dibi::query("
-      SELECT book, format, uncompressed_size, name
+      SELECT id, book, format, uncompressed_size, name
       FROM data
       WHERE book IN %in
       ", $sequence, "
@@ -105,6 +105,7 @@ final class BrowseCalibre extends BaseCalibre
     }
     foreach($formats as $format) {
       $complete['results'][$ids[$format['book']]]['formats'][] = array(
+        'id' => $format['id'],
         'format' => $format['format'],
         'uncompressed_size' => $format['uncompressed_size'],
         'name' => $format['name']

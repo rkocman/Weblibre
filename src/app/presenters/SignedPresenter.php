@@ -49,18 +49,18 @@ abstract class SignedPresenter extends BasePresenter
     $this->template->user = $this->user->getIdentity()->getData();
     
     // Menu
-    $this->template->menu = array(
+    $this->template->menu = $this->menuCheckTest(array(
       array(
         'title' => 'Browse library',
         'href'  => 'Browse:',
-        'check' => 'Browse:*'
+        'check' => array('Browse:*', 'Book:*')
       ),
       array(
         'title' => 'Add new books',
         'href'  => 'Add:',
-        'check' => 'Add:*'
+        'check' => array('Add:*')
       ),
-    );
+    ));
     
     // Navigation
     $this->template->navigation = array(
@@ -70,6 +70,27 @@ abstract class SignedPresenter extends BasePresenter
         'translate' => false
       )
     );
+  }
+  
+  /**
+   * Menu check test
+   * @param array $menu
+   * @return array 
+   */
+  private function menuCheckTest($menu) {
+    $menuChecked = array();
+    foreach($menu as $item) {
+      foreach($item['check'] as $check) {
+        if ($this->isLinkCurrent($check)) {
+          $item['selected'] = true;
+          break;
+        }
+      }
+      if (!isset($item['selected']))
+        $item['selected'] = false;
+      $menuChecked[] = $item;
+    }
+    return $menuChecked;
   }
   
   /**

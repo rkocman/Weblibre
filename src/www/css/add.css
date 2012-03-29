@@ -7,6 +7,7 @@
  
  #add {
    padding-left: 15px;
+   padding-bottom: 15px;
  }
  #add .content {
    width: 970px;
@@ -33,15 +34,17 @@
    margin-left: 5px;
  }
  #add .send {
-   text-align: right;
+   text-align: left;
+   padding-top: 11px;
+   line-height: 28px;
  }
  #add .button {
+  float: right;
 	width: 150px;
 	height: 28px;
 	border: 0;
 	background: url('../img/add-send.png') no-repeat;
 	color: White;
-	margin-top: 11px;
 	cursor: pointer;
   padding-bottom: 1px;
 }

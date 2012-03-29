@@ -74,6 +74,10 @@ final class CoverCalibre extends BaseCalibre
     if (!$size[0] || !$size[1] || !$img)
       throw new NA\ApplicationException("Unable load image.");
     
+    // Skip resize if source is smaller
+    if ($size[0] <= $width && $size[1] <= $height)
+      return $img;
+    
     // Set max size
     if ($size[0] > $size[1]) {
       $imgw = $width;
@@ -83,6 +87,7 @@ final class CoverCalibre extends BaseCalibre
       $imgh = $height;
     }
     
+    // Resize
     $img2 = imagecreatetruecolor($imgw, $imgh);
     imagecopyresampled($img2, $img, 0, 0, 0, 0, $imgw, $imgh, $size[0], $size[1]);
     
@@ -101,6 +106,10 @@ final class CoverCalibre extends BaseCalibre
       case "browse":
         $width = 120;
         $height = 120;
+        break;
+      case "book":
+        $width = 400;
+        $height = 400;
         break;
     }
     return $this->prepareImg($id, $width, $height);

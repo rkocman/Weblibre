@@ -1,0 +1,131 @@
+/**
+ * This file is part of the Weblibre
+ *
+ * Copyright (c) 2012 Radim Kocman (xkocma03)
+ * @author  Radim Kocman 
+ */
+ 
+#book {
+  padding-left: 15px;
+  padding-bottom: 15px;
+}
+#book .content {
+  width: 970px;
+}
+#book .content2 {
+  padding: 22px 28px 26px 28px;
+}
+
+#book h1 {
+  font-size: 16px;
+  color: Black;
+}
+#book .cover {
+	float: left;
+  padding-top: 15px;
+	padding-right: 40px;
+  padding-bottom: 20px;
+}
+
+#book .info {
+  overflow: auto;
+  padding-top: 20px;
+}
+#book .info p {
+  margin-bottom: 10px;
+}
+#book .info a {
+  text-decoration: none;
+}
+#book .info a:hover {
+  text-decoration: underline;
+}
+#book .info .rating {
+  position: relative;
+  top: 2px;
+}
+
+#book .comments {
+  padding-top: 11px;
+  line-height: 19px;
+}
+
+#book .change-metadata {
+  padding-top: 5px;
+  text-align: right;
+  height: 28px;
+  padding-bottom: 30px;
+}
+#book .change-metadata a {
+  float: right;
+	width: 150px;
+	height: 28px;
+	background: url('../img/book-button-big.png') no-repeat;
+	color: White;
+  text-decoration: none;
+  text-align: center;
+  line-height: 28px;
+}
+
+#book .delete-book {
+  padding-top: 30px;
+  text-align: right;
+  height: 26px;
+}
+#book .delete-book a {
+  float: right;
+	width: 150px;
+	height: 26px;
+	background: url('../img/book-button-smaller.png') no-repeat;
+	color: White;
+  text-decoration: none;
+  text-align: center;
+  line-height: 26px;
+}
+
+#book .formats {
+  clear: both;
+  padding: 20px 130px 30px 130px;
+}
+#book .formats h2 {
+  font-size: 14px;
+  line-height: 28px;
+  padding-left: 4px;
+}
+#book .formats .add-format {
+  float: right;
+  width: 152px;
+  height: 26px;
+}
+#book .formats .add-format a {
+  float: left;
+	width: 150px;
+	height: 26px;
+	background: url('../img/book-button-smaller.png') no-repeat;
+	color: White;
+  text-decoration: none;
+  text-align: center;
+  line-height: 26px;
+}
+
+#book .format-table {
+  padding: 1px 0;
+}
+#book .format-table table {
+  width: 100%;
+	border-collapse: collapse;
+}
+#book .format-table th {
+	text-align: center;
+	background-color: #F7F7F7;
+	padding: 10px 5px;
+	cursor: default;
+}
+#book .format-table td {
+	text-align: center;
+	padding: 0;
+	line-height: 34px;
+}
+#book .format-table .even {
+	background-color: #F7F7F7;
+}

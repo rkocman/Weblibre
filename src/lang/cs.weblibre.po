@@ -1,10 +1,10 @@
 # Gettext keys exported by GettextTranslator and Translation Panel
-# Created: 2012-03-25 17:42:41
+# Created: 2012-03-29 21:07:46
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2012-03-25 17:42+0200\n"
+"PO-Revision-Date: 2012-03-29 21:07+0200\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -12,6 +12,12 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=((n==1) ? 0 : (n>=2 && n<=4 ? 1 : 2));
 \n"
 
+
+msgid "Actions"
+msgstr "Akce"
+
+msgid "Add a format"
+msgstr "Přidat formát"
 
 msgid "Add new books"
 msgstr "Přidat nové knihy"
@@ -49,20 +55,41 @@ msgstr "Procházet knihovnu"
 msgid "Classic"
 msgstr "Klasický"
 
+msgid "Comments"
+msgstr "Komentáře"
+
+msgid "Convert"
+msgstr "Převést"
+
 msgid "Count"
 msgstr "Počet"
 
 msgid "Date"
 msgstr "Datum"
 
+msgid "Delete book"
+msgstr "Odstranit knihu"
+
 msgid "Details"
 msgstr "Podrobnosti"
 
 msgid "Download"
-msgstr "Na stažení"
+msgstr "Stáhnout"
+
+msgid "Edit metadata"
+msgstr "Upravit metadata"
+
+msgid "Error: Weblibre was unable to add some books into the library!"
+msgstr "Chyba: Některé knihy se nepodařilo přidat do knihovny!"
 
 msgid "First"
 msgstr "První"
+
+msgid "Format"
+msgstr "Formát"
+
+msgid "Formats"
+msgstr "Formáty"
 
 msgid "Identifiers"
 msgstr "Identifikátory"
@@ -84,6 +111,9 @@ msgstr "Knihovna"
 
 msgid "Login:"
 msgstr "Login:"
+
+msgid "Maximum size"
+msgstr "Maximální velikost"
 
 msgid "Modern"
 msgstr "Moderní"
@@ -130,6 +160,9 @@ msgstr "Hodnocení"
 msgid "Ratings"
 msgstr "Hodnocení"
 
+msgid "Remove"
+msgstr "Smazat"
+
 msgid "Search"
 msgstr "Hledat"
 
@@ -166,6 +199,9 @@ msgstr "Název"
 msgid "User:"
 msgstr "Uživatel:"
 
+msgid "View"
+msgstr "Zobrazit"
+
 msgid "Weblibre"
 msgstr "Weblibre"
 
@@ -180,7 +216,4 @@ msgstr "kniha"
 
 msgid "of"
 msgstr "z"
-
-msgid "Error: Weblibre was unable to add some books into the library!"
-msgstr "Chyba: Některé knihy se nepodařilo přidat do knihovny!"
 

@@ -20,16 +20,14 @@ final class DownloadCalibre extends BaseCalibre
   /**
    * Get file path
    * @param int $id
-   * @param string $format
    * @return string|NULL
    */
-  public function getPath($id, $format) {
+  public function getPath($id) {
     $path = dibi::query("
       SELECT b.path, d.name, d.format
       FROM data d
       JOIN books b ON d.book = b.id
-      WHERE d.book=%u ", $id,"
-        AND d.format=%s ", $format,"
+      WHERE d.id=%u ", $id,"
     ")->fetch();
     
     if (empty($path))

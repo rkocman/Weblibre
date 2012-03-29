@@ -58,8 +58,10 @@ $container->router[] = new Route('<lang>/sign-out/', array(
         'presenter' => 'Sign', 'action' => 'out'));
 $container->router[] = new Route('<lang>/cover/<id>/<size>/', array(
         'presenter' => 'Cover', 'action' => 'default'));
-$container->router[] = new Route('<lang>/download/<id>/<format>/', array(
+$container->router[] = new Route('<lang>/download/<id>/', array(
         'presenter' => 'Download', 'action' => 'default'));
+$container->router[] = new Route('<lang>/book/<id>/', array(
+        'presenter' => 'Book', 'action' => 'default'));
 
 $container->router[] = new Route('<lang>/<presenter>/<action=default>/[<id>/]'
         );

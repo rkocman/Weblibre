@@ -23,12 +23,12 @@
       <td class="first">
         <h2>{$book['title']}</h2>
         <div class="next">
-          <a n:href="Detail: $book['id']">{_("Details")}</a> |
+          <a n:href="Book: $book['id']">{_("Details")}</a> |
           {if empty($book['formats'])}
             {_("No format")}
           {else}
             {foreach $book['formats'] as $format}
-              <a n:href="Download: $book['id'], format => $format['format']"
+              <a n:href="Download: $format['id']"
                 >{$format['format']}</a>{sep}, {/sep}
             {/foreach}
           {/if}

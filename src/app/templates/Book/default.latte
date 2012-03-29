@@ -1,0 +1,148 @@
+{**
+ * This file is part of the Weblibre
+ *
+ * Copyright (c) 2012 Radim Kocman (xkocma03)
+ * @author  Radim Kocman
+ *}
+
+{block title2}{$book['title']}{/block}
+{block content2}
+
+<h1>{$book['title']}</h1>
+
+<div class="cover">
+  <img 
+    src="{link 'Cover:' id => $book['id'], size => "book", 
+      user => $user['login']}" {** User for save caching in browser *}
+    alt="{$book['title']}" />
+</div>
+
+{dump $book}
+
+<div class="info">
+  
+  {if !empty($book['author_sort'])}
+    <p><strong>{_("Author Sort")}:</strong> {$book['author_sort']}</p>
+  {/if}
+    
+  {if !empty($book['authors'])}
+    <p><strong>{_("Authors")}:</strong>
+      {foreach $book['authors'] as $author}
+        <a n:href="Browse:authors $author['id']"
+          >{$author['name']}</a>{sep}, {/sep}
+      {/foreach}
+    </p>
+  {/if}
+    
+  {if !empty($book['date'])}
+    <p><strong>{_("Date")}:</strong> {$book['date']}</p>
+  {/if}
+    
+  {if !empty($book['identifiers'])}
+    <p><strong>{_("Identifiers")}:</strong>
+      {foreach $book['identifiers'] as $identifier}
+        {$identifier['type']}:{$identifier['val']}{sep}, {/sep}
+      {/foreach}
+    </p>
+  {/if}
+    
+  {if !empty($book['languages'])}
+    <p><strong>{_("Languages")}:</strong>
+      {foreach $book['languages'] as $lang}
+        <a n:href="Browse:languages $lang['id']"
+          >{$lang['lang_code']}</a>{sep}, {/sep}
+      {/foreach}
+    </p>
+  {/if}
+    
+  {if !empty($book['published'])}
+    <p><strong>{_("Published")}:</strong> {$book['published']}</p>
+  {/if}
+    
+  {if !empty($book['publishers'])}
+    <p><strong>{_("Publishers")}:</strong>
+      {foreach $book['publishers'] as $pub}
+        <a n:href="Browse:publishers $pub['id']"
+          >{$pub['name']}</a>{sep}, {/sep}
+      {/foreach}
+    </p>
+  {/if}
+    
+  {if $book['rating'] > 0}
+    <p><strong>{_("Ratings")}:</strong>
+      <span class="rating">
+      {for $i = 2; $i < 12; $i += 2}<img 
+        {if $book['rating'] >= $i}
+          src="{$basePath}/img/star-on.png"
+        {else}
+          src="{$basePath}/img/star-off.png"
+        {/if}
+        alt="" 
+      />{/for}
+      </span>
+    </p>
+  {/if}
+    
+  {if !empty($book['series_name'])}
+    <p><strong>{_("Series")}:</strong> 
+      <a n:href="Browse:series $book['series_id']"
+        >{$book['series_name']} [{$book['series_count']}]</a>
+    </p>
+  {/if}
+    
+  {if !empty($book['tags'])}
+    <p><strong>{_("Tags")}:</strong>
+      {foreach $book['tags'] as $tag}
+        <a n:href="Browse:tags $tag['id']"
+          >{$tag['name']}</a>{sep}, {/sep}
+      {/foreach}
+    </p>
+  {/if}
+    
+</div>
+
+{if !empty($book['comments'])}
+<div class="comments">
+  <strong>{_("Comments")}:</strong><br />
+  {!$book['comments']}
+</div>
+{/if}
+
+<div class="change-metadata">
+  <a n:href="Edit: $book['id']">{_("Edit metadata")}</a>
+</div>
+
+<div class="formats">
+  <div class="add-format">
+    <a n:href="Add:format $book['id']">{_("Add a format")}</a>
+  </div>
+  <h2>{_("Formats")}</h2>
+  
+  <div class="format-table">
+    <table>
+      <tr>
+        <th>{_("Format")}</th>
+        <th>{_("Size")} (MB)</th>
+        <th colspan="4">{_("Actions")}</th>
+      </tr>
+      {foreach $book['formats'] as $format}
+        <tr n:class="($iterator->even)? even">
+          <td class="format">{$format['format']}</td>
+          <td class="size">{$format['size']}</td>
+          <td class="button"><a n:href="View: $format['id']"
+            >{_("View")}</a></td>
+          <td class="button"><a n:href="Download: $format['id']"
+            >{_("Download")}</a></td>
+          <td class="button"><a n:href="Convert: $format['id']"
+            >{_("Convert")}</a></td>
+          <td class="button"><a n:href="Delete:format $format['id']"
+            >{_("Remove")}</a></td>
+        </tr>
+      {/foreach}
+    </table>
+  </div>
+</div>
+
+<div class="delete-book">
+  <a n:href="Delete:book $book['id']">{_("Delete book")}</a>
+</div>

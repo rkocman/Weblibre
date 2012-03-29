@@ -37,12 +37,11 @@ final class DownloadPresenter extends SignedPresenter
   /**
    * Handle download request
    * @param int $id
-   * @param string $format
    * @return void
    * @throws Nette\Application\BadRequestException
    */
-  public function actionDefault($id, $format) {
-    $path = $this->calibre->getPath($id, $format);
+  public function actionDefault($id) {
+    $path = $this->calibre->getPath($id);
     
     if ($path === NULL)
       throw new NA\BadRequestException('No such file.');

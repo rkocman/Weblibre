@@ -12,7 +12,7 @@
   <div n:class="modern, ($iterator->last)? modern-last">
     <div class="cover">
       <table><tr><td>
-        <a n:href="Detail: $book['id']"><img 
+        <a n:href="Book: $book['id']"><img 
           src="{link 'Cover:' id => $book['id'], size => "browse", 
             user => $user['login']}" {** User for save caching in browser *}
           alt="{$book['title']}" /></a>
@@ -37,7 +37,7 @@
         </div>
       {/if}
       <div class="details">
-        <a  n:href="Detail: $book['id']">{_("Details")}</a>
+        <a  n:href="Book: $book['id']">{_("Details")}</a>
       </div>
     </div>
     <div class="info2">
@@ -46,7 +46,7 @@
         {_("No format")}
       {else}
         {foreach $book['formats'] as $format}
-          <a n:href="Download: $book['id'], format => $format['format']"
+          <a n:href="Download: $format['id']"
             >{$format['format']}</a>{sep}, {/sep}
         {/foreach}
       {/if}

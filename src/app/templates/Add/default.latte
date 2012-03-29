@@ -4,7 +4,7 @@
  * Copyright (c) 2012 Radim Kocman (xkocma03)
  * @author  Radim Kocman
  *}
-{* This is the welcome page, you can delete it *}
+
 {block title2}{_("Add new books")}{/block}
 {block content2}
 
@@ -20,13 +20,15 @@
       {formContainer $i}
       <tr>
         <td>{$i}. {_("book")}</td>
-        <td>{input book class => "field", size => 90}</td>
+        <td>{input book class => "field", size => 80}</td>
       </tr>
       {/formContainer}
     {/for}
     <tr>
-      <td></td>
-      <td class="send">{input send class => "button"}</td>
+      <td colspan="2" class="send">
+        {input send class => "button"}
+        {_("Maximum size")}: {ini_get('post_max_size')}
+      </td>
     </tr>
   </table>
 {/form addForm}
