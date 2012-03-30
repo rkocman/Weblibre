@@ -13,7 +13,7 @@
    width: 970px;
  }
  #add .content2 {
-   padding: 0 20px 35px 20px;
+   padding: 0 20px 37px 20px;
    text-align: center;
  }
  #add .status {
@@ -47,4 +47,23 @@
 	color: White;
 	cursor: pointer;
   padding-bottom: 1px;
+}
+
+#add .head {
+  padding-bottom: 11px;
+  height: 26px;
+}
+#add .head h2 {
+  font-size: 14px;
+  line-height: 26px;
+}
+#add .head a {
+  float: right;
+  width: 160px;
+  height: 26px;
+  background: url('../img/add-empty.png') no-repeat;
+  color: White;
+  text-decoration: none;
+  text-align: center;
+  line-height: 26px;
 }

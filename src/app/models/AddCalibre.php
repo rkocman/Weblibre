@@ -81,4 +81,22 @@ final class AddCalibre extends BaseCalibre
     return ($result['status'] == 0)? true : false;
   }
   
+  /**
+   * Add empty book into library
+   * @return bool
+   */
+  public function addEmptyBook() {
+    
+    // Request calibre
+    $exe = escapeshellarg(realpath($this->calibre).DIRECTORY_SEPARATOR."calibredb");
+    $db = " --library-path ".escapeshellarg(realpath($this->db));
+    $command = $exe
+      ." add --empty"
+      .$db;
+    $result = $this->execute($command);
+    
+    // Return status
+    return ($result['status'] == 0)? true : false;
+  }
+  
 }

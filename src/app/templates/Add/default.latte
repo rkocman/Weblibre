@@ -16,6 +16,12 @@
 
 {form addForm}
   <table>
+    <tr>
+      <td colspan="2" class="head">
+        <a n:href="addEmpty!">{_("Add empty book")}</a>
+        <h2>{_("Upload books")}</h2>
+      </td>
+    </tr>
     {for $i = 1; $i <= 5; $i++}
       {formContainer $i}
       <tr>
