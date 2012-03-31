@@ -123,9 +123,20 @@ abstract class BaseCalibre extends Nette\Object
   protected function execute($command) {
     set_time_limit(120);
     
+    // Disconnect database
+    $connection = dibi::getConnection();
+    dibi::disconnect();
+    
+    // Execute by environment
     if ($this->env == "windows")
-      return $this->executeOnWidnows($command);
+      $result = $this->executeOnWidnows($command);
     else
-      return $this->executeOnUnix($command);
+      $result = $this->executeOnUnix($command);
+    
+    // Reconnect database
+    dibi::setConnection($connection);
+    
+    // Return result
+    return $result;
   }
 }

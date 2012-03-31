@@ -8,6 +8,7 @@
  */
 
 use Nette\Application\UI;
+use Nette\Application as NA;
 
 /**
  * Add new books presenter
@@ -16,6 +17,11 @@ use Nette\Application\UI;
  */
 final class AddPresenter extends SignedPresenter
 {
+  
+  /** @var string **/
+  private $bookName;
+  
+  
 
   /** @var BrowseCalibre */
   private $calibreModel = NULL;
@@ -42,9 +48,6 @@ final class AddPresenter extends SignedPresenter
   protected function beforeRender() {
     parent::beforeRender();
     
-    // Add navigation
-    $this->addNavigation('Add new books', '');
-    
     // Set add layout
     $this->setLayout('add');
   }
@@ -52,7 +55,7 @@ final class AddPresenter extends SignedPresenter
   
   
   /**
-   * Add form component factory
+   * Add form
    * @return Nette\Application\UI\Form
    */
   protected function createComponentAddForm() {
@@ -109,6 +112,15 @@ final class AddPresenter extends SignedPresenter
       $this->flashMessage($msg, 'error');
     }
   }
+  
+  /**
+   * Render Add new books
+   * @return void
+   */
+  public function renderDefault() {
+    // Add navigation
+    $this->addNavigation('Add new books', '');
+  }
 
   
   
@@ -128,6 +140,81 @@ final class AddPresenter extends SignedPresenter
       $this->flashMessage($msg, 'error');
     }
     $this->redirect('this');
+  }
+  
+  
+  
+  /**
+   * Add format form
+   * @return Nette\Application\UI\Form
+   */
+  protected function createComponentAddFormatForm() {
+    $form = new UI\Form;
+    $form->setTranslator($this->context->translator);
+    
+    $form->addGroup();
+    $sub = $form->addContainer(1);
+    $sub->addUpload('book')
+      ->setRequired('File is reguired.');
+    
+    $form->setCurrentGroup(NULL);
+    $form->addSubmit('send', 'Add to library');
+    
+    $form->onSuccess[] = callback($this, 'addFormatFormSubmitted');
+    return $form;
+  }
+  
+  /**
+   * Handle submitted add format form
+   * @param Nette\Application\UI\Form $form 
+   * @throws Nette\Application\BadRequestException
+   * @return void
+   */
+  public function addFormatFormSubmitted($form) {
+    $values = $form->getValues();
+    
+    $id = $this->getParam('id');
+    if (!$this->calibre->checkBook($id))
+      throw new NA\BadRequestException('No such book.');
+    
+    if ($this->calibre->addFormat($values, $id)) {
+      $msg = $this->context->translator->translate(
+        "Format has been successfully added to your library.");
+      $this->flashMessage($msg, 'ok');
+      $this->redirect('this');
+    }
+    else {
+      $msg = $this->context->translator->translate(
+        "Error: Weblibre was unable to add format into the library!");
+      $this->flashMessage($msg, 'error');
+    }
+  }
+  
+  /**
+   * Section Add format
+   * @param int $id
+   * @return void
+   * @throws Nette\Application\BadRequestException
+   */
+  public function actionFormat($id) {
+    if (!$this->calibre->checkBook($id))
+      throw new NA\BadRequestException('No such book.');
+    
+    $this->bookName = $this->calibre->getBookName($id);
+  }
+  
+  /**
+   * Render Add format
+   * @return void
+   */
+  public function renderFormat($id) {
+    // Add navigation
+    $this->addNavigation('Library', 'Browse:');
+    $this->addNavigation($this->bookName, 'Book:', false, $id);
+    $this->addNavigation('Add format', NULL);
+    
+    // Book name into template
+    $this->template->bookName = $this->bookName;
   }
   
 }

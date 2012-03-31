@@ -53,12 +53,12 @@ abstract class SignedPresenter extends BasePresenter
       array(
         'title' => 'Browse library',
         'href'  => 'Browse:',
-        'check' => array('Browse:*', 'Book:*')
+        'check' => array('Browse:*', 'Book:*', 'Add:format')
       ),
       array(
         'title' => 'Add new books',
         'href'  => 'Add:',
-        'check' => array('Add:*')
+        'check' => array('Add:default')
       ),
     ));
     
@@ -67,7 +67,8 @@ abstract class SignedPresenter extends BasePresenter
       array(
         'title' => 'Weblibre',
         'href'  => 'Browse:',
-        'translate' => false
+        'translate' => false,
+        'id' => NULL
       )
     );
   }
@@ -99,10 +100,11 @@ abstract class SignedPresenter extends BasePresenter
    * @param string $href
    * @return void
    */
-  protected function addNavigation($title, $href, $translate=true) {
+  protected function addNavigation($title, $href, $translate=true, $id=NULL) {
     $array[0]['title'] = $title;
     if (!empty($href))  $array[0]['href']  = $href;
     $array[0]['translate'] = $translate;
+    $array[0]['id'] = $id;
     $this->template->navigation = array_merge(
       $this->template->navigation, $array
     );

@@ -1,10 +1,10 @@
 # Gettext keys exported by GettextTranslator and Translation Panel
-# Created: 2012-03-30 21:38:04
+# Created: 2012-03-31 18:28:13
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2012-03-30 21:38+0200\n"
+"PO-Revision-Date: 2012-03-31 18:28+0200\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,6 +21,12 @@ msgstr "Přidat formát"
 
 msgid "Add empty book"
 msgstr "Přidat prázdnou knihu"
+
+msgid "Add format"
+msgstr "Přidat formát"
+
+msgid "Add format for book"
+msgstr "Přidat formát pro knihu"
 
 msgid "Add new books"
 msgstr "Přidat nové knihy"
@@ -91,11 +97,17 @@ msgstr "Chyba: Prázdnou knihu se nepodařilo přidat do knihovny!"
 msgid "Error: Weblibre was unable to add some books into the library!"
 msgstr "Chyba: Některé knihy se nepodařilo přidat do knihovny!"
 
+msgid "File is reguired."
+msgstr "Musíte vybrat soubor."
+
 msgid "First"
 msgstr "První"
 
 msgid "Format"
 msgstr "Formát"
+
+msgid "Format has been successfully added to your library."
+msgstr "Formát knihy byl úspěšně přidán do knihovny."
 
 msgid "Formats"
 msgstr "Formáty"
@@ -228,4 +240,7 @@ msgstr "kniha"
 
 msgid "of"
 msgstr "z"
+
+msgid "Error: Weblibre was unable to add format into the library!"
+msgstr "Chyba: Formát se nepodařilo přidat do knihovny!"
 

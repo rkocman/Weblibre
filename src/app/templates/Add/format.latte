@@ -1,0 +1,36 @@
+{**
+ * This file is part of the Weblibre
+ *
+ * Copyright (c) 2012 Radim Kocman (xkocma03)
+ * @author  Radim Kocman
+ *}
+
+{block title2}{_("Add format")} | {$bookName} | {_("Library")}{/block}
+{block content2}
+
+<div class="status">
+    
+  <div n:foreach="$flashes as $flash" class="flash {$flash->type}">{$flash->message}</div>
+
+</div>
+
+{form addFormatForm}
+  <table class="add-format">
+    <tr>
+      <td class="head">
+        <h2>{_("Add format for book")} {$bookName}</h2>
+      </td>
+    </tr>
+    {formContainer 1}
+    <tr>
+      <td>{input book class => "field", size => 80}</td>
+    </tr>
+    {/formContainer}
+    <tr>
+      <td class="send">
+        {input send class => "button"}
+        {_("Maximum size")}: {ini_get('post_max_size')}
+      </td>
+    </tr>
+  </table>
+{/form addFormatForm}

@@ -59,6 +59,7 @@ final class BookPresenter extends SignedPresenter {
    * Book's details
    * @param int $id 
    * @return void
+   * @throws Nette\Application\BadRequestException
    */
   public function actionDefault($id) {
     if (!$this->calibre->checkBook($id))

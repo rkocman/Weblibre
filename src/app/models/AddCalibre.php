@@ -19,24 +19,39 @@ final class AddCalibre extends BaseCalibre
 
   /**
    * Add books into library
-   * @param array $values 
+   * @param array $values
    * @return bool
    * @throws Nette\Application\ApplicationException
    */
   public function addBooks($values) {
+    return $this->addUploaded($values);
+  }
+  
+  /**
+   * Add format into library
+   * @param array $values
+   * @param int $id
+   * @return bool
+   * @throws Nette\Application\ApplicationException
+   */
+  public function addFormat($values, $id) {
+    return $this->addUploaded($values, $id);
+  }
+  
+  /**
+   * Add uploaded into library
+   * @param array $values 
+   * @param int $id
+   * @return bool
+   * @throws Nette\Application\ApplicationException
+   */
+  private function addUploaded($values, $id=NULL) {
     
     // Temp folder for uploads
     $path = "../temp/uploads/";
     if (!is_dir($path))
       if (!mkdir($path, 0777))
         throw new NA\ApplicationException("Unable create temp directory.");
-      
-    // Temp folder for current upload
-    do {
-      $dir = $path.$this->randomName()."/";
-    } while(is_dir($dir));
-    if (!mkdir($dir, 0777))
-      throw new NA\ApplicationException("Unable create temp directory.");
     
     // Save uploaded files
     $files = array();
@@ -46,7 +61,7 @@ final class AddCalibre extends BaseCalibre
         
         // Subdir
         do {
-          $subdir = $dir.$this->randomName()."/";
+          $subdir = $path.$this->randomName()."/";
         } while (is_dir($subdir));
         if (!mkdir($subdir, 0777))
           throw new NA\ApplicationException("Unable create temp directory.");
@@ -60,26 +75,41 @@ final class AddCalibre extends BaseCalibre
       }
     }
     
-    // Request calibre
-    $exe = escapeshellarg(realpath($this->calibre).DIRECTORY_SEPARATOR."calibredb");
-    $db = " --library-path ".escapeshellarg(realpath($this->db));
-    $command = $exe
-      ." add ";
-    foreach($files as $file)
-      $command .= escapeshellarg(realpath($file))." ";
-    $command .= $db;
-    $result = $this->execute($command);
+    // If not empty
+    if (!empty($files)) {
+    
+      // Request calibre
+      $exe = escapeshellarg(realpath($this->calibre).DIRECTORY_SEPARATOR."calibredb");
+      $db = " --library-path ".escapeshellarg(realpath($this->db));
+      $command = $exe;
+      if ($id === NULL) { // Add books
+        $command .= " add ";
+        foreach($files as $file)
+          $command .= escapeshellarg(realpath($file))." ";
+      } else { // Add format
+        $command .= " add_format ".escapeshellarg($id)." ";
+        $command .= escapeshellarg(realpath($files[0]));
+      }
+      $command .= $db;
+      $result = $this->execute($command);
+      dump($result);
+    
+    }
     
     // Discard unnecessary
     foreach($files as $file)
       unlink($file);
     foreach($subdirs as $subdir)
       rmdir($subdir);
-    rmdir($dir);
     
     // Return status
-    return ($result['status'] == 0)? true : false;
+    if (!empty($files))
+      return ($result['status'] == 0)? true : false;
+    else
+      return false;
   }
+  
+  
   
   /**
    * Add empty book into library
@@ -97,6 +127,35 @@ final class AddCalibre extends BaseCalibre
     
     // Return status
     return ($result['status'] == 0)? true : false;
+  }
+  
+  
+  
+  /**
+   * Check book
+   * @param int $id
+   * @return bool
+   */
+  public function checkBook($id) {
+    $sql = dibi::query("
+      SELECT b.id 
+      FROM books b
+      WHERE b.id=%u", $id,"
+    ")->fetchSingle();
+    return ($sql)? true : false;
+  }
+  
+  /**
+   * Get book name
+   * @param int $id
+   * @return string
+   */
+  public function getBookName($id) {
+    return dibi::query("
+      SELECT b.title
+      FROM books b
+      WHERE b.id=%u", $id,"
+    ")->fetchSingle();
   }
   
 }

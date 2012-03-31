@@ -67,3 +67,7 @@
   text-align: center;
   line-height: 26px;
 }
+
+#add .add-format input {
+  margin: 0;
+}

@@ -76,7 +76,7 @@
             {*Navigation*}
             {foreach $navigation as $item}
               {ifset $item['href']}<a n:href="{$item['href']} 
-                 search => NULL, page => NULL">{/ifset
+                 id => $item['id'], search => NULL, page => NULL">{/ifset
                 }{if $item['translate']
                   }{_($item['title'])
                 }{else
