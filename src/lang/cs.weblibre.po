@@ -1,10 +1,10 @@
 # Gettext keys exported by GettextTranslator and Translation Panel
-# Created: 2012-03-31 18:28:13
+# Created: 2012-04-01 19:25:44
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2012-03-31 18:28+0200\n"
+"PO-Revision-Date: 2012-04-01 19:25+0200\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -93,6 +93,9 @@ msgstr "Prázdná kniha byla úspěšně přidána do knihovny."
 
 msgid "Error: Weblibre was unable to add empty book into the library!"
 msgstr "Chyba: Prázdnou knihu se nepodařilo přidat do knihovny!"
+
+msgid "Error: Weblibre was unable to add format into the library!"
+msgstr "Chyba: Formát se nepodařilo přidat do knihovny!"
 
 msgid "Error: Weblibre was unable to add some books into the library!"
 msgstr "Chyba: Některé knihy se nepodařilo přidat do knihovny!"
@@ -241,6 +244,9 @@ msgstr "kniha"
 msgid "of"
 msgstr "z"
 
-msgid "Error: Weblibre was unable to add format into the library!"
-msgstr "Chyba: Formát se nepodařilo přidat do knihovny!"
+msgid "will be removed. Are you sure?"
+msgstr "bude smazán. Chcete pokračovat?"
+
+msgid "This book will be permanently deleted and files removed from your library. Are you sure?"
+msgstr "Tato kniha bude trvale odstraněna a všechny její soubory budou smazány z vaší knihovny. Chcete pokračovat?"
 

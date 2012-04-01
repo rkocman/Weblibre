@@ -133,7 +133,11 @@
             >{_("Download")}</a></td>
           <td class="button"><a n:href="Convert: $format['id']"
             >{_("Convert")}</a></td>
-          <td class="button"><a n:href="Delete:format $format['id']"
+          <td class="button"><a n:href="Remove:format $format['id']"
+            onclick="return confirm({_("Format")} + ' ' +
+              {$format['format']} + ' ' +
+              {_("will be removed. Are you sure?")}
+            );"
             >{_("Remove")}</a></td>
         </tr>
       {/foreach}
@@ -142,5 +146,9 @@
 </div>
 
 <div class="delete-book">
-  <a n:href="Delete:book $book['id']">{_("Delete book")}</a>
+  <a n:href="Remove:book $book['id']"
+    onclick="return confirm({_(
+      "This book will be permanently deleted and files removed from your library. Are you sure?"
+    )});"
+    >{_("Delete book")}</a>
 </div>

@@ -167,8 +167,8 @@ final class AddPresenter extends SignedPresenter
   /**
    * Handle submitted add format form
    * @param Nette\Application\UI\Form $form 
-   * @throws Nette\Application\BadRequestException
    * @return void
+   * @throws Nette\Application\BadRequestException
    */
   public function addFormatFormSubmitted($form) {
     $values = $form->getValues();
