@@ -178,6 +178,9 @@
 	text-align: center;
 	padding: 20px;
 }
+#browse #result .load .flash {
+  margin: 0;
+}
 
 #browse .paging {
 	height: 26px;

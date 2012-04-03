@@ -7,7 +7,14 @@
 
 <script type="text/javascript">
    $(document).ready(function() {
-     $.get({link this load => ajax}{** Load is repair for Webkit *});
+     $.get({link this load => ajax}{** Load is repair for Webkit *})
+      .error(function() {
+        $("#result .load").html(
+          "<div class=\"flash\">"
+          + {_("Error: Weblibre was unable to perform request!")} +
+          "</div>"
+        );
+      });
    });
 </script>
 <div class="load">
