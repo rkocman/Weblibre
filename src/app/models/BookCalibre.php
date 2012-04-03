@@ -42,7 +42,7 @@ final class BookCalibre extends BaseCalibre {
         SELECT series, COUNT(*) series_count
         FROM books_series_link
         GROUP BY series
-      ) sc ON bs.id = sc.series
+      ) sc ON s.id = sc.series
       LEFT JOIN comments c ON b.id = c.book
       WHERE b.id=%u", $id,"
     ")->fetch();;

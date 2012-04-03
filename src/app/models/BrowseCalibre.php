@@ -52,7 +52,7 @@ final class BrowseCalibre extends BaseCalibre
         SELECT series, COUNT(*) seriescount
         FROM books_series_link
         GROUP BY series
-      ) sc ON bs.id = sc.series
+      ) sc ON s.id = sc.series
       WHERE b.id IN %in
     ", $sequence)->fetchAll();
     
