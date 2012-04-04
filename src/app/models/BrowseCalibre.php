@@ -129,7 +129,6 @@ final class BrowseCalibre extends BaseCalibre
    * @throws Nette\Application\ApplicationException
    */
   private function requestExecuteCalibre($sortBy, $search) {
-    $exe = escapeshellarg(realpath($this->calibre).DIRECTORY_SEPARATOR."calibredb");
     $db = " --library-path ".escapeshellarg(realpath($this->db));
     
     $sortCalibre =  array(
@@ -147,15 +146,15 @@ final class BrowseCalibre extends BaseCalibre
       'Title' => 'title --ascending'
     );
     
-    $command = $exe
-      ." list" 
+    $command = 
+      "list" 
       ." -f uuid"
       ." -w 200"
-      .(($search != NULL)? " -s \"".addcslashes($search,'"\\')."\"" : "")
+      .(($search != NULL)? " -s \"".$this->envEscape($search)."\"" : "")
       ." --sort-by ".$sortCalibre[$sortBy]
       .$db;
     
-    $result = $this->execute($command);
+    $result = $this->execute("calibredb", $command);
     
     if ($result['status'] != 0)
       throw new NA\ApplicationException("Unable request calibre.");

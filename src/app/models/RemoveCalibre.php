@@ -68,12 +68,11 @@ final class RemoveCalibre extends BaseCalibre
   public function removeBook($id) {
     
     // Request calibre
-    $exe = escapeshellarg(realpath($this->calibre).DIRECTORY_SEPARATOR."calibredb");
     $db = " --library-path ".escapeshellarg(realpath($this->db));
-    $command = $exe
-      ." remove ".escapeshellarg($id)
+    $command =
+      "remove ".escapeshellarg($id)
       .$db;
-    $result = $this->execute($command);
+    $result = $this->execute("calibredb", $command);
     
     // Return status
     return ($result['status'] == 0)? true : false;
@@ -94,14 +93,13 @@ final class RemoveCalibre extends BaseCalibre
     ")->fetch();
     
     // Request calibre
-    $exe = escapeshellarg(realpath($this->calibre).DIRECTORY_SEPARATOR."calibredb");
     $db = " --library-path ".escapeshellarg(realpath($this->db));
-    $command = $exe
-      ." remove_format "
+    $command =
+      "remove_format "
       .escapeshellarg($format['book'])." "
       .escapeshellarg($format['format'])
       .$db;
-    $result = $this->execute($command);
+    $result = $this->execute("calibredb", $command);
     
     // Return status
     return ($result['status'] == 0)? true : false;

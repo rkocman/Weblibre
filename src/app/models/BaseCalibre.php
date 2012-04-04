@@ -59,12 +59,47 @@ abstract class BaseCalibre extends Nette\Object
   }
   
   /**
+   * Environment dependent parametr escaping
+   * @param string $param
+   * @return string
+   */
+  protected function envEscape($param) {
+    if ($this->env == "windows") {
+      
+      $metachar = array('\"',  '"');
+      $escaped  = array('\\"', '\"');
+      
+      return str_replace($metachar, $escaped, $param);
+      
+    } else {
+      
+      return addcslashes($search,'"\\');
+      
+    }
+  } 
+  
+  /**
+   * Windows command line escaping
+   * @param string $command
+   * @return string
+   */
+  private function winCmdEscape($command) {
+    $metachar = 
+      array("(",  ")",  "%",  "!",  "^",  "\"",  "<",  ">",  "&",  "|");
+    $escaped = 
+      array("^(", "^)", "^%", "^!", "^^", "^\"", "^<", "^>", "^&", "^|");
+    
+    return str_replace($metachar, $escaped, $command);
+  }
+  
+  /**
    * Execute on Widnows
+   * @param string $exe
    * @param string $command
    * @return array
    * @throws Nette\Application\ApplicationException
    */
-  private function executeOnWidnows($command) {
+  private function executeOnWidnows($exe, $command) {
     $path = "../temp/winexec/";
     
     // Create dir
@@ -78,7 +113,7 @@ abstract class BaseCalibre extends Nette\Object
       $comp = $path.$name;
     } while (file_exists($comp));
     $f = fopen($comp, 'w');
-    $content = "chcp 65001\r\n".$command;
+    $content = "chcp 65001\r\n".$exe." ".$this->winCmdEscape($command);
     fwrite($f, $content);
     fclose($f);
     
@@ -100,13 +135,14 @@ abstract class BaseCalibre extends Nette\Object
   
   /**
    * Execute on Unix
+   * @param string $exe
    * @param string $command
    * @return array
    */
-  private function executeOnUnix($command) {
+  private function executeOnUnix($exe, $command) {
     //setlocale(LC_ALL, "en_US.UTF-8");
     // Exec
-    exec($command, $output, $status);
+    exec($exe." ".$command, $output, $status);
     
     return array(
       'status' => $status,
@@ -116,12 +152,25 @@ abstract class BaseCalibre extends Nette\Object
   
   /**
    * Execute command
+   * @param string $exe
    * @param string $command
    * @return array
    * @throws Nette\Application\ApplicationException
    */
-  protected function execute($command) {
+  protected function execute($exe, $command) {
+    // Increase PHP time limit
     set_time_limit(120);
+    
+    // Expand exe
+    $exePath = realpath($this->calibre).DIRECTORY_SEPARATOR;
+    switch($exe) {
+      case "calibredb":
+        $exe = escapeshellarg($exePath."calibredb");
+        break;
+      default:
+        throw new NA\ApplicationException("Bad execute command.");
+        break;
+    }
     
     // Disconnect database
     $connection = dibi::getConnection();
@@ -129,9 +178,9 @@ abstract class BaseCalibre extends Nette\Object
     
     // Execute by environment
     if ($this->env == "windows")
-      $result = $this->executeOnWidnows($command);
+      $result = $this->executeOnWidnows($exe, $command);
     else
-      $result = $this->executeOnUnix($command);
+      $result = $this->executeOnUnix($exe, $command);
     
     // Reconnect database
     dibi::setConnection($connection);

@@ -79,19 +79,17 @@ final class AddCalibre extends BaseCalibre
     if (!empty($files)) {
     
       // Request calibre
-      $exe = escapeshellarg(realpath($this->calibre).DIRECTORY_SEPARATOR."calibredb");
       $db = " --library-path ".escapeshellarg(realpath($this->db));
-      $command = $exe;
       if ($id === NULL) { // Add books
-        $command .= " add ";
+        $command = "add ";
         foreach($files as $file)
           $command .= escapeshellarg(realpath($file))." ";
       } else { // Add format
-        $command .= " add_format ".escapeshellarg($id)." ";
+        $command = "add_format ".escapeshellarg($id)." ";
         $command .= escapeshellarg(realpath($files[0]));
       }
       $command .= $db;
-      $result = $this->execute($command);
+      $result = $this->execute("calibredb", $command);
       dump($result);
     
     }
@@ -118,12 +116,11 @@ final class AddCalibre extends BaseCalibre
   public function addEmptyBook() {
     
     // Request calibre
-    $exe = escapeshellarg(realpath($this->calibre).DIRECTORY_SEPARATOR."calibredb");
     $db = " --library-path ".escapeshellarg(realpath($this->db));
-    $command = $exe
-      ." add --empty"
+    $command =
+      "add --empty"
       .$db;
-    $result = $this->execute($command);
+    $result = $this->execute("calibredb", $command);
     
     // Return status
     return ($result['status'] == 0)? true : false;
