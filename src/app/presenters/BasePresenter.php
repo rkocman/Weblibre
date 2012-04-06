@@ -12,8 +12,8 @@
  *
  * @author  Radim Kocman
  */
-abstract class BasePresenter extends Nette\Application\UI\Presenter
-{
+abstract class BasePresenter extends Nette\Application\UI\Presenter 
+{  
   /** 
    * @var string
    * @persistent
@@ -25,7 +25,8 @@ abstract class BasePresenter extends Nette\Application\UI\Presenter
    * Startup with language setting
    * @return void
    */
-  protected function startup() {
+  protected function startup() 
+  {
     parent::startup();
     
     $languages = $GLOBALS["wlang"];
@@ -49,4 +50,5 @@ abstract class BasePresenter extends Nette\Application\UI\Presenter
 
     return $template;
   }
+  
 }

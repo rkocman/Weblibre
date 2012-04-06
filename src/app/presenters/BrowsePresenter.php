@@ -14,9 +14,8 @@ use Nette\Application\UI;
  *
  * @author     Radim Kocman
  */
-final class BrowsePresenter extends SignedPresenter
+final class BrowsePresenter extends SignedPresenter 
 {
-
   /** 
    * Sort by selected
    * @var string
@@ -77,9 +76,10 @@ final class BrowsePresenter extends SignedPresenter
   
   /**
    * Connect Calibre model
-   * @return void
+   * @return BrowseCalibre
    */
-  public function getCalibre() {
+  public function getCalibre() 
+  {
     if (!isset($this->calibreModel)) {
       $data = $this->user->getIdentity()->getData();
       $this->calibreModel = new BrowseCalibre($data['db']);
@@ -89,11 +89,13 @@ final class BrowsePresenter extends SignedPresenter
   }
   
   
+  
   /**
    * Check values after start
    * @return void
    */
-  protected function startup() {
+  protected function startup() 
+  {
     parent::startup();
     
     // Check sortBy value
@@ -119,7 +121,8 @@ final class BrowsePresenter extends SignedPresenter
    * Redirect default section
    * $return void
    */
-  public function actionDefault() {
+  public function actionDefault() 
+  {
     $this->redirect('Browse:newest');
   }
   
@@ -127,7 +130,8 @@ final class BrowsePresenter extends SignedPresenter
    * Add data into template
    * @return void
    */
-  protected function beforeRender() {
+  protected function beforeRender() 
+  {
     parent::beforeRender();
     
     // Add navigation
@@ -211,8 +215,8 @@ final class BrowsePresenter extends SignedPresenter
 	 * Order by form component factory
 	 * @return Nette\Application\UI\Form
 	 */
-  protected function createComponentSortByForm($name) {
-    
+  protected function createComponentSortByForm($name) 
+  {  
     $form = new UI\Form;
     
     foreach($this->sortByArray as $data) {
@@ -239,7 +243,8 @@ final class BrowsePresenter extends SignedPresenter
    * @param Nette\Application\UI\Form $form
    * @return void
    */
-  public function sortByFormSubmitted($form) {
+  public function sortByFormSubmitted($form) 
+  {
     $values = $form->getValues();
     $this->sortBy = $values['sortBy'];
     $this->redirect('this');
@@ -249,8 +254,8 @@ final class BrowsePresenter extends SignedPresenter
 	 * Search form component factory
 	 * @return Nette\Application\UI\Form
 	 */
-  protected function createComponentSearchForm($name) {
-    
+  protected function createComponentSearchForm($name) 
+  {  
     $form = new UI\Form;
     $form->setTranslator($this->context->translator);
     
@@ -266,7 +271,8 @@ final class BrowsePresenter extends SignedPresenter
    * @param Nette\Application\UI\Form $form
    * @return void
    */
-  public function searchFormSubmitted($form) {
+  public function searchFormSubmitted($form) 
+  {
     $values = $form->getValues();
     $this->search = $values['search'];
     $this->redirect('Browse:allBooks');
@@ -276,7 +282,8 @@ final class BrowsePresenter extends SignedPresenter
    * Check correct page number
    * @return void
    */
-  private function checkPage() {
+  private function checkPage() 
+  {
     $count = $this->result['count'];
     $this->pageMax = ceil($count/$this->records);
     if ($this->page > $this->pageMax && $this->page != 1) {
@@ -291,7 +298,8 @@ final class BrowsePresenter extends SignedPresenter
    * Action newest books
    * @return void
    */
-  public function actionNewest() {
+  public function actionNewest() 
+  {
     if ($this->isAjax()) {
       $this->result = $this->calibre->getNewestBooks($this->page, $this->records);
       $this->checkPage();
@@ -302,7 +310,8 @@ final class BrowsePresenter extends SignedPresenter
    * Render newest books
    * @return void
    */
-  public function renderNewest() {
+  public function renderNewest() 
+  {
     // Add navigation
     $this->addNavigation('Newest', '');
   }
@@ -313,7 +322,8 @@ final class BrowsePresenter extends SignedPresenter
    * Action all books
    * @return void
    */
-  public function actionAllBooks() {
+  public function actionAllBooks() 
+  {
     if ($this->isAjax()) {
       $this->result = $this->calibre->getAllBooks(
         $this->page, $this->records, $this->sortBy, $this->search);
@@ -325,7 +335,8 @@ final class BrowsePresenter extends SignedPresenter
    * Render all books
    * @return void
    */
-  public function renderAllBooks() {
+  public function renderAllBooks() 
+  {
     // Add navigation
     $this->addNavigation('All books', '');
   }
@@ -337,7 +348,8 @@ final class BrowsePresenter extends SignedPresenter
    * @param int|NULL $id
    * @return void
    */
-  public function actionAuthors($id = NULL) {
+  public function actionAuthors($id = NULL) 
+  {
     if (!$this->isAjax()) {
       if ($id === NULL)
         $this->result = $this->calibre->getAuthors();
@@ -356,7 +368,8 @@ final class BrowsePresenter extends SignedPresenter
    * @param int|NULL $id
    * @return void
    */
-  public function renderAuthors($id = NULL) {
+  public function renderAuthors($id = NULL) 
+  {
     // Add navigation
     if (!$this->isAjax()) {
       if ($id === NULL)
@@ -377,7 +390,8 @@ final class BrowsePresenter extends SignedPresenter
    * @param int|NULL $id
    * @return void
    */
-  public function actionLanguages($id = NULL) {
+  public function actionLanguages($id = NULL) 
+  {
     if (!$this->isAjax()) {
       if ($id === NULL)
         $this->result = $this->calibre->getLanguages();
@@ -396,7 +410,8 @@ final class BrowsePresenter extends SignedPresenter
    * @param int|NULL $id
    * @return void
    */
-  public function renderLanguages($id = NULL) {
+  public function renderLanguages($id = NULL) 
+  {
     // Add navigation
     if (!$this->isAjax()) {
       if ($id === NULL)
@@ -417,7 +432,8 @@ final class BrowsePresenter extends SignedPresenter
    * @param int|NULL $id
    * @return void
    */
-  public function actionPublishers($id = NULL) {
+  public function actionPublishers($id = NULL) 
+  {
     if (!$this->isAjax()) {
       if ($id === NULL)
         $this->result = $this->calibre->getPublishers();
@@ -436,7 +452,8 @@ final class BrowsePresenter extends SignedPresenter
    * @param int|NULL $id
    * @return void
    */
-  public function renderPublishers($id = NULL) {
+  public function renderPublishers($id = NULL) 
+  {
     // Add navigation
     if (!$this->isAjax()) {
       if ($id === NULL)
@@ -457,7 +474,8 @@ final class BrowsePresenter extends SignedPresenter
    * @param int|NULL $id
    * @return void
    */
-  public function actionRatings($id = NULL) {
+  public function actionRatings($id = NULL) 
+  {
     if (!$this->isAjax()) {
       if ($id === NULL)
         $this->result = $this->calibre->getRatings();
@@ -476,7 +494,8 @@ final class BrowsePresenter extends SignedPresenter
    * @param int|NULL $id
    * @return void
    */
-  public function renderRatings($id = NULL) {
+  public function renderRatings($id = NULL) 
+  {
     // Add navigation
     if (!$this->isAjax()) {
       if ($id === NULL)
@@ -497,7 +516,8 @@ final class BrowsePresenter extends SignedPresenter
    * @param int|NULL $id
    * @return void
    */
-  public function actionSeries($id = NULL) {
+  public function actionSeries($id = NULL) 
+  {
     if (!$this->isAjax()) {
       if ($id === NULL)
         $this->result = $this->calibre->getSeries();
@@ -516,7 +536,8 @@ final class BrowsePresenter extends SignedPresenter
    * @param int|NULL $id
    * @return void
    */
-  public function renderSeries($id = NULL) {
+  public function renderSeries($id = NULL) 
+  {
     // Add navigation
     if (!$this->isAjax()) {
       if ($id === NULL)
@@ -537,7 +558,8 @@ final class BrowsePresenter extends SignedPresenter
    * @param int|NULL $id
    * @return void
    */
-  public function actionTags($id = NULL) {
+  public function actionTags($id = NULL) 
+  {
     if (!$this->isAjax()) {
       if ($id === NULL)
         $this->result = $this->calibre->getTags();
@@ -556,7 +578,8 @@ final class BrowsePresenter extends SignedPresenter
    * @param int|NULL $id
    * @return void
    */
-  public function renderTags($id = NULL) {
+  public function renderTags($id = NULL) 
+  {
     // Add navigation
     if (!$this->isAjax()) {
       if ($id === NULL)

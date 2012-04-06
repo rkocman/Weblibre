@@ -16,12 +16,14 @@ use Nette\Application as NA;
  * @author  Radim Kocman
  */
 final class BrowseCalibre extends BaseCalibre 
-{ 
+{
+  
   /**
    * Set cache
    * @param string $db 
    */
-  public function __construct($db) {
+  public function __construct($db) 
+  {
     parent::__construct($db);
     
     // Cache
@@ -35,8 +37,8 @@ final class BrowseCalibre extends BaseCalibre
    * @param int $count Number of all matched books
    * @return array
    */
-  private function completeSearchResults($sequence, $count) {
-    
+  private function completeSearchResults($sequence, $count) 
+  {
     // Load books info
     $books = dibi::query("
       SELECT b.id, b.title, b.has_cover, b.path,
@@ -128,7 +130,8 @@ final class BrowseCalibre extends BaseCalibre
    * @return array
    * @throws Nette\Application\ApplicationException
    */
-  private function requestExecuteCalibre($sortBy, $search) {
+  private function requestExecuteCalibre($sortBy, $search) 
+  {
     $db = " --library-path ".escapeshellarg(realpath($this->db));
     
     $sortCalibre =  array(
@@ -179,8 +182,8 @@ final class BrowseCalibre extends BaseCalibre
    * @param string search
    * @return array
    */
-  private function requestCalibre($sortBy, $search) {
-    
+  private function requestCalibre($sortBy, $search) 
+  {
     // Load cache
     if ($this->cacheResults) {
       $key = array(
@@ -215,7 +218,8 @@ final class BrowseCalibre extends BaseCalibre
    * @param int $records
    * @return string
    */
-  private function limitDB($page, $records) {
+  private function limitDB($page, $records) 
+  {
     return "LIMIT ".(($page-1)*$records).", ".$records;
   }
   
@@ -226,7 +230,8 @@ final class BrowseCalibre extends BaseCalibre
    * @param array data
    * @return array
    */
-  private function limitCalibre($page, $records, $data) {
+  private function limitCalibre($page, $records, $data) 
+  {
     $sequence = array();
     $first = (($page-1) * $records);
     $last = $first + ($records - 1);
@@ -245,7 +250,8 @@ final class BrowseCalibre extends BaseCalibre
    * @param int $records
    * @return array
    */
-  public function getNewestBooks($page, $records) {
+  public function getNewestBooks($page, $records) 
+  {
     $sql = "
       FROM books
       ORDER BY timestamp DESC
@@ -278,7 +284,8 @@ final class BrowseCalibre extends BaseCalibre
    * @param string $search
    * @return array
    */
-  public function getAllBooks($page, $records, $sortBy, $search) {
+  public function getAllBooks($page, $records, $sortBy, $search) 
+  {
     $data = $this->requestCalibre($sortBy, $search);
     
     $sequence = $this->limitCalibre($page, $records, $data);
@@ -291,7 +298,8 @@ final class BrowseCalibre extends BaseCalibre
    * Get authors
    * @return array
    */
-  public function getAuthors() {
+  public function getAuthors() 
+  {
     return dibi::query("
       SELECT a.id, a.name, COUNT(ba.book) count, AVG(r.rating) rating
       FROM authors a
@@ -309,7 +317,8 @@ final class BrowseCalibre extends BaseCalibre
    * @param int $id
    * @return string
    */
-  public function getAuthorName($id) {
+  public function getAuthorName($id) 
+  {
     return dibi::query("
       SELECT name
       FROM authors
@@ -325,8 +334,8 @@ final class BrowseCalibre extends BaseCalibre
    * @param int $id
    * @return array
    */
-  public function getAuthorBooks($page, $records, $sortBy, $id) {
-    
+  public function getAuthorBooks($page, $records, $sortBy, $id) 
+  {
     $author = $this->getAuthorName($id);
     
     $search = 'authors:"='.$author.'"';
@@ -343,7 +352,8 @@ final class BrowseCalibre extends BaseCalibre
    * Get languages
    * @return array
    */
-  public function getLanguages() {
+  public function getLanguages() 
+  {
     return dibi::query("
       SELECT l.id, l.lang_code, COUNT(bl.book) count, AVG(r.rating) rating
       FROM languages l
@@ -361,7 +371,8 @@ final class BrowseCalibre extends BaseCalibre
    * @param int $id
    * @return string
    */
-  public function getLanguageName($id) {
+  public function getLanguageName($id) 
+  {
     return dibi::query("
       SELECT lang_code
       FROM languages
@@ -377,8 +388,8 @@ final class BrowseCalibre extends BaseCalibre
    * @param int $id
    * @return array
    */
-  public function getLanguageBooks($page, $records, $sortBy, $id) {
-    
+  public function getLanguageBooks($page, $records, $sortBy, $id) 
+  {   
     $lang = $this->getLanguageName($id);
     
     $search = 'languages:"='.$lang.'"';
@@ -395,7 +406,8 @@ final class BrowseCalibre extends BaseCalibre
    * Get publishers
    * @return array
    */
-  public function getPublishers() {
+  public function getPublishers() 
+  {
     return dibi::query("
       SELECT p.id, p.name, COUNT(bp.book) count, AVG(r.rating) rating
       FROM publishers p
@@ -413,7 +425,8 @@ final class BrowseCalibre extends BaseCalibre
    * @param int $id
    * @return string
    */
-  public function getPublisherName($id) {
+  public function getPublisherName($id) 
+  {
     return dibi::query("
       SELECT name
       FROM publishers
@@ -429,8 +442,8 @@ final class BrowseCalibre extends BaseCalibre
    * @param int $id
    * @return array
    */
-  public function getPublisherBooks($page, $records, $sortBy, $id) {
-    
+  public function getPublisherBooks($page, $records, $sortBy, $id) 
+  {
     $pub = $this->getPublisherName($id);
     
     $search = 'publisher:"='.$pub.'"';
@@ -447,7 +460,8 @@ final class BrowseCalibre extends BaseCalibre
    * Get ratings
    * @return array
    */
-  public function getRatings() {
+  public function getRatings() 
+  {
     return dibi::query("
       SELECT r.id id, tab.rating rating, COUNT(tab.book) count
       FROM (
@@ -468,7 +482,8 @@ final class BrowseCalibre extends BaseCalibre
    * @param int $id
    * @return string
    */
-  public function getRatingName($id) {
+  public function getRatingName($id) 
+  {
     return dibi::query("
       SELECT rating
       FROM ratings
@@ -484,8 +499,8 @@ final class BrowseCalibre extends BaseCalibre
    * @param int $id
    * @return array
    */
-  public function getRatingBooks($page, $records, $sortBy, $id) {
-    
+  public function getRatingBooks($page, $records, $sortBy, $id) 
+  {
     $rating = $this->getRatingName($id);
     
     $search = 'rating:'.($rating/2);
@@ -502,7 +517,8 @@ final class BrowseCalibre extends BaseCalibre
    * Get series
    * @return array
    */
-  public function getSeries() {
+  public function getSeries() 
+  {
     return dibi::query("
       SELECT s.id, s.name, COUNT(bs.book) count, AVG(r.rating) rating
       FROM series s
@@ -520,7 +536,8 @@ final class BrowseCalibre extends BaseCalibre
    * @param int $id
    * @return string
    */
-  public function getSeriesName($id) {
+  public function getSeriesName($id) 
+  {
     return dibi::query("
       SELECT name
       FROM series
@@ -536,8 +553,8 @@ final class BrowseCalibre extends BaseCalibre
    * @param int $id
    * @return array
    */
-  public function getSeriesBooks($page, $records, $sortBy, $id) {
-    
+  public function getSeriesBooks($page, $records, $sortBy, $id) 
+  {  
     $series = $this->getSeriesName($id);
     
     $search = 'series:"='.$series.'"';
@@ -554,7 +571,8 @@ final class BrowseCalibre extends BaseCalibre
    * Get tags
    * @return array
    */
-  public function getTags() {
+  public function getTags() 
+  {
     return dibi::query("
       SELECT t.id, t.name, COUNT(bt.book) count, AVG(r.rating) rating
       FROM tags t
@@ -572,7 +590,8 @@ final class BrowseCalibre extends BaseCalibre
    * @param int $id
    * @return string
    */
-  public function getTagName($id) {
+  public function getTagName($id) 
+  {
     return dibi::query("
       SELECT name
       FROM tags
@@ -588,8 +607,8 @@ final class BrowseCalibre extends BaseCalibre
    * @param int $id
    * @return array
    */
-  public function getTagBooks($page, $records, $sortBy, $id) {
-    
+  public function getTagBooks($page, $records, $sortBy, $id)
+  {
     $tag = $this->getTagName($id);
     
     $search = 'tags:"='.$tag.'"';
@@ -600,4 +619,5 @@ final class BrowseCalibre extends BaseCalibre
     
     return $this->completeSearchResults($sequence, count($data));
   }
+  
 }

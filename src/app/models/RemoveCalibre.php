@@ -22,7 +22,8 @@ final class RemoveCalibre extends BaseCalibre
    * @param int $id
    * @return bool
    */
-  public function checkBook($id) {
+  public function checkBook($id) 
+  {
     $sql = dibi::query("
       SELECT b.id 
       FROM books b
@@ -36,7 +37,8 @@ final class RemoveCalibre extends BaseCalibre
    * @param int $id
    * @return bool
    */
-  public function checkFormat($id) {
+  public function checkFormat($id) 
+  {
     $sql = dibi::query("
       SELECT d.id 
       FROM data d
@@ -50,7 +52,8 @@ final class RemoveCalibre extends BaseCalibre
    * @param int $id
    * @return int
    */
-  public function getBookIdFromFormatId($id) {
+  public function getBookIdFromFormatId($id) 
+  {
     return dibi::query("
       SELECT d.book
       FROM data d
@@ -65,8 +68,8 @@ final class RemoveCalibre extends BaseCalibre
    * @param $id
    * @return bool
    */
-  public function removeBook($id) {
-    
+  public function removeBook($id) 
+  {  
     // Request calibre
     $db = " --library-path ".escapeshellarg(realpath($this->db));
     $command =
@@ -83,8 +86,8 @@ final class RemoveCalibre extends BaseCalibre
    * @param $id
    * @return bool
    */
-  public function removeFormat($id) {
-    
+  public function removeFormat($id) 
+  {  
     // Get format info
     $format = dibi::query("
       SELECT d.book, d.format

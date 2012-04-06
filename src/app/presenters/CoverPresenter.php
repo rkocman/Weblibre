@@ -14,7 +14,7 @@ use Nette\Application\UI;
  *
  * @author     Radim Kocman
  */
-final class CoverPresenter extends SignedPresenter
+final class CoverPresenter extends SignedPresenter 
 {
  
   /** @var CoverCalibre */
@@ -22,9 +22,10 @@ final class CoverPresenter extends SignedPresenter
   
   /**
    * Connect Calibre model
-   * @return void
+   * @return CoverCalibre
    */
-  public function getCalibre() {
+  public function getCalibre() 
+  {
     if (!isset($this->calibreModel)) {
       $data = $this->user->getIdentity()->getData();
       $this->calibreModel = new CoverCalibre($data['db']);
@@ -44,7 +45,8 @@ final class CoverPresenter extends SignedPresenter
    * @param int|string $id
    * @param string $size 
    */
-  public function actionDefault($id, $size) {
+  public function actionDefault($id, $size) 
+  {
     if (!$this->calibre->checkCover($id))
       $this->redirect('this', array('id' => 'none'));
     
@@ -55,7 +57,8 @@ final class CoverPresenter extends SignedPresenter
   /**
    * Render cover
    */
-  public function renderDefault() {
+  public function renderDefault() 
+  {
     $http = $this->getHttpResponse();
     $http->setHeader('Cache-Control', 'private, max-age=10800, pre-check=10800');
     $http->setHeader('Pragma', 'private');

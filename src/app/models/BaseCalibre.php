@@ -16,7 +16,7 @@ use Nette\Application as NA;
  * @author  Radim Kocman
  */
 abstract class BaseCalibre extends Nette\Object 
-{ 
+{  
   /** @var string */
   protected $calibre;
   
@@ -36,7 +36,8 @@ abstract class BaseCalibre extends Nette\Object
    * Connect to database and save variables
    * @param string $db 
    */
-  public function __construct($db) {
+  public function __construct($db) 
+  {
     if (!dibi::isConnected())
       dibi::connect(array(
         'driver'   => 'sqlite3',
@@ -54,7 +55,8 @@ abstract class BaseCalibre extends Nette\Object
    * Random name
    * @return string
    */
-  protected function randomName() {
+  protected function randomName() 
+  {
     return md5(uniqid(rand(), true));
   }
   
@@ -63,7 +65,8 @@ abstract class BaseCalibre extends Nette\Object
    * @param string $param
    * @return string
    */
-  protected function envEscape($param) {
+  protected function envEscape($param) 
+  {
     if ($this->env == "windows") {
       
       $metachar = array('\"',  '"');
@@ -83,7 +86,8 @@ abstract class BaseCalibre extends Nette\Object
    * @param string $command
    * @return string
    */
-  private function winCmdEscape($command) {
+  private function winCmdEscape($command) 
+  {
     $metachar = 
       array("(",  ")",  "%",  "!",  "^",  "\"",  "<",  ">",  "&",  "|");
     $escaped = 
@@ -99,7 +103,8 @@ abstract class BaseCalibre extends Nette\Object
    * @return array
    * @throws Nette\Application\ApplicationException
    */
-  private function executeOnWidnows($exe, $command) {
+  private function executeOnWidnows($exe, $command) 
+  {
     $path = "../temp/winexec/";
     
     // Create dir
@@ -139,7 +144,8 @@ abstract class BaseCalibre extends Nette\Object
    * @param string $command
    * @return array
    */
-  private function executeOnUnix($exe, $command) {
+  private function executeOnUnix($exe, $command) 
+  {
     //setlocale(LC_ALL, "en_US.UTF-8");
     // Exec
     exec($exe." ".$command, $output, $status);
@@ -157,7 +163,8 @@ abstract class BaseCalibre extends Nette\Object
    * @return array
    * @throws Nette\Application\ApplicationException
    */
-  protected function execute($exe, $command) {
+  protected function execute($exe, $command) 
+  {
     // Increase PHP time limit
     set_time_limit(120);
     
@@ -188,4 +195,5 @@ abstract class BaseCalibre extends Nette\Object
     // Return result
     return $result;
   }
+
 }

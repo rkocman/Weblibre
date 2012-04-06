@@ -22,7 +22,8 @@ final class DownloadCalibre extends BaseCalibre
    * @param int $id
    * @return string|NULL
    */
-  public function getPath($id) {
+  public function getPath($id) 
+  {
     $path = dibi::query("
       SELECT b.path, d.name, d.format
       FROM data d

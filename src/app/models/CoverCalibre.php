@@ -17,11 +17,13 @@ use Nette\Application as NA;
  */
 final class CoverCalibre extends BaseCalibre 
 {
+  
   /**
    * Set cache
    * @param string $db 
    */
-  public function __construct($db) {
+  public function __construct($db) 
+  {
     parent::__construct($db);
     
     // Cache
@@ -34,7 +36,8 @@ final class CoverCalibre extends BaseCalibre
    * @param int|string $id
    * @return string
    */
-  private function getPath($id) {
+  private function getPath($id) 
+  {
     // No img
     if ($id === "none")
       return './img/no-cover.jpg';
@@ -53,7 +56,8 @@ final class CoverCalibre extends BaseCalibre
    * @param int|string $id
    * @return bool
    */
-  public function checkCover($id) { 
+  public function checkCover($id) 
+  { 
     return file_exists($this->getPath($id));
   }
   
@@ -65,7 +69,8 @@ final class CoverCalibre extends BaseCalibre
    * @return img 
    * @throws Nette\Application\ApplicationException
    */
-  private function prepareImg($id, $width, $height) {
+  private function prepareImg($id, $width, $height) 
+  {
     $file = $this->getPath($id);
     
     $img = imagecreatefromjpeg($file);
@@ -100,7 +105,8 @@ final class CoverCalibre extends BaseCalibre
    * @param string $size 
    * @return img
    */
-  private function getImg($id, $size) {
+  private function getImg($id, $size) 
+  {
     switch ($size) {
       default:
       case "browse":
@@ -120,7 +126,8 @@ final class CoverCalibre extends BaseCalibre
    * @param int|string $id
    * @param string $size 
    */
-  public function loadCover($id, $size) {
+  public function loadCover($id, $size) 
+  {
     $path = realpath($this->getPath($id));
     
     $key = array(
@@ -156,7 +163,9 @@ final class CoverCalibre extends BaseCalibre
    * @param int/string $id
    * @return time
    */
-  public function loadTime($id) {
+  public function loadTime($id) 
+  {
     return filemtime($this->getPath($id));
   }
+  
 }

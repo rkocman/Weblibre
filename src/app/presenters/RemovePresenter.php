@@ -23,9 +23,10 @@ final class RemovePresenter extends SignedPresenter
   
   /**
    * Connect Calibre model
-   * @return void
+   * @return RemoveCalibre
    */
-  public function getCalibre() {
+  public function getCalibre() 
+  {
     if (!isset($this->calibreModel)) {
       $data = $this->user->getIdentity()->getData();
       $this->calibreModel = new RemoveCalibre($data['db']);
@@ -42,7 +43,8 @@ final class RemovePresenter extends SignedPresenter
    * @return void
    * @throws Nette\Application\BadRequestException
    */
-  public function actionBook($id) {
+  public function actionBook($id) 
+  {
     if (!$this->calibre->checkBook($id))
       throw new NA\BadRequestException('No such book.');
     
@@ -57,7 +59,8 @@ final class RemovePresenter extends SignedPresenter
    * @return void
    * @throws Nette\Application\BadRequestException
    */
-  public function actionFormat($id) {
+  public function actionFormat($id) 
+  {
     if (!$this->calibre->checkFormat($id))
       throw new NA\BadRequestException('No such format.');
     

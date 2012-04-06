@@ -12,9 +12,8 @@
  *
  * @author  Radim Kocman
  */
-abstract class SignedPresenter extends BasePresenter
+abstract class SignedPresenter extends BasePresenter 
 {
-
   /** 
    * Mode of results
    * @var string
@@ -26,7 +25,8 @@ abstract class SignedPresenter extends BasePresenter
    * Checks after start
    * @return void
    */
-  protected function startup() {
+  protected function startup() 
+  {
     parent::startup();
     
     // Check signed user
@@ -42,7 +42,8 @@ abstract class SignedPresenter extends BasePresenter
    * Send data into template
    * @return void
    */
-  protected function beforeRender() {
+  protected function beforeRender() 
+  {
     parent::beforeRender();
     
     // User data
@@ -78,7 +79,8 @@ abstract class SignedPresenter extends BasePresenter
    * @param array $menu
    * @return array 
    */
-  private function menuCheckTest($menu) {
+  private function menuCheckTest($menu) 
+  {
     $menuChecked = array();
     foreach($menu as $item) {
       foreach($item['check'] as $check) {
@@ -100,7 +102,8 @@ abstract class SignedPresenter extends BasePresenter
    * @param string $href
    * @return void
    */
-  protected function addNavigation($title, $href, $translate=true, $id=NULL) {
+  protected function addNavigation($title, $href, $translate=true, $id=NULL) 
+  {
     $array[0]['title'] = $title;
     if (!empty($href))  $array[0]['href']  = $href;
     $array[0]['translate'] = $translate;

@@ -15,7 +15,7 @@ use Nette\Application as NA;
  *
  * @author     Radim Kocman
  */
-final class AddPresenter extends SignedPresenter
+final class AddPresenter extends SignedPresenter 
 {
   
   /** @var string **/
@@ -28,9 +28,10 @@ final class AddPresenter extends SignedPresenter
   
   /**
    * Connect Calibre model
-   * @return void
+   * @return AddCalibre
    */
-  public function getCalibre() {
+  public function getCalibre() 
+  {
     if (!isset($this->calibreModel)) {
       $data = $this->user->getIdentity()->getData();
       $this->calibreModel = new AddCalibre($data['db']);
@@ -45,7 +46,8 @@ final class AddPresenter extends SignedPresenter
    * Add data into template
    * @return void
    */
-  protected function beforeRender() {
+  protected function beforeRender() 
+  {
     parent::beforeRender();
     
     // Set add layout
@@ -58,7 +60,8 @@ final class AddPresenter extends SignedPresenter
    * Add form
    * @return Nette\Application\UI\Form
    */
-  protected function createComponentAddForm() {
+  protected function createComponentAddForm() 
+  {
     $form = new UI\Form;
     $form->setTranslator($this->context->translator);
     
@@ -81,7 +84,8 @@ final class AddPresenter extends SignedPresenter
    * @param Nette\Application\UI\Form $form 
    * @return void
    */
-  public function validateAddForm($form) {
+  public function validateAddForm($form) 
+  {
     $values = $form->getValues();
     
     foreach($values as $key => $value) {
@@ -97,7 +101,8 @@ final class AddPresenter extends SignedPresenter
    * @param Nette\Application\UI\Form $form 
    * @return void
    */
-  public function addFormSubmitted($form) {
+  public function addFormSubmitted($form) 
+  {
     $values = $form->getValues();
     
     if ($this->calibre->addBooks($values)) {
@@ -117,7 +122,8 @@ final class AddPresenter extends SignedPresenter
    * Render Add new books
    * @return void
    */
-  public function renderDefault() {
+  public function renderDefault() 
+  {
     // Add navigation
     $this->addNavigation('Add new books', '');
   }
@@ -128,7 +134,8 @@ final class AddPresenter extends SignedPresenter
    * Add empty book
    * @return void
    */
-  public function handleAddEmpty() {
+  public function handleAddEmpty() 
+  {
     if ($this->calibre->addEmptyBook()) {
       $msg = $this->context->translator->translate(
         "Empty book has been successfully added to your library.");
@@ -148,7 +155,8 @@ final class AddPresenter extends SignedPresenter
    * Add format form
    * @return Nette\Application\UI\Form
    */
-  protected function createComponentAddFormatForm() {
+  protected function createComponentAddFormatForm() 
+  {
     $form = new UI\Form;
     $form->setTranslator($this->context->translator);
     
@@ -170,7 +178,8 @@ final class AddPresenter extends SignedPresenter
    * @return void
    * @throws Nette\Application\BadRequestException
    */
-  public function addFormatFormSubmitted($form) {
+  public function addFormatFormSubmitted($form) 
+  {
     $values = $form->getValues();
     
     $id = $this->getParam('id');
@@ -196,7 +205,8 @@ final class AddPresenter extends SignedPresenter
    * @return void
    * @throws Nette\Application\BadRequestException
    */
-  public function actionFormat($id) {
+  public function actionFormat($id) 
+  {
     if (!$this->calibre->checkBook($id))
       throw new NA\BadRequestException('No such book.');
     
@@ -207,7 +217,8 @@ final class AddPresenter extends SignedPresenter
    * Render Add format
    * @return void
    */
-  public function renderFormat($id) {
+  public function renderFormat($id) 
+  {
     // Add navigation
     $this->addNavigation('Library', 'Browse:');
     $this->addNavigation($this->bookName, 'Book:', false, $id);

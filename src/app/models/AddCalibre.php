@@ -23,7 +23,8 @@ final class AddCalibre extends BaseCalibre
    * @return bool
    * @throws Nette\Application\ApplicationException
    */
-  public function addBooks($values) {
+  public function addBooks($values) 
+  {
     return $this->addUploaded($values);
   }
   
@@ -34,7 +35,8 @@ final class AddCalibre extends BaseCalibre
    * @return bool
    * @throws Nette\Application\ApplicationException
    */
-  public function addFormat($values, $id) {
+  public function addFormat($values, $id) 
+  {
     return $this->addUploaded($values, $id);
   }
   
@@ -45,8 +47,8 @@ final class AddCalibre extends BaseCalibre
    * @return bool
    * @throws Nette\Application\ApplicationException
    */
-  private function addUploaded($values, $id=NULL) {
-    
+  private function addUploaded($values, $id=NULL) 
+  {
     // Temp folder for uploads
     $path = "../temp/uploads/";
     if (!is_dir($path))
@@ -113,8 +115,8 @@ final class AddCalibre extends BaseCalibre
    * Add empty book into library
    * @return bool
    */
-  public function addEmptyBook() {
-    
+  public function addEmptyBook() 
+  {  
     // Request calibre
     $db = " --library-path ".escapeshellarg(realpath($this->db));
     $command =
@@ -133,7 +135,8 @@ final class AddCalibre extends BaseCalibre
    * @param int $id
    * @return bool
    */
-  public function checkBook($id) {
+  public function checkBook($id) 
+  {
     $sql = dibi::query("
       SELECT b.id 
       FROM books b
@@ -147,7 +150,8 @@ final class AddCalibre extends BaseCalibre
    * @param int $id
    * @return string
    */
-  public function getBookName($id) {
+  public function getBookName($id) 
+  {
     return dibi::query("
       SELECT b.title
       FROM books b

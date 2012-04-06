@@ -15,7 +15,7 @@ use Nette\Application as NA;
  *
  * @author     Radim Kocman
  */
-final class DownloadPresenter extends SignedPresenter
+final class DownloadPresenter extends SignedPresenter 
 {
  
   /** @var DownloadCalibre */
@@ -23,9 +23,10 @@ final class DownloadPresenter extends SignedPresenter
   
   /**
    * Connect Calibre model
-   * @return void
+   * @return DownloadCalibre
    */
-  public function getCalibre() {
+  public function getCalibre() 
+  {
     if (!isset($this->calibreModel)) {
       $data = $this->user->getIdentity()->getData();
       $this->calibreModel = new DownloadCalibre($data['db']);
@@ -40,7 +41,8 @@ final class DownloadPresenter extends SignedPresenter
    * @return void
    * @throws Nette\Application\BadRequestException
    */
-  public function actionDefault($id) {
+  public function actionDefault($id) 
+  {
     $path = $this->calibre->getPath($id);
     
     if ($path === NULL)

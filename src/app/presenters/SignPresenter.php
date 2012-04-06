@@ -15,14 +15,15 @@ use Nette\Application\UI,
  *
  * @author  Radim Kocman
  */
-final class SignPresenter extends BasePresenter
+final class SignPresenter extends BasePresenter 
 {
   
   /**
    * Check if user isn't signed
    * @return void
    */
-  public function actionDefault() {
+  public function actionDefault() 
+  {
     if ($this->user->isLoggedIn())
       $this->redirect ('Browse:default');
   }

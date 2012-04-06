@@ -12,7 +12,8 @@
  *
  * @author  Radim Kocman
  */
-final class BookCalibre extends BaseCalibre {
+final class BookCalibre extends BaseCalibre 
+{
   
   /**
    * Get book details from library
@@ -20,8 +21,8 @@ final class BookCalibre extends BaseCalibre {
    * @return array
    * @todo All
    */
-  public function getBook($id) {
-    
+  public function getBook($id) 
+  {  
     // Load book info
     $result = dibi::query("
       SELECT 
@@ -124,7 +125,8 @@ final class BookCalibre extends BaseCalibre {
    * @param int $id
    * @return bool
    */
-  public function checkBook($id) {
+  public function checkBook($id) 
+  {
     $result = dibi::query("
       SELECT b.id
       FROM books b
@@ -139,7 +141,8 @@ final class BookCalibre extends BaseCalibre {
    * @param int $size
    * @return string
    */
-  private function sizeToString($size) {
+  private function sizeToString($size) 
+  {
     $size = $size/1024/1024;
     
     if ($size < 0.1)

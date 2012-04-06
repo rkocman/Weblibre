@@ -15,7 +15,8 @@ use Nette\Application as NA;
  *
  * @author     Radim Kocman
  */
-final class BookPresenter extends SignedPresenter {
+final class BookPresenter extends SignedPresenter 
+{
   
   /** @var array */
   private $book;
@@ -26,9 +27,10 @@ final class BookPresenter extends SignedPresenter {
   
   /**
    * Connect Calibre model
-   * @return void
+   * @return BookCalibre
    */
-  public function getCalibre() {
+  public function getCalibre() 
+  {
     if (!isset($this->calibreModel)) {
       $data = $this->user->getIdentity()->getData();
       $this->calibreModel = new BookCalibre($data['db']);
@@ -43,7 +45,8 @@ final class BookPresenter extends SignedPresenter {
    * Add data into template
    * @return void
    */
-  protected function beforeRender() {
+  protected function beforeRender() 
+  {
     parent::beforeRender();
     
     // Add navigation
@@ -61,7 +64,8 @@ final class BookPresenter extends SignedPresenter {
    * @return void
    * @throws Nette\Application\BadRequestException
    */
-  public function actionDefault($id) {
+  public function actionDefault($id) 
+  {
     if (!$this->calibre->checkBook($id))
       throw new NA\BadRequestException('No such book.');
     
@@ -71,7 +75,8 @@ final class BookPresenter extends SignedPresenter {
   /**
    * Book's details render
    */
-  public function renderDefault() {
+  public function renderDefault() 
+  {
      // Add navigation
     $this->addNavigation($this->book['title'], NULL, false);
     
