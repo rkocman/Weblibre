@@ -51,4 +51,14 @@ abstract class BasePresenter extends Nette\Application\UI\Presenter
     return $template;
   }
   
+  /**
+   * DatePicker translation into template
+   * @return void
+   */
+  protected function beforeRender()
+  {
+    $this->template->datePicker_translate = $GLOBALS["wlang"][$this->lang]["datePicker_translate"];
+    $this->template->datePicker_file = $GLOBALS["wlang"][$this->lang]["datePicker_file"];
+  }
+  
 }

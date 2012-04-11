@@ -5,40 +5,40 @@
  * @author  Radim Kocman 
  */
  
- #add {
-   padding-left: 15px;
-   padding-bottom: 15px;
- }
- #add .content {
-   width: 970px;
- }
- #add .content2 {
-   padding: 0 20px 37px 20px;
-   text-align: center;
- }
- #add .status {
-   padding-top: 20px;
-   padding-bottom: 17px;
- }
- #add .status .flash {
-   margin: 0;
-   margin-bottom: 5px;
- }
+#add {
+  padding-left: 15px;
+  padding-bottom: 15px;
+}
+#add .content {
+  width: 970px;
+}
+#add .content2 {
+  padding: 0 20px 37px 20px;
+  text-align: center;
+}
+#add .status {
+  padding-top: 20px;
+  padding-bottom: 17px;
+}
+#add .status .flash {
+  margin: 0;
+  margin-bottom: 5px;
+}
  
- #add table {
-   margin: 0 auto;
-   text-align: left;
- }
- #add .field {
-   font-size: 14px;
-   margin-left: 5px;
- }
- #add .send {
-   text-align: left;
-   padding-top: 11px;
-   line-height: 28px;
- }
- #add .button {
+#add table {
+  margin: 0 auto;
+  text-align: left;
+}
+#add .field {
+  font-size: 14px;
+  margin-left: 5px;
+}
+#add .send {
+  text-align: left;
+  padding-top: 11px;
+  line-height: 28px;
+}
+#add .button {
   float: right;
 	width: 150px;
 	height: 28px;

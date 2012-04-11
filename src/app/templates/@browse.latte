@@ -18,7 +18,7 @@
       
       {*Selection*}
       <li n:foreach="$selection as $item">
-        <a n:href="{$item['href']} search => NULL, page => NULL"
+        <a n:href="$item['href'] search => NULL, page => NULL"
            n:class="$presenter->isLinkCurrent($item['href'])? selected"
            >{_($item['title'])}<span>»</span></a>
       </li>

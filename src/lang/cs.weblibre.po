@@ -1,10 +1,10 @@
 # Gettext keys exported by GettextTranslator and Translation Panel
-# Created: 2012-04-03 17:20:25
+# Created: 2012-04-10 21:03:10
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2012-04-03 17:20+0200\n"
+"PO-Revision-Date: 2012-04-10 21:03+0200\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -12,6 +12,24 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=((n==1) ? 0 : (n>=2 && n<=4 ? 1 : 2));
 \n"
 
+
+msgid "0 stars"
+msgstr "0 hvězd"
+
+msgid "1 stars"
+msgstr "1 hvězda"
+
+msgid "2 stars"
+msgstr "2 hvězdy"
+
+msgid "3 stars"
+msgstr "3 hvězdy"
+
+msgid "4 stars"
+msgstr "4 hvězdy"
+
+msgid "5 stars"
+msgstr "5 hvězd"
 
 msgid "Actions"
 msgstr "Akce"
@@ -42,6 +60,9 @@ msgstr "Autor"
 
 msgid "Author Sort"
 msgstr "Autor (seřadit jako)"
+
+msgid "Author sort"
+msgstr "Řazení autorů"
 
 msgid "Author(s)"
 msgstr "Autoři"
@@ -103,6 +124,9 @@ msgstr "Chyba: Některé knihy se nepodařilo přidat do knihovny!"
 msgid "Error: Weblibre was unable to perform request!"
 msgstr "Chyba: Nepodařilo se zpracovat požadavek!"
 
+msgid "Error: Weblibre was unable to save metadata!"
+msgstr "Chyba: Metadata se nepodařilo uložit."
+
 msgid "File is reguired."
 msgstr "Musíte vybrat soubor."
 
@@ -117,6 +141,9 @@ msgstr "Formát knihy byl úspěšně přidán do knihovny."
 
 msgid "Formats"
 msgstr "Formáty"
+
+msgid "IDs"
+msgstr "Identifikátory"
 
 msgid "Identifiers"
 msgstr "Identifikátory"
@@ -142,6 +169,9 @@ msgstr "Login:"
 msgid "Maximum size"
 msgstr "Maximální velikost"
 
+msgid "Metadata has been successfully saved."
+msgstr "Metadata byla úspěšně uložena."
+
 msgid "Modern"
 msgstr "Moderní"
 
@@ -156,6 +186,9 @@ msgstr "Další"
 
 msgid "No format"
 msgstr "Žádný formát"
+
+msgid "Number"
+msgstr "Číslo"
 
 msgid "Password:"
 msgstr "Heslo:"
@@ -196,6 +229,9 @@ msgstr "Hledat"
 msgid "Series"
 msgstr "Série"
 
+msgid "Series index must be a numeric value."
+msgstr "Číslo série musí být číselná hodnota."
+
 msgid "Sign In"
 msgstr "Přihlášení"
 
@@ -226,6 +262,9 @@ msgstr "Tato kniha bude trvale odstraněna a všechny její soubory budou smazá
 msgid "Title"
 msgstr "Název"
 
+msgid "Title sort"
+msgstr "Řazení názvu"
+
 msgid "Upload books"
 msgstr "Nahrát knihy"
 
@@ -252,4 +291,7 @@ msgstr "z"
 
 msgid "will be removed. Are you sure?"
 msgstr "bude smazán. Chcete pokračovat?"
+
+msgid "Save metadata"
+msgstr "Uložit metadata"
 

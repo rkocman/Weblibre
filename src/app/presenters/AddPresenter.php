@@ -215,6 +215,7 @@ final class AddPresenter extends SignedPresenter
   
   /**
    * Render Add format
+   * @param int $id
    * @return void
    */
   public function renderFormat($id) 

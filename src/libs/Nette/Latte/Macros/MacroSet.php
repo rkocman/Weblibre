@@ -18,7 +18,7 @@ use Nette,
 
 
 /**
- * Base IMacro implementation. Allowes add multiple macros.
+ * Base IMacro implementation. Allows add multiple macros.
  *
  * @author     David Grudl
  */
@@ -127,8 +127,8 @@ class MacroSet extends Nette\Object implements Latte\IMacro
 			return $writer->write($def);
 		} else {
 			return callback($def)->invoke($node, $writer);
-			}
 		}
+	}
 
 
 

@@ -29,11 +29,11 @@ use Nette,
  * @property-read string $action
  * @property      string $view
  * @property      string $layout
- * @property-read stdClass $payload
+ * @property-read \stdClass $payload
  * @property-read bool $ajax
  * @property-read Nette\Application\Request $lastCreatedRequest
  * @property-read Nette\Http\SessionSection $flashSession
- * @property-read \SystemContainer|Nette\DI\IContainer $context
+ * @property-read \SystemContainer|Nette\DI\Container $context
  * @property-read Nette\Application\Application $application
  * @property-read Nette\Http\Session $session
  * @property-read Nette\Security\User $user
@@ -87,7 +87,7 @@ abstract class Presenter extends Control implements Application\IPresenter
 	/** @var string */
 	private $layout;
 
-	/** @var stdClass */
+	/** @var \stdClass */
 	private $payload;
 
 	/** @var string */
@@ -108,12 +108,12 @@ abstract class Presenter extends Control implements Application\IPresenter
 	/** @var array */
 	private $lastCreatedRequestFlag;
 
-	/** @var Nette\DI\IContainer */
+	/** @var Nette\DI\Container */
 	private $context;
 
 
 
-	public function __construct(Nette\DI\IContainer $context)
+	public function __construct(Nette\DI\Container $context)
 	{
 		$this->context = $context;
 		if ($this->invalidLinkMode === NULL) {
@@ -573,9 +573,9 @@ abstract class Presenter extends Control implements Application\IPresenter
 
 
 	/**
-	 * @return stdClass
+	 * @return \stdClass
 	 */
-	final public function getPayload()
+	public function getPayload()
 	{
 		return $this->payload;
 	}
@@ -1273,11 +1273,13 @@ abstract class Presenter extends Control implements Application\IPresenter
 		}
 
 		foreach ($params as $key => $value) {
-			$a = strlen($key) > 2 ? strrpos($key, self::NAME_SEPARATOR, -2) : FALSE;
-			if (!$a) {
+			if (!preg_match('#^((?:[a-z0-9_]+-)*)((?!\d+$)[a-z0-9_]+)$#i', $key, $matches)) {
+				$this->error("'Invalid parameter name '$key'");
+			}
+			if (!$matches[1]) {
 				$selfParams[$key] = $value;
 			} else {
-				$this->globalParams[substr($key, 0, $a)][substr($key, $a + 1)] = $value;
+				$this->globalParams[substr($matches[1], 0, -1)][$matches[2]] = $value;
 			}
 		}
 
@@ -1364,7 +1366,7 @@ abstract class Presenter extends Control implements Application\IPresenter
 
 	/**
 	 * Gets the context.
-	 * @return \SystemContainer|Nette\DI\IContainer
+	 * @return \SystemContainer|Nette\DI\Container
 	 */
 	final public function getContext()
 	{

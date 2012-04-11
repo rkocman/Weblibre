@@ -140,7 +140,6 @@ class Helpers
 
 	/**
 	 * Import SQL dump from file - extreme fast.
-	 * @param  string  filename
 	 * @return int  count of commands
 	 */
 	public static function loadFromFile(Connection $connection, $file)
@@ -162,6 +161,10 @@ class Helpers
 				$sql = '';
 				$count++;
 			}
+		}
+		if ($sql !== '') {
+			$connection->exec($sql);
+			$count++;
 		}
 		fclose($handle);
 		return $count;

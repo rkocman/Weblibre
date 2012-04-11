@@ -121,22 +121,6 @@ final class BookCalibre extends BaseCalibre
   }
   
   /**
-   * Check if book exist
-   * @param int $id
-   * @return bool
-   */
-  public function checkBook($id) 
-  {
-    $result = dibi::query("
-      SELECT b.id
-      FROM books b
-      WHERE b.id=%u", $id,"
-    ")->fetchSingle();
-    
-    return ($result)? true : false;
-  }
-  
-  /**
    * Format size into string
    * @param int $size
    * @return string

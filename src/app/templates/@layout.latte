@@ -14,15 +14,21 @@
   
   <meta name="robots" content="noindex">
 
+  <link rel="stylesheet" type="text/css" href="{$basePath}/css/jquery-ui-1.8.18.css" />
 	<link rel="stylesheet" type="text/css" href="{$basePath}/css/layout.css">
   <link rel="stylesheet" type="text/css" href="{$basePath}/css/browse.css">
   <link rel="stylesheet" type="text/css" href="{$basePath}/css/add.css">
   <link rel="stylesheet" type="text/css" href="{$basePath}/css/book.css">
+  <link rel="stylesheet" type="text/css" href="{$basePath}/css/edit.css">
 	<link rel="shortcut icon" type="image/x-icon" href="{$basePath}/favicon.ico">
 
-	<script type="text/javascript" src="{$basePath}/js/jquery-1.7.1.min.js"></script>
+	<script type="text/javascript" src="{$basePath}/js/jquery-1.7.2.min.js"></script>
+  <script type="text/javascript" src="{$basePath}/js/jquery-ui-1.8.18.min.js"></script>
+  <script n:if="$datePicker_translate" 
+     type="text/javascript" src="{$basePath}/js/{$datePicker_file}"></script>
   <script type="text/javascript" src="{$basePath}/js/netteForms.js"></script>
   <script type="text/javascript" src="{$basePath}/js/jquery.nette.js"></script>
+  <script type="text/javascript" src="{$basePath}/js/datePicker.js"></script>
   
 	{block #head}{/block}
 </head>
@@ -55,7 +61,7 @@
           
             {*Menu*}
             <li n:foreach="$menu as $item">
-              <a n:href="{$item['href']}"
+              <a n:href="$item['href']"
                  n:class="($item['selected'])? selected"
                  >{_($item['title'])}</a>
             </li>
@@ -75,7 +81,7 @@
           
             {*Navigation*}
             {foreach $navigation as $item}
-              {ifset $item['href']}<a n:href="{$item['href']} 
+              {ifset $item['href']}<a n:href="$item['href']
                  id => $item['id'], search => NULL, page => NULL">{/ifset
                 }{if $item['translate']
                   }{_($item['title'])

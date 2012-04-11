@@ -18,21 +18,6 @@ final class RemoveCalibre extends BaseCalibre
 {
   
   /**
-   * Check book
-   * @param int $id
-   * @return bool
-   */
-  public function checkBook($id) 
-  {
-    $sql = dibi::query("
-      SELECT b.id 
-      FROM books b
-      WHERE b.id=%u", $id,"
-    ")->fetchSingle();
-    return ($sql)? true : false;
-  }
-  
-  /**
    * Check format
    * @param int $id
    * @return bool

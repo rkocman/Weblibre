@@ -44,6 +44,11 @@ $container = $configurator->createContainer();
 // Error Presenter
 $container->application->errorPresenter = 'Error';
 
+// Date Picker
+\Nette\Forms\Container::extensionMethod('addDatePicker', function (\Nette\Forms\Container $container, $name, $label = NULL) {
+    return $container[$name] = new \JanTvrdik\Components\DatePicker($label);
+});
+
 // Setup router
 $container->router[] = new Route('index.php', 
         'Browse:default', Route::ONE_WAY);
@@ -58,12 +63,8 @@ $container->router[] = new Route('<lang>/sign-out/', array(
         'presenter' => 'Sign', 'action' => 'out'));
 $container->router[] = new Route('<lang>/cover/<id>/<size>/', array(
         'presenter' => 'Cover', 'action' => 'default'));
-$container->router[] = new Route('<lang>/download/<id>/', array(
-        'presenter' => 'Download', 'action' => 'default'));
-$container->router[] = new Route('<lang>/book/<id>/', array(
-        'presenter' => 'Book', 'action' => 'default'));
 
-$container->router[] = new Route('<lang>/<presenter>/<action=default>/[<id>/]'
+$container->router[] = new Route('<lang>/<presenter>/[<action=default>/][<id>/]'
         );
 
 // Configure and run the application!

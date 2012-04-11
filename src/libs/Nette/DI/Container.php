@@ -68,7 +68,7 @@ class Container extends Nette\FreezableObject implements IContainer
 	/**
 	 * Adds the service or service factory to the container.
 	 * @param  string
-	 * @param  mixed   object, class name or callback
+	 * @param  mixed   object, class name or callable
 	 * @param  array   service meta information
 	 * @return Container  provides a fluent interface
 	 */
@@ -88,7 +88,7 @@ class Container extends Nette\FreezableObject implements IContainer
 			$this->meta[$name] = $meta;
 			return $this;
 
-		} elseif (!is_string($service) || strpos($service, ':') !== FALSE) { // callback
+		} elseif (!is_string($service) || strpos($service, ':') !== FALSE) { // callable
 			$service = callback($service);
 		}
 
@@ -243,6 +243,10 @@ class Container extends Nette\FreezableObject implements IContainer
 
 
 
+	/********************* autowiring ****************d*g**/
+
+
+
 	/**
 	 * Creates new instance using autowiring.
 	 * @param  string  class
@@ -269,7 +273,7 @@ class Container extends Nette\FreezableObject implements IContainer
 
 	/**
 	 * Calls method using autowiring.
-	 * @param  mixed   class, object, function, callback
+	 * @param  mixed   class, object, function, callable
 	 * @param  array   arguments
 	 * @return mixed
 	 */
@@ -361,7 +365,7 @@ class Container extends Nette\FreezableObject implements IContainer
 	public static function getMethodName($name, $isService = TRUE)
 	{
 		$uname = ucfirst($name);
-		return ($isService ? 'createService' : 'create') . ($name === $uname ? '_' : '') . strtr($uname, '.', '_');
+		return ($isService ? 'createService' : 'create') . ($name === $uname ? '__' : '') . str_replace('.', '__', $uname);
 	}
 
 }

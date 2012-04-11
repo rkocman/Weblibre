@@ -18,7 +18,7 @@ use Nette;
 /**
  * Reflection metadata class with discovery for a database.
  *
- * @author     Jakuv Vrana
+ * @author     Jan Skrasek
  * @property-write Nette\Database\Connection $connection
  */
 class DiscoveredReflection extends Nette\Object implements Nette\Database\IReflection
@@ -76,7 +76,7 @@ class DiscoveredReflection extends Nette\Object implements Nette\Database\IRefle
 	{
 		$primary = & $this->structure['primary'][$table];
 		if (isset($primary)) {
-			return $primary;
+			return empty($primary) ? NULL : $primary;
 		}
 
 		$columns = $this->connection->getSupplementalDriver()->getColumns($table);
@@ -88,8 +88,10 @@ class DiscoveredReflection extends Nette\Object implements Nette\Database\IRefle
 			}
 		}
 
-		if ($primaryCount !== 1)
+		if ($primaryCount !== 1) {
+			$primary = '';
 			return NULL;
+		}
 
 		return $primary;
 	}
@@ -101,7 +103,7 @@ class DiscoveredReflection extends Nette\Object implements Nette\Database\IRefle
 		$reference = $this->structure['hasMany'];
 		if (!empty($reference[$table])) {
 			foreach ($reference[$table] as $targetTable => $targetColumn) {
-				if (strpos($targetTable, strtolower($key)) !== FALSE) {
+				if (stripos($targetTable, $key) !== FALSE) {
 					return array(
 						$targetTable,
 						$targetColumn,
@@ -125,7 +127,7 @@ class DiscoveredReflection extends Nette\Object implements Nette\Database\IRefle
 		$reference = $this->structure['belongsTo'];
 		if (!empty($reference[$table])) {
 			foreach ($reference[$table] as $column => $targetTable) {
-				if (strpos($column, strtolower($key)) !== FALSE) {
+				if (stripos($column, $key) !== FALSE) {
 					return array(
 						$targetTable,
 						$column,
@@ -163,13 +165,9 @@ class DiscoveredReflection extends Nette\Object implements Nette\Database\IRefle
 
 	protected function reloadForeignKeys($table)
 	{
-		static $reloaded = array();
-		if (isset($reloaded[$table]))
-			return;
-
 		foreach ($this->connection->getSupplementalDriver()->getForeignKeys($table) as $row) {
-			$this->structure['belongsTo'][$table][strtolower($row['local'])] = $row['table'];
-			$this->structure['hasMany'][strtolower($row['table'])][$table] = $row['local'];
+			$this->structure['belongsTo'][$table][$row['local']] = $row['table'];
+			$this->structure['hasMany'][$row['table']][$table] = $row['local'];
 		}
 
 		if (isset($this->structure['belongsTo'][$table])) {
@@ -177,8 +175,6 @@ class DiscoveredReflection extends Nette\Object implements Nette\Database\IRefle
 				return strlen($a) - strlen($b);
 			});
 		}
-
-		$reloaded[$table] = TRUE;
 	}
 
 }

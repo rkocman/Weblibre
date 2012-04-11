@@ -128,35 +128,4 @@ final class AddCalibre extends BaseCalibre
     return ($result['status'] == 0)? true : false;
   }
   
-  
-  
-  /**
-   * Check book
-   * @param int $id
-   * @return bool
-   */
-  public function checkBook($id) 
-  {
-    $sql = dibi::query("
-      SELECT b.id 
-      FROM books b
-      WHERE b.id=%u", $id,"
-    ")->fetchSingle();
-    return ($sql)? true : false;
-  }
-  
-  /**
-   * Get book name
-   * @param int $id
-   * @return string
-   */
-  public function getBookName($id) 
-  {
-    return dibi::query("
-      SELECT b.title
-      FROM books b
-      WHERE b.id=%u", $id,"
-    ")->fetchSingle();
-  }
-  
 }

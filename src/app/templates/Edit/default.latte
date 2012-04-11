@@ -1,0 +1,78 @@
+{**
+ * This file is part of the Weblibre
+ *
+ * Copyright (c) 2012 Radim Kocman (xkocma03)
+ * @author  Radim Kocman
+ *}
+
+{block title2}{_("Edit metadata")} | {$bookName}{/block}
+{block content2}
+
+<div class="status">
+    
+  <div n:foreach="$flashes as $flash" class="flash {$flash->type}">{$flash->message}</div>
+
+</div>
+
+<h1>{_("Edit metadata")} - {$bookName}</h1>
+
+{form editForm}
+  <table>
+    <tr>
+      <th>{label title /}:</th>
+      <td class="middleWidth">{input title class => "field"}</td>
+      <th>{label title_sort /}:</th>
+      <td>{input title_sort class => "field"}</td>
+    </tr>
+    <tr>
+      <th>{label authors /}:</th>
+      <td>{input authors class => "field"}</td>
+      <th>{label author_sort /}:</th>
+      <td>{input author_sort class => "field"}</td>
+    </tr>
+    <tr>
+      <th>{label series /}:</th>
+      <td>{input series class => "field"}</td>
+      <th>{label series_index /}:</th>
+      <td>{input series_index class => "field"}</td>
+    </tr>
+    <tr class="comments-label">
+      <td colspan="2"></td>
+      <th colspan="2">{label comments /}:</th>
+    </tr>
+    <tr>
+      <th>{label rating /}:</th>
+      <td>{input rating class => "select"}</td>
+      <td colspan="2" rowspan="7" class="comments">{input comments}</td>
+    </tr>
+    <tr>
+      <th>{label tags /}:</th>
+      <td>{input tags class => "field"}</td>
+    </tr>
+    <tr>
+      <th>{label identifiers /}:</th>
+      <td>{input identifiers class => "field"}</td>
+    </tr>
+    <tr>
+      <th>{label date /}:</th>
+      <td>{input date class => "field date longRange"}</td>
+    </tr>
+    <tr>
+      <th>{label published /}:</th>
+      <td>{input published class => "field date longRange"}</td>
+    </tr>
+    <tr>
+      <th>{label publisher /}:</th>
+      <td>{input publisher class => "field"}</td>
+    </tr>
+    <tr>
+      <th>{label languages /}:</th>
+      <td>{input languages class => "field"}</td>
+    </tr>
+    <tr>
+      <td colspan="4" class="send">
+        {input send class => "button"}
+      </td>
+    </tr>
+  </table>
+{/form editForm}

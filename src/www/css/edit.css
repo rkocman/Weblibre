@@ -1,0 +1,100 @@
+/**
+ * This file is part of the Weblibre
+ *
+ * Copyright (c) 2012 Radim Kocman (xkocma03)
+ * @author  Radim Kocman 
+ */
+
+#edit {
+  padding-left: 15px;
+  padding-bottom: 15px;
+}
+#edit .content {
+  width: 970px;
+}
+#edit .content2 {
+  padding: 20px;
+  text-align: left;
+}
+#edit .status {
+   
+}
+#edit .status .flash {
+  margin: 0;
+  margin-bottom: 15px;
+}
+ 
+#edit h1 {
+  font-size: 16px;
+  color: Black;
+  padding-bottom: 15px;
+}
+
+#edit table {
+  margin: 10px auto;
+  text-align: left;
+  border-collapse: collapse;
+}
+#edit td,
+#edit th {
+  margin: 0;
+  padding: 4px;
+  line-height: 24px;
+}
+#edit th {
+  width: 100px;
+  text-align: right;
+  font-weight: normal;
+}
+#edit .middleWidth {
+  width: 340px;
+}
+#edit .field,
+#edit textarea {
+  border: 1px solid #ABADB3;
+}
+#edit .field {
+  width: 320px;
+  height: 14px;
+  padding: 4px;
+}
+#edit .select {
+  padding: 1px;
+  width: 115px;
+}
+#edit .comments-label td,
+#edit .comments-label th {
+  text-align: left;
+  padding-bottom: 0px;
+  line-height: 18px;
+}
+#edit .comments {
+  padding-bottom: 1px;
+}
+#edit textarea {
+  width: 422px;
+  height: 198px;
+  padding: 7px;
+  line-height: 1.4;
+  font-size: 11px;
+  resize: none;
+  float: left;
+}
+#edit .date {
+  width: 87px;
+  background: url('../img/date-picker.gif') no-repeat 94px 3px;
+  padding-right: 22px;
+}
+#edit .send {
+  padding-top: 11px;
+}
+#edit .button {
+  float: right;
+	width: 150px;
+	height: 28px;
+	border: 0;
+	background: url('../img/edit-send.png') no-repeat;
+	color: White;
+	cursor: pointer;
+  padding-bottom: 1px;
+}

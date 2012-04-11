@@ -58,6 +58,20 @@ final class Debugger
 	/** @var bool display location? {@link Debugger::dump()} */
 	public static $showLocation = FALSE;
 
+	/** @var array */
+	public static $consoleColors = array(
+		'bool' => '1;33',
+		'null' => '1;33',
+		'int' => '1;36',
+		'float' => '1;36',
+		'string' => '1;32',
+		'array' => '1;31',
+		'key' => '1;37',
+		'object' => '1;31',
+		'visibility' => '1;30',
+		'resource' => '1;37',
+	);
+
 	/********************* errors and exceptions reporting ****************d*g**/
 
 	/** server modes {@link Debugger::enable()} */
@@ -74,7 +88,7 @@ final class Debugger
 	/** @var bool disables the @ (shut-up) operator so that notices and warnings are no longer hidden */
 	public static $scream = FALSE;
 
-	/** @var array of callbacks specifies the functions that are automatically called after fatal error */
+	/** @var array of callables specifies the functions that are automatically called after fatal error */
 	public static $onFatalError = array();
 
 	/** @var bool {@link Debugger::enable()} */
@@ -217,7 +231,7 @@ final class Debugger
 			self::$productionMode = $mode;
 
 		} elseif ($mode !== self::DETECT || self::$productionMode === NULL) { // IP addresses or computer names whitelist detection
-			$mode = is_string($mode) ? preg_split('#[,\s]+#', $mode) : array($mode);
+			$mode = is_string($mode) ? preg_split('#[,\s]+#', $mode) : (array) $mode;
 			$mode[] = '127.0.0.1';
 			$mode[] = '::1';
 			self::$productionMode = !in_array(isset($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : php_uname('n'), $mode, TRUE);
@@ -320,7 +334,7 @@ final class Debugger
 
 		self::$logger->log(array(
 			@date('[Y-m-d H-i-s]'),
-			$message,
+			trim($message),
 			self::$source ? ' @  ' . self::$source : NULL,
 			!empty($exceptionFilename) ? ' @@  ' . $exceptionFilename : NULL
 		), $priority);
@@ -572,7 +586,7 @@ final class Debugger
 		$output = "<pre class=\"nette-dump\">" . Helpers::htmlDump($var) . "</pre>\n";
 
 		if (!$return) {
-			$trace = debug_backtrace();
+			$trace = debug_backtrace(FALSE);
 			$i = Helpers::findTrace($trace, 'dump') ? 1 : 0;
 			if (isset($trace[$i]['file'], $trace[$i]['line']) && is_file($trace[$i]['file'])) {
 				$lines = file($trace[$i]['file']);
@@ -592,6 +606,11 @@ final class Debugger
 		}
 
 		if (self::$consoleMode) {
+			if (self::$consoleColors && substr(PHP_OS, 0, 3) !== 'WIN') {
+				$output = preg_replace_callback('#<span class="php-(\w+)">|</span>#', function($m) {
+					return "\033[" . (isset($m[1], Debugger::$consoleColors[$m[1]]) ? Debugger::$consoleColors[$m[1]] : '0') . "m";
+				}, $output);
+			}
 			$output = htmlspecialchars_decode(strip_tags($output), ENT_QUOTES);
 		}
 

@@ -84,10 +84,9 @@ class CacheMacro extends Nette\Object implements Latte\IMacro
 
 
 	/**
-	 * @param  Nette\Templating\ITemplate
 	 * @return void
 	 */
-	public static function initRuntime($template, $global)
+	public static function initRuntime(Nette\Templating\FileTemplate $template, \stdClass $global)
 	{
 		if (!empty($global->caches)) {
 			end($global->caches)->dependencies[Nette\Caching\Cache::FILES][] = $template->getFile();
@@ -100,11 +99,11 @@ class CacheMacro extends Nette\Object implements Latte\IMacro
 	 * Starts the output cache. Returns Nette\Caching\OutputHelper object if buffering was started.
 	 * @param  Nette\Caching\IStorage
 	 * @param  string
-	 * @param  array of Nette\Caching\OutputHelper
+	 * @param  Nette\Caching\OutputHelper[]
 	 * @param  array
 	 * @return Nette\Caching\OutputHelper
 	 */
-	public static function createCache(Nette\Caching\IStorage $cacheStorage, $key, & $parents, $args = NULL)
+	public static function createCache(Nette\Caching\IStorage $cacheStorage, $key, & $parents, array $args = NULL)
 	{
 		if ($args) {
 			if (array_key_exists('if', $args) && !$args['if']) {
