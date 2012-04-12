@@ -127,8 +127,12 @@
         <tr n:class="($iterator->even)? even">
           <td class="format">{$format['format']}</td>
           <td class="size">{$format['size']}</td>
-          <td class="button"><a n:href="View: $format['id']"
-            >{_("View")}</a></td>
+          {if in_array($format['format'], ViewCalibre::$supportedFormats)}
+            <td class="button"><a n:href="View: $format['id']"
+              >{_("View")}</a></td>
+          {else}
+            <td class="button"></td>
+          {/if}
           <td class="button"><a n:href="Download: $format['id']"
             >{_("Download")}</a></td>
           <td class="button"><a n:href="Convert: $format['id']"

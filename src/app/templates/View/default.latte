@@ -1,0 +1,19 @@
+{**
+ * This file is part of the Weblibre
+ *
+ * Copyright (c) 2012 Radim Kocman (xkocma03)
+ * @author  Radim Kocman
+ *}
+
+{block title2}{_("View")} {$format} | {$bookName}{/block}
+{block content2}
+
+<object data='{link Download: $id}#scrollbar=1&toolbar=1&statusbar=1&messages=1&navpanes=1' 
+  type='application/pdf' width='100%' height='100%'>
+
+  <div class="status">
+    <div class="flash error">{_("It appears your Web browser is not configured to display PDF files.")}
+    <a href="{link Download: $id}">{_("Click here to download the book.")}</a></div>
+  </div>
+
+</object>

@@ -1,0 +1,28 @@
+{**
+ * This file is part of the Weblibre
+ *
+ * Copyright (c) 2012 Radim Kocman (xkocma03)
+ * @author  Radim Kocman
+ *}
+
+{extends '@layout.latte'}
+
+{block title}{block #title2}{/block} | {_("Library")}{/block}
+{block content}
+
+<div id="view">
+  <div class="frame">
+    <div class="f1"><div class="f2">
+    <div class="f3"><div class="f4">
+    <div class="f5"><div class="f6">
+      <div class="content"><div class="content2">
+        
+        {include #content2}
+        
+      </div></div>
+    </div></div>
+    </div></div>
+    </div></div>
+  </div>
+  <div class="flush">&nbsp;</div>
+</div>

@@ -1,10 +1,10 @@
 # Gettext keys exported by GettextTranslator and Translation Panel
-# Created: 2012-04-10 21:03:10
+# Created: 2012-04-12 22:42:37
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2012-04-10 21:03+0200\n"
+"PO-Revision-Date: 2012-04-12 22:42+0200\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -148,6 +148,9 @@ msgstr "Identifikátory"
 msgid "Identifiers"
 msgstr "Identifikátory"
 
+msgid "It appears your Web browser is not configured to display PDF files."
+msgstr "Vypadá to, že váš prohlížeč není nakonfigurován pro zobrazení PDF souborů."
+
 msgid "Language"
 msgstr "Jazyk"
 
@@ -223,6 +226,9 @@ msgstr "Hodnocení"
 msgid "Remove"
 msgstr "Smazat"
 
+msgid "Save metadata"
+msgstr "Uložit metadata"
+
 msgid "Search"
 msgstr "Hledat"
 
@@ -292,6 +298,6 @@ msgstr "z"
 msgid "will be removed. Are you sure?"
 msgstr "bude smazán. Chcete pokračovat?"
 
-msgid "Save metadata"
-msgstr "Uložit metadata"
+msgid "Click here to download the book."
+msgstr "Knihu si můžete stáhnout zde."
 

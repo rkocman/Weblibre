@@ -1,0 +1,24 @@
+/**
+ * This file is part of the Weblibre
+ *
+ * Copyright (c) 2012 Radim Kocman (xkocma03)
+ * @author  Radim Kocman 
+ */
+
+#view {
+  padding-left: 15px;
+  padding-bottom: 15px;
+}
+#view .content {
+  width: 970px;
+}
+#view .content2 {
+  padding: 1px;
+  height: 1218px;
+}
+#view .status {
+  padding: 20px;
+}
+#view .status .flash {
+  margin: 0;
+}

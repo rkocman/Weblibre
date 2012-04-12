@@ -54,7 +54,9 @@ abstract class SignedPresenter extends BasePresenter
       array(
         'title' => 'Browse library',
         'href'  => 'Browse:',
-        'check' => array('Browse:*', 'Book:*', 'Add:format', 'Edit:*')
+        'check' => array(
+          'Browse:*', 'Book:*', 'Add:format', 'Edit:*', 'View:*'
+        )
       ),
       array(
         'title' => 'Add new books',
