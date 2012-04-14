@@ -76,7 +76,7 @@ abstract class BaseCalibre extends Nette\Object
       
     } else {
       
-      return addcslashes($search,'"\\');
+      return addcslashes($param, '"\\');
       
     }
   } 
@@ -146,8 +146,8 @@ abstract class BaseCalibre extends Nette\Object
    */
   private function executeOnUnix($exe, $command) 
   {
-    //setlocale(LC_ALL, "en_US.UTF-8");
     // Exec
+    putenv('LANG=en_US.UTF-8');
     exec($exe." ".$command, $output, $status);
     
     return array(
