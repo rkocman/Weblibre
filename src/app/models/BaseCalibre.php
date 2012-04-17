@@ -9,6 +9,7 @@
 
 use Nette\Caching\Cache;
 use Nette\Application as NA;
+use Nette\Diagnostics\Debugger;
 
 /**
  * Base communication model with Calibre
@@ -191,6 +192,13 @@ abstract class BaseCalibre extends Nette\Object
     
     // Reconnect database
     dibi::setConnection($connection);
+    
+    // Log bad execution
+    if ($result['status'] != 0)
+      Debugger::log(
+        "Unable request Calibre: (".$result['status'].") "
+        .$exe." ".$command
+      );
     
     // Return result
     return $result;

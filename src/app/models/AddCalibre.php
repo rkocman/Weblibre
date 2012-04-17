@@ -92,7 +92,6 @@ final class AddCalibre extends BaseCalibre
       }
       $command .= $db;
       $result = $this->execute("calibredb", $command);
-      dump($result);
     
     }
     
