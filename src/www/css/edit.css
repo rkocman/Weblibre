@@ -13,15 +13,15 @@
   width: 970px;
 }
 #edit .content2 {
-  padding: 20px;
+  padding: 22px 28px;
   text-align: left;
 }
 #edit .status {
    
 }
 #edit .status .flash {
-  margin: 0;
-  margin-bottom: 15px;
+  margin: 0 -6px;
+  margin-bottom: 18px;
 }
  
 #edit h1 {
@@ -65,20 +65,22 @@
 #edit .comments-label td,
 #edit .comments-label th {
   text-align: left;
-  padding-bottom: 0px;
+  padding-bottom: 2px;
   line-height: 18px;
 }
 #edit .comments {
   padding-bottom: 1px;
+  vertical-align: top;
 }
 #edit textarea {
   width: 422px;
-  height: 198px;
+  height: 200px;
   padding: 7px;
   line-height: 1.4;
   font-size: 11px;
   resize: none;
   float: left;
+  margin: 0;
 }
 #edit .date {
   width: 87px;

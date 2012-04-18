@@ -1,0 +1,145 @@
+/**
+ * This file is part of the Weblibre
+ *
+ * Copyright (c) 2012 Radim Kocman (xkocma03)
+ * @author  Radim Kocman 
+ */
+ 
+#convert {
+  padding-left: 15px;
+  padding-bottom: 15px;
+}
+#convert .content {
+  width: 970px;
+}
+#convert .content2 {
+  padding: 22px 28px;
+  text-align: left;
+}
+#convert .status {
+   
+}
+#convert .status .flash {
+  margin: 0 -6px;
+  margin-bottom: 18px;
+}
+
+#convert h1 {
+  font-size: 16px;
+  color: Black;
+  padding-bottom: 15px;
+}
+#convert table {
+  border-collapse: collapse;
+}
+#convert td,
+#convert th {
+  margin: 0;
+  padding: 4px;
+  line-height: 24px;
+}
+#convert th {
+  font-weight: normal;
+}
+#convert .field,
+#convert textarea {
+  border: 1px solid #ABADB3;
+}
+#convert .field {
+  height: 14px;
+  padding: 4px;
+}
+#convert .select {
+  padding: 1px;
+}
+#convert textarea {
+  padding: 7px;
+  line-height: 1.4;
+  font-size: 11px;
+  resize: none;
+}
+
+#convert .input-output {
+  width: 100%;
+}
+#convert .input-output .in {
+  text-align: left;
+}
+#convert .input-output .out {
+  text-align: right;
+}
+
+#convert .send {
+  width: 100%;
+  margin-top: 20px;
+}
+#convert .button {
+  float: right;
+	width: 130px;
+	height: 28px;
+	border: 0;
+	background: url('../img/convert-send.png') no-repeat;
+	color: White;
+	cursor: pointer;
+  padding-bottom: 1px;
+}
+
+#convert .group {
+  padding-top: 20px;
+  border-bottom: 1px solid #E6E6E5;
+}
+#convert h2 {
+  color: #c56711;
+  font-size: 15px;
+  cursor: pointer;
+}
+#convert .group .description {
+  font-size: 11px;
+  margin: 0;
+  cursor: pointer;
+  padding-bottom: 1px;
+}
+#convert .group .inner {
+  padding: 10px 0 13px 0;
+}
+#convert h2 div {
+  padding: 0 10px;
+  background: url('../img/toggle-on.gif') no-repeat center;
+  display: inline;
+}
+#convert h2 div.off {
+  background: url('../img/toggle-off.gif') no-repeat center;
+}
+
+#convert .metadata table {
+  margin: 0 auto;
+}
+#convert .metadata th {
+  text-align: right;
+}
+#convert .metadata .middleWidth {
+  width: 340px;
+}
+#convert .metadata .field {
+  width: 320px;
+}
+#convert .metadata .comments-label {
+  text-align: left;
+  padding-bottom: 2px;
+  line-height: 18px;
+  vertical-align: bottom;
+}
+#convert .metadata .comments {
+  padding-bottom: 1px;
+  vertical-align: top;
+}
+#convert .metadata textarea {
+  width: 422px;
+  height: 168px;
+  padding: 7px;
+  line-height: 1.4;
+  font-size: 11px;
+  resize: none;
+  float: left;
+  margin: 0;
+}

@@ -90,9 +90,9 @@ abstract class BaseCalibre extends Nette\Object
   private function winCmdEscape($command) 
   {
     $metachar = 
-      array("(",  ")",  "%",  "!",  "^",  "\"",  "<",  ">",  "&",  "|");
+      array("^",  "(",  ")",  "%",  "!",  "\"",  "<",  ">",  "&",  "|");
     $escaped = 
-      array("^(", "^)", "^%", "^!", "^^", "^\"", "^<", "^>", "^&", "^|");
+      array("^^", "^(", "^)", "^%", "^!", "^\"", "^<", "^>", "^&", "^|");
     
     return str_replace($metachar, $escaped, $command);
   }
@@ -174,6 +174,9 @@ abstract class BaseCalibre extends Nette\Object
     switch($exe) {
       case "calibredb":
         $exe = escapeshellarg($exePath."calibredb");
+        break;
+      case "ebook-convert":
+        $exe = escapeshellarg($exePath."ebook-convert");
         break;
       default:
         throw new NA\ApplicationException("Bad execute command.");

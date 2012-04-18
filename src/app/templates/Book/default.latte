@@ -135,8 +135,13 @@
           {/if}
           <td class="button"><a n:href="Download: $format['id']"
             >{_("Download")}</a></td>
-          <td class="button"><a n:href="Convert: $format['id']"
-            >{_("Convert")}</a></td>
+          {if in_array($format['format'], ConvertCalibre::$supportedFormats)}
+            <td class="button"><a n:href="Convert: $book['id'], 
+              format => $format['format']"
+              >{_("Convert")}</a></td>
+          {else}
+            <td class="button"></td>
+          {/if}
           <td class="button"><a n:href="Remove:format $format['id']"
             onclick="return confirm({_("Format")} + ' ' +
               {$format['format']} + ' ' +

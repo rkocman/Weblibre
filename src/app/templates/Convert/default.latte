@@ -1,0 +1,109 @@
+{**
+ * This file is part of the Weblibre
+ *
+ * Copyright (c) 2012 Radim Kocman (xkocma03)
+ * @author  Radim Kocman
+ *}
+
+{block title2}{_("Convert")} | {$bookName}{/block}
+{block content2}
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    // Toggle function
+    function groupToggle(object) {
+      object.children("h2").children("div").toggleClass("off");
+      object.children(".inner").toggle();
+    }
+    
+    // Add toggle indication
+    $("#convert h2").append("<div />");
+    
+    // Toggle groups
+    $("#convert h2, #convert .description")
+      .click(function(event){
+        groupToggle($(event.target).parent());
+      });
+    $("#convert h2 div")
+      .click(function(event){
+        groupToggle($(event.target).parent().parent());
+      });
+    
+    // Hide after start
+    groupToggle($("#convert .look-and-feel"));
+  });
+</script>
+
+<div class="status">
+    
+  <div n:foreach="$flashes as $flash" class="flash {$flash->type}">{$flash->message}</div>
+
+</div>
+
+<h1>{_("Convert")} - {$bookName}</h1>
+
+{form convertForm}
+  <table class="input-output">
+    <tr>
+      <td class="in">{label input_format /}: {input input_format class => "select"}</td>
+      <td class="out">{label output_format /}: {input output_format class => "select"}</td>
+    <tr>
+  </table>
+
+  <div class="group metadata">
+    <h2>Metadata</h2>
+    <p class="description">
+      Set the metadata. The output file will contain as much of this metadata as possible.
+    </p>
+    <div class="inner">
+      {formContainer "metadata"}
+      <table>
+        <tr>
+          <th>{label title /}:</th>
+          <td class="middleWidth">{input title class => "field"}</td>
+          <th class="comments-label">{label comments /}:</th>
+        </tr>
+        <tr>
+          <th>{label authors /}:</th>
+          <td>{input authors class => "field"}</td>
+          <td rowspan="6" class="comments">{input comments}</td>
+        </tr>
+        <tr>
+          <th>{label author_sort /}:</th>
+          <td>{input author_sort class => "field"}</td>
+        </tr>
+        <tr>
+          <th>{label publisher /}:</th>
+          <td>{input publisher class => "field"}</td>
+        </tr>
+        <tr>
+          <th>{label tags /}:</th>
+          <td>{input tags class => "field"}</td>
+        </tr>
+        <tr>
+          <th>{label series /}:</th>
+          <td>{input series class => "field"}</td>
+        </tr>
+        <tr>
+          <th>{label series_index /}:</th>
+          <td>{input series_index class => "field"}</td>
+        </tr>
+      </table>
+      {/formContainer}
+    </div>
+  </div>
+
+  <div class="group look-and-feel">
+    <h2>Look &amp; Feel</h2>
+    <p class="description">
+      Control the look and feel of the output.
+    </p>
+    <div class="inner">
+      
+    </div>
+  </div>
+
+  <table class="send">
+    <tr><td>{input send class => "button"}</td></tr>
+  </table>
+{/form convertForm}

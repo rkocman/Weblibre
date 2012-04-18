@@ -18,7 +18,7 @@ final class AddCalibre extends BaseCalibre
 {
 
   /**
-   * Add books into library
+   * Add uploaded books into library
    * @param array $values
    * @return bool
    * @throws Nette\Application\ApplicationException
@@ -29,7 +29,7 @@ final class AddCalibre extends BaseCalibre
   }
   
   /**
-   * Add format into library
+   * Add uploaded format into library
    * @param array $values
    * @param int $id
    * @return bool
@@ -120,6 +120,27 @@ final class AddCalibre extends BaseCalibre
     $db = " --library-path ".escapeshellarg(realpath($this->db));
     $command =
       "add --empty"
+      .$db;
+    $result = $this->execute("calibredb", $command);
+    
+    // Return status
+    return ($result['status'] == 0)? true : false;
+  }
+  
+  
+  
+  /**
+   * Add format from file into library
+   * @param string $file
+   * @param int $id
+   */
+  public function addFormatFile($file, $id)
+  {
+    // Request calibre
+    $db = " --library-path ".escapeshellarg(realpath($this->db));
+    $command = 
+      "add_format ".escapeshellarg($id)." "
+      .escapeshellarg(realpath($file))
       .$db;
     $result = $this->execute("calibredb", $command);
     
