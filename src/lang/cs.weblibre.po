@@ -1,10 +1,10 @@
 # Gettext keys exported by GettextTranslator and Translation Panel
-# Created: 2012-04-12 22:42:37
+# Created: 2012-04-21 21:01:03
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2012-04-12 22:42+0200\n"
+"PO-Revision-Date: 2012-04-21 21:01+0200\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -55,6 +55,9 @@ msgstr "Přidat do knihovny"
 msgid "All books"
 msgstr "Všechny knihy"
 
+msgid "Allow duplicate links when creating the Table of Contents"
+msgstr "Allow duplicate links when creating the Table of Contents"
+
 msgid "Author"
 msgstr "Autor"
 
@@ -73,20 +76,56 @@ msgstr "Autoři"
 msgid "Average rating"
 msgstr "Průměrné hodnocení"
 
+msgid "Base font size"
+msgstr "Základní velikost písma"
+
+msgid "Base font size must be a numeric value."
+msgstr "Záklední velikost písma musí být číselná hodnota."
+
+msgid "Book has been successfully converted."
+msgstr "Kniha byla úspěšně převedena."
+
 msgid "Books"
 msgstr "Knihy"
 
 msgid "Books have been successfully added to your library."
 msgstr "Knihy byly úspěšně přidány do knihovny."
 
+msgid "Bottom"
+msgstr "Spodní"
+
 msgid "Browse library"
 msgstr "Procházet knihovnu"
+
+msgid "Chapter mark"
+msgstr "Značka kapitoly"
+
+msgid "Chapter threshold"
+msgstr "Prahová úroveň kapitol"
+
+msgid "Chapter threshold must be a numeric value."
+msgstr "Prahová úroveň kapitol musí být číselná hodnota."
 
 msgid "Classic"
 msgstr "Klasický"
 
+msgid "Click here to download the book."
+msgstr "Knihu si můžete stáhnout zde."
+
+msgid "Colors"
+msgstr "Barvy"
+
 msgid "Comments"
 msgstr "Komentáře"
+
+msgid "Common"
+msgstr "Společné"
+
+msgid "Control the creation/conversion of the Table of Contents."
+msgstr "Nastavit vytvoření/konverzi obsahu."
+
+msgid "Control the look and feel of the output."
+msgstr "Řízení celkového vzhled výstupu."
 
 msgid "Convert"
 msgstr "Převést"
@@ -94,8 +133,26 @@ msgstr "Převést"
 msgid "Count"
 msgstr "Počet"
 
+msgid "Custom size"
+msgstr "Vlastní velikost"
+
+msgid "Cybook G3"
+msgstr "Cybook G3"
+
+msgid "Cybook Opus"
+msgstr "Cybook Opus"
+
 msgid "Date"
 msgstr "Datum"
+
+msgid "Default Input Profile"
+msgstr "Default Input Profile"
+
+msgid "Default Output Profile"
+msgstr "Default Output Profile"
+
+msgid "Delete blank lines between paragraphs"
+msgstr "Smaž prázdné řádky mezi odstavci"
 
 msgid "Delete book"
 msgstr "Odstranit knihu"
@@ -103,14 +160,71 @@ msgstr "Odstranit knihu"
 msgid "Details"
 msgstr "Podrobnosti"
 
+msgid "Detect and markup unformatted chapter headings and sub headings"
+msgstr "Najít neformátované hlavičky a podhlavičky kapitol"
+
+msgid "Detect chapters at (XPath expression)"
+msgstr "Detekuj kapitoly u (XPath výraz)"
+
+msgid "Disable compression of the file contents"
+msgstr "Zakázat kompresi souboru"
+
+msgid "Disable font size rescaling"
+msgstr "Zakázat změnu velikosti písma"
+
+msgid "Do not add Table of Contents to book"
+msgstr "Nepřidávat obsah do knihy"
+
+msgid "Do not add detected chapters to the Table of Contents"
+msgstr "Nepřidávat automatikcy rozpoznané kapitoly do obsahu"
+
+msgid "Do not insert Table of Contents into output text when using markdown"
+msgstr "Nevkládat obsah do výstupního textu, pokud se používá markdown"
+
+msgid "Do not insert a Table of Contents at the beginning of the book"
+msgstr "Nevkládat obsah na začátek knihy"
+
+msgid "Do not reduce image size and depth"
+msgstr "Neredukovat šířku a hloubku obrazu"
+
+msgid "Do not remove image references before processing"
+msgstr "Neodstraňovat odkazy na obrázky před zpracováním"
+
+msgid "Do not remove links (<a> tags) before processing"
+msgstr "Neodstraňovat odkazy (<a> tagy) před zpracováním"
+
+msgid "Do not split on page breaks"
+msgstr "Nerozdělovat na zalomeních stran"
+
+msgid "Don\'t indent the first line for each paragraph"
+msgstr "Don\'t indent the first line for each paragraph"
+
 msgid "Download"
 msgstr "Stáhnout"
+
+msgid "EPUB"
+msgstr "EPUB"
+
+msgid "EPUB Output Split files must be a numeric value."
+msgstr "EPUB výstup: Rozdělit soubory větší než musí být číselná hodnota."
 
 msgid "Edit metadata"
 msgstr "Upravit metadata"
 
 msgid "Empty book has been successfully added to your library."
 msgstr "Prázdná kniha byla úspěšně přidána do knihovny."
+
+msgid "Enable heuristic processing"
+msgstr "Povolit heuristické zpracování"
+
+msgid "Enable sharing of book content via Facebook, etc. WARNING: Disables last read syncing"
+msgstr "Enable sharing of book content via Facebook, etc. WARNING: Disables last read syncing"
+
+msgid "Ensure scene breaks are consistently formatted"
+msgstr "Ensure scene breaks are consistently formatted"
+
+msgid "Error: Weblibre was unable convert the book!"
+msgstr "Chyba: Nepodařilo se převést knihu!"
 
 msgid "Error: Weblibre was unable to add empty book into the library!"
 msgstr "Chyba: Prázdnou knihu se nepodařilo přidat do knihovny!"
@@ -127,11 +241,44 @@ msgstr "Chyba: Nepodařilo se zpracovat požadavek!"
 msgid "Error: Weblibre was unable to save metadata!"
 msgstr "Chyba: Metadata se nepodařilo uložit."
 
+msgid "Extra CSS"
+msgstr "Dodatečné CSS"
+
+msgid "FB2"
+msgstr "FB2"
+
 msgid "File is reguired."
 msgstr "Musíte vybrat soubor."
 
+msgid "Filter Style Information"
+msgstr "Filtrování stylů"
+
+msgid "Fine tune the detection of chapter headings and other document structure."
+msgstr "Vyladit detekci nadpisů kapitol a další struktury dokumentu."
+
 msgid "First"
 msgstr "První"
+
+msgid "First expression"
+msgstr "První výraz"
+
+msgid "Flatten EPUB file structure"
+msgstr "Flatten EPUB file structure"
+
+msgid "Floats"
+msgstr "Floats"
+
+msgid "Font size key"
+msgstr "Klíč velikosti písma"
+
+msgid "Fonts"
+msgstr "Fonty"
+
+msgid "Force maximum line length"
+msgstr "Vynuť maximální délku řádku"
+
+msgid "Force use of auto-generated Table of Contents"
+msgstr "Vždy použít automaticky generovaný obsah"
 
 msgid "Format"
 msgstr "Formát"
@@ -142,14 +289,134 @@ msgstr "Formát knihy byl úspěšně přidán do knihovny."
 msgid "Formats"
 msgstr "Formáty"
 
+msgid "Formatting"
+msgstr "Formátování"
+
+msgid "Formatting style"
+msgstr "Formátovací styl"
+
+msgid "General"
+msgstr "Obecné"
+
+msgid "Generic e-ink"
+msgstr "Generic e-ink"
+
+msgid "Generic e-ink large"
+msgstr "Generic e-ink large"
+
+msgid "Genre"
+msgstr "Žánr"
+
+msgid "HTML"
+msgstr "HTML"
+
+msgid "HTMLZ"
+msgstr "HTMLZ"
+
+msgid "Hanlin V3"
+msgstr "Hanlin V3"
+
+msgid "Hanlin V5"
+msgstr "Hanlin V5"
+
+msgid "Heuristic Processing"
+msgstr "Heuristické zpracování"
+
+msgid "Hide chapter name"
+msgstr "Skrýt název kapitoly"
+
+msgid "How to handle CSS"
+msgstr "Jak zpracovávat CSS"
+
+msgid "How to handle class based CSS"
+msgstr "Jak se chovat ke class based CSS"
+
 msgid "IDs"
 msgstr "Identifikátory"
+
+msgid "IRex Digital Reader 1000"
+msgstr "IRex Digital Reader 1000"
+
+msgid "IRex Digital Reader 800"
+msgstr "IRex Digital Reader 800"
 
 msgid "Identifiers"
 msgstr "Identifikátory"
 
+msgid "Ignore margins"
+msgstr "Ignore margins"
+
+msgid "Illiad"
+msgstr "Illiad"
+
+msgid "Indent size"
+msgstr "Indent size"
+
+msgid "Indent size must be a numeric value."
+msgstr "Indent size musí být číselná hodnota."
+
+msgid "Inline TOC"
+msgstr "Inline TOC"
+
+msgid "Input"
+msgstr "vstup"
+
+msgid "Input character encoding"
+msgstr "Kódování vstupních znaků"
+
+msgid "Input format"
+msgstr "Vstupní formát"
+
+msgid "Input profile"
+msgstr "Vstupní profil"
+
+msgid "Insert blank line between paragraphs"
+msgstr "Vložit prázdné řádky mezi odstavce"
+
+msgid "Insert empty line between paragraphs"
+msgstr "Vlož prázdný řádek mezi odstavce"
+
+msgid "Insert metadata as page at start of book"
+msgstr "Vlož metadata jako stránku na začátek knihy"
+
+msgid "Insert page breaks before (XPath expression)"
+msgstr "Vložit zalomení stránky před (XPath výraz)"
+
 msgid "It appears your Web browser is not configured to display PDF files."
 msgstr "Vypadá to, že váš prohlížeč není nakonfigurován pro zobrazení PDF souborů."
+
+msgid "Italicise common words and patterns"
+msgstr "Převeď na kurzívu běžná slova a vzorce"
+
+msgid "JetBook 5-inch"
+msgstr "JetBook 5-inch"
+
+msgid "Justify text"
+msgstr "Zarovnat do bloku"
+
+msgid "Keep ligatures"
+msgstr "Zachovat ligatury"
+
+msgid "Kindle"
+msgstr "Kindle"
+
+msgid "Kindle DX"
+msgstr "Kindle DX"
+
+msgid "Kindle Fire"
+msgstr "Kindle Fire"
+
+msgid "Kindle options"
+msgstr "Kindle volby"
+
+msgid "Kobo Reader"
+msgstr "Kobo Reader"
+
+msgid "LIT"
+msgstr "LIT"
+
+msgid "LRF"
+msgstr "LRF"
 
 msgid "Language"
 msgstr "Jazyk"
@@ -163,17 +430,98 @@ msgstr "Jazyky"
 msgid "Last"
 msgstr "Poslední"
 
+msgid "Left"
+msgstr "Levý"
+
+msgid "Left align"
+msgstr "Zarovnat vlevo"
+
+msgid "Level 1 TOC (XPath expression)"
+msgstr "Obsah úroveň 1 (XPath výraz)"
+
+msgid "Level 2 TOC (XPath expression)"
+msgstr "Obsah úroveň 2 (XPath výraz)"
+
+msgid "Level 3 TOC (XPath expression)"
+msgstr "Obsah úroveň 3 (XPath výraz)"
+
 msgid "Library"
 msgstr "Knihovna"
+
+msgid "Line Up-Wrapping Factor"
+msgstr "Měřítko nezalamování řádků"
+
+msgid "Line ending style"
+msgstr "Styl konce řádků"
+
+msgid "Line height"
+msgstr "Výška řádku"
+
+msgid "Line height must be a numeric value."
+msgstr "Výška řádku musí být číselná hodnota."
+
+msgid "Line size"
+msgstr "Line size"
+
+msgid "Line size must be a numeric value."
+msgstr "Line size musí být číselná hodnota."
+
+msgid "Line up-wrap factor"
+msgstr "Měřítko nezalamování řádků"
+
+msgid "Line up-wrap factor must be a numeric value."
+msgstr "Měřítko nezalamování řádků musí být číselná hodnota."
+
+msgid "Linearise tables"
+msgstr "Převést tabulky na řádky"
 
 msgid "Login:"
 msgstr "Login:"
 
+msgid "Look & Feel"
+msgstr "Vzhled a chování"
+
+msgid "MOBI"
+msgstr "MOBI"
+
+msgid "Margin must be a numeric value."
+msgstr "Okraj musí být číselná hodnota."
+
+msgid "Margins"
+msgstr "Okraje (Margin)"
+
+msgid "Markdown"
+msgstr "Markdown"
+
+msgid "Markdown is a simple markup language for text files, that allows for advanced formatting."
+msgstr "Markdown je jednoduchý jazyk pro textové soubory, který umožňuje pokročilé formátování."
+
+msgid "Markdown, Textile"
+msgstr "Markdown, Textile"
+
+msgid "Maximum line length"
+msgstr "Maximální délka řádku"
+
 msgid "Maximum size"
 msgstr "Maximální velikost"
 
+msgid "Metadata"
+msgstr "Metadata"
+
 msgid "Metadata has been successfully saved."
 msgstr "Metadata byla úspěšně uložena."
+
+msgid "Microsoft Reader"
+msgstr "Microsoft Reader"
+
+msgid "Minimum line height"
+msgstr "Nejmenší výška řádku"
+
+msgid "Minimum line height must be a numeric value."
+msgstr "Nejmenší výška řádku musí být číselná hodnota."
+
+msgid "Mobipocket Books"
+msgstr "Mobipocket Books"
 
 msgid "Modern"
 msgstr "Moderní"
@@ -181,17 +529,98 @@ msgstr "Moderní"
 msgid "Modified"
 msgstr "Změněno"
 
+msgid "Modify the document text and structure using common patterns."
+msgstr "Úprava textu a struktury dokumentu pomocí společných vzorů."
+
+msgid "Modify the document text and structure using user defined patterns."
+msgstr "Úprava textu a struktury dokumentu pomocí určených šablon."
+
 msgid "Newest"
 msgstr "Nejnovější"
 
 msgid "Next"
 msgstr "Další"
 
+msgid "No Images"
+msgstr "Žádné obrázky"
+
+msgid "No SVG cover"
+msgstr "Nevytvářet SVG obálku"
+
+msgid "No default cover"
+msgstr "Nevytvářet obálku"
+
 msgid "No format"
 msgstr "Žádný formát"
 
+msgid "Nook"
+msgstr "Nook"
+
+msgid "Nook Color"
+msgstr "Nook Color"
+
 msgid "Number"
 msgstr "Číslo"
+
+msgid "Number of TOC links must be a numeric value."
+msgstr "Počet odkazů musí být číselná hodnota."
+
+msgid "Number of links to add to Table of Contents"
+msgstr "Počet odkazů, které budou přidány do obsahu"
+
+msgid "Optimize for full-screen view"
+msgstr "Optimalizovat pro full-screen view"
+
+msgid "Options specific to the input format."
+msgstr "Nastavení specifické vstupnímu formátu."
+
+msgid "Options specific to the output format."
+msgstr "Možnosti specifické pro výstupní formát."
+
+msgid "Orientation"
+msgstr "Orientace"
+
+msgid "Original"
+msgstr "Originál"
+
+msgid "Other CSS Properties"
+msgstr "Další CSS vlastnosti"
+
+msgid "Output"
+msgstr "výstup"
+
+msgid "Output Encoding"
+msgstr "Výstupní kódování"
+
+msgid "Output format"
+msgstr "Výstupní formát"
+
+msgid "Output profile"
+msgstr "Výstupní profil"
+
+msgid "PDB"
+msgstr "PDB"
+
+msgid "PDF"
+msgstr "PDF"
+
+msgid "PDF Input Line Up-Wrapping Factor must be a numeric value."
+msgstr "PDF vstup: Měřítko nezalamování řádků musí být číselná hodnota."
+
+msgid "PMLZ"
+msgstr "PMLZ"
+
+msgid "Padding"
+msgstr "Odsazení (Padding)"
+
+msgid "Page Setup"
+msgstr "Nastavení stránky"
+
+msgid "Paper Size"
+msgstr "Velikost papíru"
+
+msgid "Paragraph style"
+msgstr "Styl odstavce"
 
 msgid "Password:"
 msgstr "Heslo:"
@@ -199,11 +628,29 @@ msgstr "Heslo:"
 msgid "Path"
 msgstr "Cesta"
 
+msgid "Personal Doc tag"
+msgstr "Osobní DOC tag"
+
+msgid "Plain"
+msgstr "Prostý"
+
 msgid "Please provide a login."
 msgstr "Musíte zadat login."
 
 msgid "Please provide a password."
 msgstr "Musíte zadat heslo."
+
+msgid "PocketBook Pro 900"
+msgstr "PocketBook Pro 900"
+
+msgid "Preserve aspect ratio of cover"
+msgstr "Zachovat poměr stran pro obálku"
+
+msgid "Preserve cover aspect ratio"
+msgstr "Zachovat poměr stran obálky"
+
+msgid "Preserve spaces"
+msgstr "Zachovat mezery"
 
 msgid "Previous"
 msgstr "Předchozí"
@@ -217,6 +664,15 @@ msgstr "Vydavatel"
 msgid "Publishers"
 msgstr "Vydavatelé"
 
+msgid "Put generated Table of Contents at start of book instead of end"
+msgstr "Put generated Table of Contents at start of book instead of end"
+
+msgid "RB"
+msgstr "RB"
+
+msgid "RTF"
+msgstr "RTF"
+
 msgid "Rating"
 msgstr "Hodnocení"
 
@@ -226,17 +682,74 @@ msgstr "Hodnocení"
 msgid "Remove"
 msgstr "Smazat"
 
+msgid "Remove fake margins"
+msgstr "Remove fake margins"
+
+msgid "Remove first image"
+msgstr "Odstranit první obrázek"
+
+msgid "Remove indents at the beginning of lines"
+msgstr "Remove indents at the beginning of lines"
+
+msgid "Remove spacing between paragraphs"
+msgstr "Odstranit mezery mezi odstavci"
+
+msgid "Remove unnecessary hyphens"
+msgstr "Remove unnecessary hyphens"
+
+msgid "Renumber sequence of <h1> or <h2> tags to prevent splitting"
+msgstr "Renumber sequence of <h1> or <h2> tags to prevent splitting"
+
+msgid "Replace entity indents with CSS indents"
+msgstr "Replace entity indents with CSS indents"
+
+msgid "Replace soft scene breaks"
+msgstr "Replace soft scene breaks"
+
+msgid "Replacement Text"
+msgstr "Nahrazovací text"
+
+msgid "Right"
+msgstr "Pravý"
+
+msgid "SNB"
+msgstr "SNB"
+
+msgid "Samsung Galaxy"
+msgstr "Samsung Galaxy"
+
+msgid "Sanda Bambook"
+msgstr "Sanda Bambook"
+
 msgid "Save metadata"
 msgstr "Uložit metadata"
 
 msgid "Search"
 msgstr "Hledat"
 
+msgid "Search & Replace"
+msgstr "Hledat a nahradit"
+
+msgid "Search regular Expression"
+msgstr "Hledat regulární výraz"
+
+msgid "Second expression"
+msgstr "Druhý výraz"
+
+msgid "Sectionize"
+msgstr "Rozdělit do sekcí"
+
+msgid "Select what style information you want completely removed"
+msgstr "Vyberte jaké styly chcete kompletně odstranit"
+
 msgid "Series"
 msgstr "Série"
 
 msgid "Series index must be a numeric value."
 msgstr "Číslo série musí být číselná hodnota."
+
+msgid "Set the metadata. The output file will contain as much of this metadata as possible."
+msgstr "Nastavit metadata. Výstupní soubor obsahuje tolik metadat, jak je to jen možné."
 
 msgid "Sign In"
 msgstr "Přihlášení"
@@ -250,11 +763,56 @@ msgstr "Odhlásit"
 msgid "Size"
 msgstr "Velikost"
 
+msgid "Smarten punctuation"
+msgstr "Vylepšit interpunkce"
+
+msgid "Sony Reader"
+msgstr "Sony Reader"
+
+msgid "Sony Reader 300"
+msgstr "Sony Reader 300"
+
+msgid "Sony Reader 900"
+msgstr "Sony Reader 900"
+
+msgid "Sony Reader Landscape"
+msgstr "Sony Reader Landscape"
+
 msgid "Sort by:"
 msgstr "Řadit podle:"
 
+msgid "Split files larger than"
+msgstr "Rozdělit soubory větší než"
+
 msgid "Stars"
 msgstr "Hvězd"
+
+msgid "Structure"
+msgstr "Struktura"
+
+msgid "Structure Detection"
+msgstr "Detekce struktury"
+
+msgid "TCR"
+msgstr "TCR"
+
+msgid "TOC Filter"
+msgstr "Filtr obsahu"
+
+msgid "TXT"
+msgstr "TXT"
+
+msgid "TXT Output Maximum line length must be a numeric value."
+msgstr "TXT výstup: Maximální délka řádku musí být číselná hodnota."
+
+msgid "TXTZ"
+msgstr "TXTZ"
+
+msgid "Table of Contents"
+msgstr "Tabulka obsahu"
+
+msgid "Tablet"
+msgstr "Tablet"
 
 msgid "Tag"
 msgstr "Štítek"
@@ -262,17 +820,41 @@ msgstr "Štítek"
 msgid "Tags"
 msgstr "Štítky"
 
+msgid "Text justification"
+msgstr "Zarovnání textu"
+
+msgid "Third expression"
+msgstr "Třetí výraz"
+
 msgid "This book will be permanently deleted and files removed from your library. Are you sure?"
 msgstr "Tato kniha bude trvale odstraněna a všechny její soubory budou smazány z vaší knihovny. Chcete pokračovat?"
 
 msgid "Title"
 msgstr "Název"
 
+msgid "Title for Table of Contents"
+msgstr "Nadpis pro obsah"
+
 msgid "Title sort"
 msgstr "Řazení názvu"
 
+msgid "Top"
+msgstr "Horní"
+
+msgid "Transliterate unicode characters to ASCII"
+msgstr "Přepsat unicode znaky do ASCII"
+
+msgid "UnSmarten punctuation"
+msgstr "UnSmarten punctuation"
+
+msgid "Unwrap lines"
+msgstr "Nezalamovat řádky"
+
 msgid "Upload books"
 msgstr "Nahrát knihy"
+
+msgid "Use author sort for author"
+msgstr "Použít třídění dle autorů pro autora"
 
 msgid "User:"
 msgstr "Uživatel:"
@@ -289,15 +871,525 @@ msgstr "Vítejte!"
 msgid "Wrong login or password!"
 msgstr "Byl zadán špatný login nebo heslo!"
 
+msgid "a0"
+msgstr "a0"
+
+msgid "a1"
+msgstr "a1"
+
+msgid "a2"
+msgstr "a2"
+
+msgid "a3"
+msgstr "a3"
+
+msgid "a4"
+msgstr "a4"
+
+msgid "a5"
+msgstr "a5"
+
+msgid "a6"
+msgstr "a6"
+
+msgid "a7"
+msgstr "a7"
+
+msgid "a8"
+msgstr "a8"
+
+msgid "a9"
+msgstr "a9"
+
+msgid "adv_animal"
+msgstr "adv_animal"
+
+msgid "adv_geo"
+msgstr "adv_geo"
+
+msgid "adv_history"
+msgstr "adv_history"
+
+msgid "adv_indian"
+msgstr "adv_indian"
+
+msgid "adv_maritime"
+msgstr "adv_maritime"
+
+msgid "adv_western"
+msgstr "adv_western"
+
+msgid "adventure"
+msgstr "adventure"
+
+msgid "antique"
+msgstr "antique"
+
+msgid "antique_ant"
+msgstr "antique_ant"
+
+msgid "antique_east"
+msgstr "antique_east"
+
+msgid "antique_european"
+msgstr "antique_european"
+
+msgid "antique_myths"
+msgstr "antique_myths"
+
+msgid "antique_russian"
+msgstr "antique_russian"
+
+msgid "auto"
+msgstr "auto"
+
+msgid "b0"
+msgstr "b0"
+
+msgid "b1"
+msgstr "b1"
+
+msgid "b10"
+msgstr "b10"
+
+msgid "b2"
+msgstr "b2"
+
+msgid "b3"
+msgstr "b3"
+
+msgid "b4"
+msgstr "b4"
+
+msgid "b5"
+msgstr "b5"
+
+msgid "b6"
+msgstr "b6"
+
+msgid "b7"
+msgstr "b7"
+
+msgid "b8"
+msgstr "b8"
+
+msgid "b9"
+msgstr "b9"
+
+msgid "block"
+msgstr "block"
+
 msgid "book"
 msgstr "kniha"
+
+msgid "both"
+msgstr "both"
+
+msgid "c5e"
+msgstr "c5e"
+
+msgid "child_adv"
+msgstr "child_adv"
+
+msgid "child_det"
+msgstr "child_sf"
+
+msgid "child_education"
+msgstr "child_education"
+
+msgid "child_prose"
+msgstr "child_prose"
+
+msgid "child_sf"
+msgstr "child_sf"
+
+msgid "child_tale"
+msgstr "child_tale"
+
+msgid "child_verse"
+msgstr "child_verse"
+
+msgid "children"
+msgstr "children"
+
+msgid "class"
+msgstr "class"
+
+msgid "comm10e"
+msgstr "comm10e"
+
+msgid "comp_db"
+msgstr "comp_db"
+
+msgid "comp_hard"
+msgstr "comp_hard"
+
+msgid "comp_osnet"
+msgstr "comp_osnet"
+
+msgid "comp_programming"
+msgstr "comp_programming"
+
+msgid "comp_soft"
+msgstr "comp_soft"
+
+msgid "comp_www"
+msgstr "comp_www"
+
+msgid "computers"
+msgstr "computers"
+
+msgid "design"
+msgstr "design"
+
+msgid "det_action"
+msgstr "det_action"
+
+msgid "det_classic"
+msgstr "det_classic"
+
+msgid "det_crime"
+msgstr "det_crime"
+
+msgid "det_espionage"
+msgstr "det_espionage"
+
+msgid "det_hard"
+msgstr "det_hard"
+
+msgid "det_history"
+msgstr "det_history"
+
+msgid "det_irony"
+msgstr "det_irony"
+
+msgid "det_maniac"
+msgstr "det_maniac"
+
+msgid "det_police"
+msgstr "det_police"
+
+msgid "det_political"
+msgstr "det_political"
+
+msgid "detective"
+msgstr "detective"
+
+msgid "dle"
+msgstr "dle"
+
+msgid "doc"
+msgstr "doc"
+
+msgid "dramaturgy"
+msgstr "dramaturgy"
+
+msgid "ereader"
+msgstr "ereader"
+
+msgid "executive"
+msgstr "executive"
+
+msgid "external"
+msgstr "external"
+
+msgid "files"
+msgstr "files"
+
+msgid "folio"
+msgstr "folio"
+
+msgid "heuristic"
+msgstr "heuristic"
+
+msgid "home"
+msgstr "home"
+
+msgid "home_cooking"
+msgstr "home_cooking"
+
+msgid "home_crafts"
+msgstr "home_crafts"
+
+msgid "home_diy"
+msgstr "home_diy"
+
+msgid "home_entertain"
+msgstr "home_entertain"
+
+msgid "home_garden"
+msgstr "home_garden"
+
+msgid "home_health"
+msgstr "home_health"
+
+msgid "home_pets"
+msgstr "home_pets"
+
+msgid "home_sex"
+msgstr "home_sex"
+
+msgid "home_sport"
+msgstr "home_sport"
+
+msgid "humor"
+msgstr "humor"
+
+msgid "humor_anecdote"
+msgstr "humor_anecdote"
+
+msgid "humor_prose"
+msgstr "humor_prose"
+
+msgid "humor_verse"
+msgstr "humor_verse"
+
+msgid "iPad"
+msgstr "iPad"
+
+msgid "inline"
+msgstr "inline"
+
+msgid "landscape"
+msgstr "landscape"
+
+msgid "ledger"
+msgstr "ledger"
+
+msgid "legal"
+msgstr "legal"
+
+msgid "letter"
+msgstr "letter"
+
+msgid "love_contemporary"
+msgstr "love_contemporary"
+
+msgid "love_detective"
+msgstr "love_detective"
+
+msgid "love_erotica"
+msgstr "love_erotica"
+
+msgid "love_history"
+msgstr "love_history"
+
+msgid "love_short"
+msgstr "love_short"
+
+msgid "markdown"
+msgstr "markdown"
+
+msgid "none"
+msgstr "none"
+
+msgid "nonf_biography"
+msgstr "nonf_biography"
+
+msgid "nonf_criticism"
+msgstr "nonf_criticism"
+
+msgid "nonf_publicism"
+msgstr "nonf_publicism"
+
+msgid "nonfiction"
+msgstr "nonfiction"
+
+msgid "nothing"
+msgstr "nothing"
 
 msgid "of"
 msgstr "z"
 
+msgid "off"
+msgstr "off"
+
+msgid "old_mac"
+msgstr "old_mac"
+
+msgid "pagebreak"
+msgstr "pagebreak"
+
+msgid "plain"
+msgstr "plain"
+
+msgid "poetry"
+msgstr "poetry"
+
+msgid "portrait"
+msgstr "portrait"
+
+msgid "print"
+msgstr "print"
+
+msgid "prose_classic"
+msgstr "prose_classic"
+
+msgid "prose_contemporary"
+msgstr "prose_contemporary"
+
+msgid "prose_counter"
+msgstr "prose_counter"
+
+msgid "prose_history"
+msgstr "prose_history"
+
+msgid "prose_rus_classic"
+msgstr "prose_rus_classic"
+
+msgid "prose_su_classics"
+msgstr "prose_su_classics"
+
+msgid "ref_dict"
+msgstr "ref_dict"
+
+msgid "ref_encyc"
+msgstr "ref_encyc"
+
+msgid "ref_guide"
+msgstr "ref_guide"
+
+msgid "ref_ref"
+msgstr "ref_ref"
+
+msgid "reference"
+msgstr "reference"
+
+msgid "religion"
+msgstr "religion"
+
+msgid "religion_esoterics"
+msgstr "religion_esoterics"
+
+msgid "religion_rel"
+msgstr "religion_rel"
+
+msgid "religion_self"
+msgstr "religion_self"
+
+msgid "rule"
+msgstr "rule"
+
+msgid "sci_biology"
+msgstr "sci_biology"
+
+msgid "sci_business"
+msgstr "sci_business"
+
+msgid "sci_chem"
+msgstr "sci_chem"
+
+msgid "sci_culture"
+msgstr "sci_culture"
+
+msgid "sci_history"
+msgstr "sci_history"
+
+msgid "sci_juris"
+msgstr "sci_juris"
+
+msgid "sci_linguistic"
+msgstr "sci_linguistic"
+
+msgid "sci_math"
+msgstr "sci_math"
+
+msgid "sci_medicine"
+msgstr "sci_medicine"
+
+msgid "sci_philosophy"
+msgstr "sci_philosophy"
+
+msgid "sci_phys"
+msgstr "sci_phys"
+
+msgid "sci_politics"
+msgstr "sci_politics"
+
+msgid "sci_psychology"
+msgstr "sci_psychology"
+
+msgid "sci_religion"
+msgstr "sci_religion"
+
+msgid "sci_tech"
+msgstr "sci_tech"
+
+msgid "science"
+msgstr "science"
+
+msgid "sf"
+msgstr "sf"
+
+msgid "sf_action"
+msgstr "sf_action"
+
+msgid "sf_cyberpunk"
+msgstr "sf_cyberpunk"
+
+msgid "sf_detective"
+msgstr "sf_detective"
+
+msgid "sf_epic"
+msgstr "sf_epic"
+
+msgid "sf_fantasy"
+msgstr "sf_fantasy"
+
+msgid "sf_heroic"
+msgstr "sf_heroic"
+
+msgid "sf_history"
+msgstr "sf_history"
+
+msgid "sf_horror"
+msgstr "sf_horror"
+
+msgid "sf_humor"
+msgstr "sf_humor"
+
+msgid "sf_social"
+msgstr "sf_social"
+
+msgid "sf_space"
+msgstr "sf_space"
+
+msgid "single"
+msgstr "single"
+
+msgid "system"
+msgstr "system"
+
+msgid "tabloid"
+msgstr "tabloid"
+
+msgid "tag"
+msgstr "tag"
+
+msgid "textile"
+msgstr "textile"
+
+msgid "thriller"
+msgstr "thriller"
+
+msgid "toc"
+msgstr "toc"
+
+msgid "unformatted"
+msgstr "unformatted"
+
+msgid "unix"
+msgstr "unix"
+
 msgid "will be removed. Are you sure?"
 msgstr "bude smazán. Chcete pokračovat?"
 
-msgid "Click here to download the book."
-msgstr "Knihu si můžete stáhnout zde."
+msgid "windows"
+msgstr "windows"
+
+msgid "ztxt"
+msgstr "ztxt"
+
+msgid "Keep text color, when possible"
+msgstr "Keep text color, when possible"
 

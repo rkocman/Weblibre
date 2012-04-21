@@ -5,6 +5,7 @@ src/log/*.log
 src/log/*.html
 src/temp/*.dat
 src/temp/cache/*
+src/temp/conversion/*
 src/temp/metadata/*
 src/temp/sessions/*
 src/temp/uploads/*

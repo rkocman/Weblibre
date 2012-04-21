@@ -37,9 +37,11 @@
   margin: 0;
   padding: 4px;
   line-height: 24px;
+  text-align: left;
 }
 #convert th {
   font-weight: normal;
+  cursor: default;
 }
 #convert .field,
 #convert textarea {
@@ -57,6 +59,12 @@
   line-height: 1.4;
   font-size: 11px;
   resize: none;
+}
+#convert .checkbox {
+  margin-top: 6px;
+  margin-bottom: 0;
+  padding: 0;
+  vertical-align: top;
 }
 
 #convert .input-output {
@@ -91,13 +99,16 @@
 #convert h2 {
   color: #c56711;
   font-size: 15px;
-  cursor: pointer;
 }
 #convert .group .description {
   font-size: 11px;
   margin: 0;
-  cursor: pointer;
   padding-bottom: 1px;
+}
+#convert h2 .toggle-select,
+#convert h2 div,
+#convert .description .toggle-select {
+  cursor: pointer;
 }
 #convert .group .inner {
   padding: 10px 0 13px 0;
@@ -111,35 +122,51 @@
   background: url('../img/toggle-off.gif') no-repeat center;
 }
 
-#convert .metadata table {
-  margin: 0 auto;
+#convert .default {
+  margin: 0 20px;
 }
-#convert .metadata th {
-  text-align: right;
+#convert .default .short {
+  width: 140px;
 }
-#convert .metadata .middleWidth {
-  width: 340px;
+#convert .default .normal {
+  width: 220px;
 }
-#convert .metadata .field {
-  width: 320px;
+#convert .default .long {
+  width: 350px;
 }
-#convert .metadata .comments-label {
-  text-align: left;
-  padding-bottom: 2px;
-  line-height: 18px;
-  vertical-align: bottom;
+#convert .default .longer {
+  width: 500px;
 }
+#convert .default .verylong {
+  width: 650px;
+}
+#convert .default textarea.verylong {
+  width: 644px;
+}
+#convert .default .maxlong {
+  width: 850px;
+}
+#convert .default .small td {
+  font-size: 11px;
+  line-height: normal;
+  padding-top: 0;
+}
+#convert .default .label {
+  padding-bottom: 0;
+}
+
 #convert .metadata .comments {
-  padding-bottom: 1px;
   vertical-align: top;
 }
-#convert .metadata textarea {
-  width: 422px;
-  height: 168px;
-  padding: 7px;
-  line-height: 1.4;
-  font-size: 11px;
-  resize: none;
-  float: left;
-  margin: 0;
+#convert .look-and-feel .extra-css {
+  vertical-align: top;
+}
+#convert .heuristic-processing .shorter th {
+  width: 190px;
+}
+#convert .structure-detection .shorter th {
+  width: 110px;
+}
+#convert .input-txt .shorter th {
+  width: 120px;
 }

@@ -9,28 +9,104 @@
 {block content2}
 
 <script type="text/javascript">
-  $(document).ready(function(){
-    // Toggle function
-    function groupToggle(object) {
-      object.children("h2").children("div").toggleClass("off");
-      object.children(".inner").toggle();
+  // Toggle function
+  function groupToggle(object) {
+    object.children("h2").children("div").toggleClass("off");
+    object.children(".inner").toggle();
+  }
+    
+  // Input options
+  function inputOptions(form){
+    $("#convert .input-group").hide();
+
+    if (form != null) {
+      // Toggle
+      switch(form.input_format.value) {
+        case 'FB2':
+          $("#convert .input-fb2").show(); break;
+        case 'PDF':
+          $("#convert .input-pdf").show(); break;
+        case 'TXT':
+        case 'TXTZ':
+          $("#convert .input-txt").show(); break;
+      }
+      // Default values  
+      form.elements['structure[chapter]'].value = "//*[((name()='h1' or name()='h2') and re:test(., '\\s*((chapter|book|section|part)\\s+)|((prolog|prologue|epilogue)(\\s+|$))', 'i')) or @class = 'chapter']";
+      switch(form.input_format.value) {
+        default:
+          form.elements['structure[page_breaks_before]'].value = "//*[name()='h1' or name()='h2']";
+          break;
+        case 'EPUB':
+          form.elements['structure[page_breaks_before]'].value = "/";
+          break;
+      }
+      switch(form.input_format.value) {
+        default:
+          form.elements['table[level1_toc]'].value = "";
+          form.elements['table[level2_toc]'].value = "";
+          form.elements['table[level3_toc]'].value = "";
+          break;
+        case 'FB2':
+          form.elements['table[level1_toc]'].value = "//h:h1";
+          form.elements['table[level2_toc]'].value = "//h:h2";
+          form.elements['table[level3_toc]'].value = "//h:h3";
+          break;
+      }
     }
+  }
+
+  // Output options
+  function outputOptions(form){
+    $("#convert .output-group").hide();
+
+    if (form != null) {
+      switch(form.output_format.value) {
+        case 'EPUB':
+          $("#convert .output-epub").show(); break;
+        case 'FB2':
+          $("#convert .output-fb2").show(); break;
+        case 'HTMLZ':
+          $("#convert .output-htmlz").show(); break;
+        case 'MOBI':
+          $("#convert .output-mobi").show(); break;
+        case 'PDB':
+          $("#convert .output-pdb").show(); break;
+        case 'PDF':
+          $("#convert .output-pdf").show(); break;
+        case 'PMLZ':
+          $("#convert .output-pmlz").show(); break;
+        case 'RB':
+          $("#convert .output-rb").show(); break;
+        case 'SNB':
+          $("#convert .output-snb").show(); break;
+        case 'TXT':
+        case 'TXTZ':
+          $("#convert .output-txt").show(); break;
+      }
+    }
+  }
+  
+  $(document).ready(function(){
+    // Add toggle select
+    $("#convert h2, #convert .description")
+      .html(function(index, old){
+        return "<span class=\"toggle-select\">"+old+"</span>";
+      });
     
     // Add toggle indication
     $("#convert h2").append("<div />");
     
-    // Toggle groups
-    $("#convert h2, #convert .description")
-      .click(function(event){
-        groupToggle($(event.target).parent());
-      });
-    $("#convert h2 div")
+    // Enable toggle
+    $("#convert .toggle-select, #convert h2 div")
       .click(function(event){
         groupToggle($(event.target).parent().parent());
       });
     
-    // Hide after start
-    groupToggle($("#convert .look-and-feel"));
+    // After start actions
+    groupToggle($("#convert .group"));
+    groupToggle($("#convert .metadata"));
+    inputOptions(self.document.forms[0]);
+    outputOptions(self.document.forms[0]);
   });
 </script>
 
@@ -45,61 +121,912 @@
 {form convertForm}
   <table class="input-output">
     <tr>
-      <td class="in">{label input_format /}: {input input_format class => "select"}</td>
-      <td class="out">{label output_format /}: {input output_format class => "select"}</td>
+      <td class="in">
+        {label input_format /}: 
+        {input input_format class => "select",
+          onChange => "inputOptions(this.form)"}
+      </td>
+      <td class="out">
+        {label output_format /}: 
+        {input output_format class => "select",
+          onChange => "outputOptions(this.form)"}
+      </td>
     <tr>
   </table>
 
   <div class="group metadata">
-    <h2>Metadata</h2>
+    <h2>{_("Metadata")}</h2>
     <p class="description">
-      Set the metadata. The output file will contain as much of this metadata as possible.
+      {_("Set the metadata. The output file will contain as much of this metadata as possible.")}
     </p>
     <div class="inner">
       {formContainer "metadata"}
-      <table>
+      <table class="default">
         <tr>
           <th>{label title /}:</th>
-          <td class="middleWidth">{input title class => "field"}</td>
-          <th class="comments-label">{label comments /}:</th>
+          <td>{input title class => "field verylong"}</td>
         </tr>
         <tr>
           <th>{label authors /}:</th>
-          <td>{input authors class => "field"}</td>
-          <td rowspan="6" class="comments">{input comments}</td>
+          <td>{input authors class => "field verylong"}</td>
         </tr>
         <tr>
           <th>{label author_sort /}:</th>
-          <td>{input author_sort class => "field"}</td>
+          <td>{input author_sort class => "field verylong"}</td>
         </tr>
         <tr>
           <th>{label publisher /}:</th>
-          <td>{input publisher class => "field"}</td>
+          <td>{input publisher class => "field verylong"}</td>
         </tr>
         <tr>
           <th>{label tags /}:</th>
-          <td>{input tags class => "field"}</td>
+          <td>{input tags class => "field verylong"}</td>
         </tr>
         <tr>
           <th>{label series /}:</th>
-          <td>{input series class => "field"}</td>
+          <td>{input series class => "field verylong"}</td>
         </tr>
         <tr>
           <th>{label series_index /}:</th>
-          <td>{input series_index class => "field"}</td>
+          <td>{input series_index class => "field short"}</td>
         </tr>
+        <tr>
+            <th class="comments">{label comments /}:</th>
+            <td>{input comments class => "verylong"}</td>
+          </tr>
       </table>
       {/formContainer}
     </div>
   </div>
 
   <div class="group look-and-feel">
-    <h2>Look &amp; Feel</h2>
+    <h2>{_("Look & Feel")}</h2>
     <p class="description">
-      Control the look and feel of the output.
+      {_("Control the look and feel of the output.")}
     </p>
     <div class="inner">
+      {formContainer "look"}
+        <table class="default">
+          <tr>
+            <td colspan="2">
+              {input disable_font_rescaling class => 'checkbox'} 
+              {label disable_font_rescaling /}
+            </td>
+          </tr>
+          <tr>
+            <th>{label base_font_size /} (pt):</th>
+            <td>{input base_font_size class => 'field short'}</td>
+          </tr>
+          <tr>
+            <th>{label font_size_mapping /}:</th>
+            <td>{input font_size_mapping class => 'field verylong'}</td>
+          </tr>
+          <tr>
+            <th>{label minimum_line_height /} (%):</th>
+            <td>{input minimum_line_height class => 'field short'}</td>
+          </tr>
+          <tr>
+            <th>{label line_height /} (pt):</th>
+            <td>{input line_height class => 'field short'}</td>
+          </tr>
+          <tr>
+            <th>{label input_encoding /}:</th>
+            <td>{input input_encoding class => 'field short'}</td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              {input remove_paragraph_spacing class => 'checkbox'} 
+              {label remove_paragraph_spacing /}
+            </td>
+          </tr>
+          <tr>
+            <th>{label remove_paragraph_spacing_indent_size /} (em):</th>
+            <td>{input remove_paragraph_spacing_indent_size class => 'field short'}</td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              {input insert_blank_line class => 'checkbox'} 
+              {label insert_blank_line /}
+            </td>
+          </tr>
+          <tr>
+            <th>{label insert_blank_line_size /} (em):</th>
+            <td>{input insert_blank_line_size class => 'field short'}</td>
+          </tr>
+          <tr>
+            <th>{label change_justification /}:</th>
+            <td>{input change_justification class => 'select short'}</td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              {input smarten_punctuation class => 'checkbox'} 
+              {label smarten_punctuation /}
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              {input unsmarten_punctuation class => 'checkbox'} 
+              {label unsmarten_punctuation /}
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              {input asciiize class => 'checkbox'} 
+              {label asciiize /}
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              {input keep_ligatures class => 'checkbox'} 
+              {label keep_ligatures /}
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              {input linearize_tables class => 'checkbox'} 
+              {label linearize_tables /}
+            </td>
+          </tr>
+          <tr>
+            <th class="extra-css">{label extra_css /}:</th>
+            <td>{input extra_css class => "verylong"}</td>
+          </tr>
+          <tr>
+            <th colspan="2"><h3>{_("Filter Style Information")}</h3></th>
+          </tr>
+          <tr class="small">
+            <td colspan="2">{_("Select what style information you want completely removed")}:</td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              {input filter_css_fonts class => 'checkbox'} 
+              {label filter_css_fonts /}
+              &nbsp;&nbsp;&nbsp;
+              {input filter_css_margins class => 'checkbox'} 
+              {label filter_css_margins /}
+              &nbsp;&nbsp;&nbsp;
+              {input filter_css_padding class => 'checkbox'} 
+              {label filter_css_padding /}
+              &nbsp;&nbsp;&nbsp;
+              {input filter_css_floats class => 'checkbox'} 
+              {label filter_css_floats /}
+              &nbsp;&nbsp;&nbsp;
+              {input filter_css_colors class => 'checkbox'} 
+              {label filter_css_colors /}
+            </td>
+          </tr>
+          <tr>
+            <th>{label filter_css_other /}:</th>
+            <td>{input filter_css_other class => 'field verylong'}</td>
+          </tr>
+        </table>
+      {/formContainer}
+    </div>
+  </div>
+
+  <div class="group heuristic-processing">
+    <h2>{_("Heuristic Processing")}</h2>
+    <p class="description">
+      {_("Modify the document text and structure using common patterns.")}
+    </p>
+    <div class="inner">
+      {formContainer "heuristic"}
+        <table class="default">
+          <tr>
+            <td colspan="2">
+              {input enable_heuristics class => 'checkbox'} 
+              {label enable_heuristics /}
+            </td>
+          </tr>
+          <tr>
+            <th colspan="2"><h3>{_("Heuristic Processing")}</h3></th>
+          </tr>
+          <tr>
+            <td colspan="2">
+              {input unwrap_lines class => 'checkbox'} 
+              {label unwrap_lines /}
+            </td>
+          </tr>
+          <tr class="shorter">
+            <th>{label html_unwrap_factor /}:</th>
+            <td>{input html_unwrap_factor class => 'field short'}</td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              {input markup_chapter_headings class => 'checkbox'} 
+              {label markup_chapter_headings /}
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              {input renumber_headings class => 'checkbox'} 
+              {label renumber_headings /}
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              {input delete_blank_paragraphs class => 'checkbox'} 
+              {label delete_blank_paragraphs /}
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              {input format_scene_breaks class => 'checkbox'} 
+              {label format_scene_breaks /}
+            </td>
+          </tr>
+          <tr>
+            <th>{label replace_scene_breaks /}:</th>
+            <td>{input replace_scene_breaks class => 'field short'}</td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              {input disable_dehyphenate class => 'checkbox'} 
+              {label disable_dehyphenate /}
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              {input italicize_common_cases class => 'checkbox'} 
+              {label italicize_common_cases /}
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              {input fix_indents class => 'checkbox'} 
+              {label fix_indents /}
+            </td>
+          </tr>
+        </table>
+      {/formContainer}
+    </div>
+  </div>
+
+  <div class="group page-setup">
+    <h2>{_("Page Setup")}</h2>
+    <p class="description">
       
+    </p>
+    <div class="inner">
+      {formContainer "setup"}
+        <table class="default">
+          <tr>
+            <th>{label output_profile /}:</th>
+            <td>{input output_profile class => 'select long'}</td>
+          </tr>
+          <tr>
+            <th>{label input_profile /}:</th>
+            <td>{input input_profile class => 'select long'}</td>
+          </tr>
+          <tr>
+            <th colspan="2"><h3>{_("Margins")}</h3></th>
+          </tr>
+          <tr>
+            <th>{label margin_left /} (pt):</th>
+            <td>{input margin_left class => 'field short'}</td>
+          </tr>
+          <tr>
+            <th>{label margin_top /} (pt):</th>
+            <td>{input margin_top class => 'field short'}</td>
+          </tr>
+          <tr>
+            <th>{label margin_right /} (pt):</th>
+            <td>{input margin_right class => 'field short'}</td>
+          </tr>
+          <tr>
+            <th>{label margin_bottom /} (pt):</th>
+            <td>{input margin_bottom class => 'field short'}</td>
+          </tr>
+        </table>
+      {/formContainer}
+    </div>
+  </div>
+
+  <div class="group structure-detection">
+    <h2>{_("Structure Detection")}</h2>
+    <p class="description">
+      {_("Fine tune the detection of chapter headings and other document structure.")}
+    </p>
+    <div class="inner">
+      {formContainer "structure"}
+        <table class="default">
+          <tr>
+            <th colspan="2" class="label">{label chapter /}:</th>
+          </tr><tr>
+            <td colspan="2">{input chapter class => 'field maxlong'}</td>
+          </tr>
+          <tr class="shorter">
+            <th>{label chapter_mark /}:</th>
+            <td>{input chapter_mark class => 'select short'}</td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              {input remove_first_image class => 'checkbox'} 
+              {label remove_first_image /}
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              {input remove_fake_margins class => 'checkbox'} 
+              {label remove_fake_margins /}
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              {input insert_metadata class => 'checkbox'} 
+              {label insert_metadata /}
+            </td>
+          </tr>
+          <tr>
+            <th colspan="2" class="label">{label page_breaks_before /}:</th>
+          </tr><tr>
+            <td colspan="2">{input page_breaks_before class => 'field maxlong'}</td>
+          </tr>
+        </table>
+      {/formContainer}
+    </div>
+  </div>
+
+  <div class="group table-of-contents">
+    <h2>{_("Table of Contents")}</h2>
+    <p class="description">
+      {_("Control the creation/conversion of the Table of Contents.")}
+    </p>
+    <div class="inner">
+      {formContainer "table"}
+        <table class="default">
+          <tr>
+            <td colspan="2">
+              {input use_auto_toc class => 'checkbox'} 
+              {label use_auto_toc /}
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              {input no_chapters_in_toc class => 'checkbox'} 
+              {label no_chapters_in_toc /}
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              {input duplicate_links_in_toc class => 'checkbox'} 
+              {label duplicate_links_in_toc /}
+            </td>
+          </tr>
+          <tr>
+            <th>{label max_toc_links /}:</th>
+            <td>{input max_toc_links class => 'field short'}</td>
+          </tr>
+          <tr>
+            <th>{label toc_threshold /}:</th>
+            <td>{input toc_threshold class => 'field short'}</td>
+          </tr>
+          <tr>
+            <th>{label toc_filter /}:</th>
+            <td>{input toc_filter class => 'field longer'}</td>
+          </tr>
+          <tr>
+            <th colspan="2" class="label">{label level1_toc /}:</th>
+          </tr><tr>
+            <td colspan="2">{input level1_toc class => 'field maxlong'}</td>
+          </tr>
+          <tr>
+            <th colspan="2" class="label">{label level2_toc /}:</th>
+          </tr><tr>
+            <td colspan="2">{input level2_toc class => 'field maxlong'}</td>
+          </tr>
+          <tr>
+            <th colspan="2" class="label">{label level3_toc /}:</th>
+          </tr><tr>
+            <td colspan="2">{input level3_toc class => 'field maxlong'}</td>
+          </tr>
+        </table>
+      {/formContainer}
+    </div>
+  </div>
+
+  <div class="group search-and-replace">
+    <h2>{_("Search & Replace")}</h2>
+    <p class="description">
+      {_("Modify the document text and structure using user defined patterns.")}
+    </p>
+    <div class="inner">
+      {formContainer "search"}
+        <table class="default">
+          <tr>
+            <th colspan="2"><h3>{_("First expression")}</h3></th>
+          </tr>
+          <tr>
+            <th colspan="2" class="label">{label sr1_search /}:</th>
+          </tr><tr>
+            <td colspan="2">{input sr1_search class => 'field maxlong'}</td>
+          </tr>
+          <tr>
+            <th colspan="2" class="label">{label sr1_replace /}:</th>
+          </tr><tr>
+            <td colspan="2">{input sr1_replace class => 'field maxlong'}</td>
+          </tr>
+          <tr>
+            <th colspan="2"><h3>{_("Second expression")}</h3></th>
+          </tr>
+          <tr>
+            <th colspan="2" class="label">{label sr2_search /}:</th>
+          </tr><tr>
+            <td colspan="2">{input sr2_search class => 'field maxlong'}</td>
+          </tr>
+          <tr>
+            <th colspan="2" class="label">{label sr2_replace /}:</th>
+          </tr><tr>
+            <td colspan="2">{input sr2_replace class => 'field maxlong'}</td>
+          </tr>
+          <tr>
+            <th colspan="2"><h3>{_("Third expression")}</h3></th>
+          </tr>
+          <tr>
+            <th colspan="2" class="label">{label sr3_search /}:</th>
+          </tr><tr>
+            <td colspan="2">{input sr3_search class => 'field maxlong'}</td>
+          </tr>
+          <tr>
+            <th colspan="2" class="label">{label sr3_replace /}:</th>
+          </tr><tr>
+            <td colspan="2">{input sr3_replace class => 'field maxlong'}</td>
+          </tr>
+        </table>
+      {/formContainer}
+    </div>
+  </div>
+
+  <div class="group input-group input-fb2">
+    <h2>FB2 {_("Input")}</h2>
+    <p class="description">
+      {_("Options specific to the input format.")}
+    </p>
+    <div class="inner">
+      {formContainer "input_fb2"}
+        <table class="default">
+          <tr>
+            <td colspan="2">
+              {input no_inline_fb2_toc class => 'checkbox'} 
+              {label no_inline_fb2_toc /}
+            </td>
+          </tr>
+        </table>
+      {/formContainer}
+    </div>
+  </div>
+
+  <div class="group input-group input-pdf">
+    <h2>PDF {_("Input")}</h2>
+    <p class="description">
+      {_("Options specific to the input format.")}
+    </p>
+    <div class="inner">
+      {formContainer "input_pdf"}
+        <table class="default">
+          <tr>
+            <th>{label unwrap_factor /}:</th>
+            <td>{input unwrap_factor class => 'field short'}</td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              {input no_images class => 'checkbox'} 
+              {label no_images /}
+            </td>
+          </tr>
+        </table>
+      {/formContainer}
+    </div>
+  </div>
+
+  <div class="group input-group input-txt">
+    <h2>TXT (TXTZ) {_("Input")}</h2>
+    <p class="description">
+      {_("Options specific to the input format.")}
+    </p>
+    <div class="inner">
+      {formContainer "input_txt"}
+        <table class="default">
+          <tr>
+            <th colspan="2"><h3>{_("Structure")}</h3></th>
+          </tr>
+          <tr class="shorter">
+            <th>{label paragraph_type /}:</th>
+            <td>{input paragraph_type class => 'select short'}</td>
+          </tr>
+          <tr>
+            <th>{label formatting_type /}:</th>
+            <td>{input formatting_type class => 'select short'}</td>
+          </tr>
+          <tr>
+            <th colspan="2"><h3>{_("Common")}</h3></th>
+          </tr>
+          <tr>
+            <td colspan="2">
+              {input preserve_spaces class => 'checkbox'} 
+              {label preserve_spaces /}
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              {input txt_in_remove_indents class => 'checkbox'} 
+              {label txt_in_remove_indents /}
+            </td>
+          </tr>
+          <tr>
+            <th colspan="2"><h3>{_("Markdown")}</h3></th>
+          </tr>
+          <tr class="small">
+            <td colspan="2">{_("Markdown is a simple markup language for text files, that allows for advanced formatting.")}</td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              {input markdown_disable_toc class => 'checkbox'} 
+              {label markdown_disable_toc /}
+            </td>
+          </tr>
+        </table>
+      {/formContainer}
+    </div>
+  </div>
+
+  <div class="group output-group output-epub">
+    <h2>EPUB {_("Output")}</h2>
+    <p class="description">
+      {_("Options specific to the output format.")}
+    </p>
+    <div class="inner">
+      {formContainer "output_epub"}
+        <table class="default">
+          <tr>
+            <td colspan="2">
+              {input dont_split_on_page_breaks class => 'checkbox'} 
+              {label dont_split_on_page_breaks /}
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              {input no_default_epub_cover class => 'checkbox'} 
+              {label no_default_epub_cover /}
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              {input no_svg_cover class => 'checkbox'} 
+              {label no_svg_cover /}
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              {input epub_flatten class => 'checkbox'} 
+              {label epub_flatten /}
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              {input preserve_cover_aspect_ratio class => 'checkbox'} 
+              {label preserve_cover_aspect_ratio /}
+            </td>
+          </tr>
+          <tr>
+            <th>{label flow_size /} (KB):</th>
+            <td>{input flow_size class => 'field short'}</td>
+          </tr>
+        </table>
+      {/formContainer}
+    </div>
+  </div>
+
+  <div class="group output-group output-fb2">
+    <h2>FB2 {_("Output")}</h2>
+    <p class="description">
+      {_("Options specific to the output format.")}
+    </p>
+    <div class="inner">
+      {formContainer "output_fb2"}
+        <table class="default">
+          <tr>
+            <th>{label sectionize /}:</th>
+            <td>{input sectionize class => 'select short'}</td>
+          </tr>
+          <tr>
+            <th>{label fb2_genre /}:</th>
+            <td>{input fb2_genre class => 'select normal'}</td>
+          </tr>
+        </table>
+      {/formContainer}
+    </div>
+  </div>
+
+  <div class="group output-group output-htmlz">
+    <h2>HTMLZ {_("Output")}</h2>
+    <p class="description">
+      {_("Options specific to the output format.")}
+    </p>
+    <div class="inner">
+      {formContainer "output_htmlz"}
+        <table class="default">
+          <tr>
+            <th>{label htmlz_css_type /}:</th>
+            <td>{input htmlz_css_type class => 'select short'}</td>
+          </tr>
+          <tr>
+            <th>{label htmlz_class_style /}:</th>
+            <td>{input htmlz_class_style class => 'select short'}</td>
+          </tr>
+        </table>
+      {/formContainer}
+    </div>
+  </div>
+
+  <div class="group output-group output-mobi">
+    <h2>MOBI {_("Output")}</h2>
+    <p class="description">
+      {_("Options specific to the output format.")}
+    </p>
+    <div class="inner">
+      {formContainer "output_mobi"}
+        <table class="default">
+          <tr>
+            <td colspan="2">
+              {input no_inline_toc class => 'checkbox'} 
+              {label no_inline_toc /}
+            </td>
+          </tr>
+          <tr>
+            <th>{label toc_title /}:</th>
+            <td>{input toc_title class => 'field long'}</td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              {input mobi_toc_at_start class => 'checkbox'} 
+              {label mobi_toc_at_start /}
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              {input mobi_ignore_margins class => 'checkbox'} 
+              {label mobi_ignore_margins /}
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              {input prefer_author_sort class => 'checkbox'} 
+              {label prefer_author_sort /}
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              {input dont_compress class => 'checkbox'} 
+              {label dont_compress /}
+            </td>
+          </tr>
+          <tr>
+            <th colspan="2"><h3>{_("Kindle options")}</h3></th>
+          </tr>
+          <tr>
+            <th>{label personal_doc /}:</th>
+            <td>{input personal_doc class => 'field long'}</td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              {input share_not_sync class => 'checkbox'} 
+              {label share_not_sync /}
+            </td>
+          </tr>
+        </table>
+      {/formContainer}
+    </div>
+  </div>
+
+  <div class="group output-group output-pdb">
+    <h2>PDB {_("Output")}</h2>
+    <p class="description">
+      {_("Options specific to the output format.")}
+    </p>
+    <div class="inner">
+      {formContainer "output_pdb"}
+        <table class="default">
+          <tr>
+            <th>{label format /}:</th>
+            <td>{input format class => 'select short'}</td>
+          </tr>
+          <tr>
+            <th>{label pdb_output_encoding /}:</th>
+            <td>{input pdb_output_encoding class => 'field short'}</td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              {input inline_toc class => 'checkbox'} 
+              {label inline_toc /}
+            </td>
+          </tr>
+        </table>
+      {/formContainer}
+    </div>
+  </div>
+
+  <div class="group output-group output-pdf">
+    <h2>PDF {_("Output")}</h2>
+    <p class="description">
+      {_("Options specific to the output format.")}
+    </p>
+    <div class="inner">
+      {formContainer "output_pdf"}
+        <table class="default">
+          <tr>
+            <th>{label paper_size /}:</th>
+            <td>{input paper_size class => 'select short'}</td>
+          </tr>
+          <tr>
+            <th>{label orientation /}:</th>
+            <td>{input orientation class => 'select short'}</td>
+          </tr>
+          <tr>
+            <th>{label custom_size /}:</th>
+            <td>{input custom_size class => 'field long'}</td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              {input preserve_cover_aspect_ratio class => 'checkbox'} 
+              {label preserve_cover_aspect_ratio /}
+            </td>
+          </tr>
+        </table>
+      {/formContainer}
+    </div>
+  </div>
+
+  <div class="group output-group output-pmlz">
+    <h2>PMLZ {_("Output")}</h2>
+    <p class="description">
+      {_("Options specific to the output format.")}
+    </p>
+    <div class="inner">
+      {formContainer "output_pmlz"}
+        <table class="default">
+          <tr>
+            <th>{label pml_output_encoding /}:</th>
+            <td>{input pml_output_encoding class => 'field short'}</td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              {input inline_toc class => 'checkbox'} 
+              {label inline_toc /}
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              {input full_image_depth class => 'checkbox'} 
+              {label full_image_depth /}
+            </td>
+          </tr>
+        </table>
+      {/formContainer}
+    </div>
+  </div>
+
+  <div class="group output-group output-rb">
+    <h2>RB {_("Output")}</h2>
+    <p class="description">
+      {_("Options specific to the output format.")}
+    </p>
+    <div class="inner">
+      {formContainer "output_rb"}
+        <table class="default">
+          <tr>
+            <td colspan="2">
+              {input inline_toc class => 'checkbox'} 
+              {label inline_toc /}
+            </td>
+          </tr>
+        </table>
+      {/formContainer}
+    </div>
+  </div>
+
+  <div class="group output-group output-snb">
+    <h2>SNB {_("Output")}</h2>
+    <p class="description">
+      {_("Options specific to the output format.")}
+    </p>
+    <div class="inner">
+      {formContainer "output_snb"}
+        <table class="default">
+          <tr>
+            <td colspan="2">
+              {input snb_insert_empty_line class => 'checkbox'} 
+              {label snb_insert_empty_line /}
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              {input snb_dont_indent_first_line class => 'checkbox'} 
+              {label snb_dont_indent_first_line /}
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              {input snb_hide_chapter_name class => 'checkbox'} 
+              {label snb_hide_chapter_name /}
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              {input snb_full_screen class => 'checkbox'} 
+              {label snb_full_screen /}
+            </td>
+          </tr>
+        </table>
+      {/formContainer}
+    </div>
+  </div>
+
+  <div class="group output-group output-txt">
+    <h2>TXT (TXTZ) {_("Output")}</h2>
+    <p class="description">
+      {_("Options specific to the output format.")}
+    </p>
+    <div class="inner">
+      {formContainer "output_txt"}
+        <table class="default">
+          <tr>
+            <th colspan="2"><h3>{_("General")}</h3></th>
+          </tr>
+          <tr>
+            <th>{label txt_output_encoding /}:</th>
+            <td>{input txt_output_encoding class => 'field short'}</td>
+          </tr>
+          <tr>
+            <th>{label newline /}:</th>
+            <td>{input newline class => 'select short'}</td>
+          </tr>
+          <tr>
+            <th>{label txt_output_formatting /}:</th>
+            <td>{input txt_output_formatting class => 'select short'}</td>
+          </tr>
+          <tr>
+            <th colspan="2"><h3>{_("Plain")}</h3></th>
+          </tr>
+          <tr>
+            <td colspan="2">
+              {input inline_toc class => 'checkbox'} 
+              {label inline_toc /}
+            </td>
+          </tr>
+          <tr>
+            <th>{label max_line_length /}:</th>
+            <td>{input max_line_length class => 'field short'}</td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              {input force_max_line_length class => 'checkbox'} 
+              {label force_max_line_length /}
+            </td>
+          </tr>
+          <tr>
+            <th colspan="2"><h3>{_("Markdown, Textile")}</h3></th>
+          </tr>
+          <tr>
+            <td colspan="2">
+              {input keep_links class => 'checkbox'} 
+              {label keep_links /}
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              {input keep_image_references class => 'checkbox'} 
+              {label keep_image_references /}
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              {input keep_color class => 'checkbox'} 
+              {label keep_color /}
+            </td>
+          </tr>
+        </table>
+      {/formContainer}
     </div>
   </div>
 
