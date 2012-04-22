@@ -19,7 +19,7 @@ final class RemoveCalibre extends BaseCalibre
   
   /**
    * Check format
-   * @param int $id
+   * @param int $id Format id
    * @return bool
    */
   public function checkFormat($id) 
@@ -34,8 +34,8 @@ final class RemoveCalibre extends BaseCalibre
   
   /**
    * Get book id from format id
-   * @param int $id
-   * @return int
+   * @param int $id Format id
+   * @return int Book id
    */
   public function getBookIdFromFormatId($id) 
   {
@@ -50,7 +50,7 @@ final class RemoveCalibre extends BaseCalibre
   
   /**
    * Remove book
-   * @param $id
+   * @param $id Book id
    * @return bool
    */
   public function removeBook($id) 
@@ -68,7 +68,7 @@ final class RemoveCalibre extends BaseCalibre
   
   /**
    * Remove format
-   * @param $id
+   * @param $id Format id
    * @return bool
    */
   public function removeFormat($id) 

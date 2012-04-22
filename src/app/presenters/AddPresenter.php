@@ -201,7 +201,7 @@ final class AddPresenter extends SignedPresenter
   
   /**
    * Section Add format
-   * @param int $id
+   * @param int $id Book id
    * @return void
    * @throws Nette\Application\BadRequestException
    */
@@ -215,7 +215,7 @@ final class AddPresenter extends SignedPresenter
   
   /**
    * Render Add format
-   * @param int $id
+   * @param int $id Book id
    * @return void
    */
   public function renderFormat($id) 

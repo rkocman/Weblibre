@@ -202,8 +202,8 @@ final class BrowsePresenter extends SignedPresenter
   
   /**
    * Sort sortBy
-   * @var array $a
-   * @var array $b
+   * @var array $a First title
+   * @var array $b Second title
    * @return int
    */
   private function sortSortBy($a, $b) 
@@ -212,7 +212,7 @@ final class BrowsePresenter extends SignedPresenter
   }
   
   /**
-	 * Order by form component factory
+	 * Sort by form
 	 * @return Nette\Application\UI\Form
 	 */
   protected function createComponentSortByForm($name) 
@@ -251,7 +251,7 @@ final class BrowsePresenter extends SignedPresenter
   }
   
   /**
-	 * Search form component factory
+	 * Search form
 	 * @return Nette\Application\UI\Form
 	 */
   protected function createComponentSearchForm($name) 
@@ -345,7 +345,7 @@ final class BrowsePresenter extends SignedPresenter
   
   /**
    * Action authors
-   * @param int|NULL $id
+   * @param int|NULL $id Author id
    * @return void
    */
   public function actionAuthors($id = NULL) 
@@ -365,7 +365,7 @@ final class BrowsePresenter extends SignedPresenter
   
   /**
    * Render books by authors
-   * @param int|NULL $id
+   * @param int|NULL $id Author id
    * @return void
    */
   public function renderAuthors($id = NULL) 
@@ -387,7 +387,7 @@ final class BrowsePresenter extends SignedPresenter
   
   /**
    * Action languages
-   * @param int|NULL $id
+   * @param int|NULL $id Language id
    * @return void
    */
   public function actionLanguages($id = NULL) 
@@ -407,7 +407,7 @@ final class BrowsePresenter extends SignedPresenter
   
   /**
    * Render books by languages
-   * @param int|NULL $id
+   * @param int|NULL $id Language id
    * @return void
    */
   public function renderLanguages($id = NULL) 
@@ -429,7 +429,7 @@ final class BrowsePresenter extends SignedPresenter
   
   /**
    * Action publishers
-   * @param int|NULL $id
+   * @param int|NULL $id Publisher id
    * @return void
    */
   public function actionPublishers($id = NULL) 
@@ -449,7 +449,7 @@ final class BrowsePresenter extends SignedPresenter
   
   /**
    * Render books by publishers
-   * @param int|NULL $id
+   * @param int|NULL $id Publisher id
    * @return void
    */
   public function renderPublishers($id = NULL) 
@@ -471,7 +471,7 @@ final class BrowsePresenter extends SignedPresenter
   
   /**
    * Action ratings
-   * @param int|NULL $id
+   * @param int|NULL $id Rating id
    * @return void
    */
   public function actionRatings($id = NULL) 
@@ -491,7 +491,7 @@ final class BrowsePresenter extends SignedPresenter
   
   /**
    * Render books by rating
-   * @param int|NULL $id
+   * @param int|NULL $id Rating id
    * @return void
    */
   public function renderRatings($id = NULL) 
@@ -513,7 +513,7 @@ final class BrowsePresenter extends SignedPresenter
   
   /**
    * Action series
-   * @param int|NULL $id
+   * @param int|NULL $id Series id
    * @return void
    */
   public function actionSeries($id = NULL) 
@@ -533,7 +533,7 @@ final class BrowsePresenter extends SignedPresenter
   
   /**
    * Render books by series
-   * @param int|NULL $id
+   * @param int|NULL $id Series id
    * @return void
    */
   public function renderSeries($id = NULL) 
@@ -555,7 +555,7 @@ final class BrowsePresenter extends SignedPresenter
   
   /**
    * Action tags
-   * @param int|NULL $id
+   * @param int|NULL $id Tag id
    * @return void
    */
   public function actionTags($id = NULL) 
@@ -575,7 +575,7 @@ final class BrowsePresenter extends SignedPresenter
   
   /**
    * Render books by tags
-   * @param int|NULL $id
+   * @param int|NULL $id Tag id
    * @return void
    */
   public function renderTags($id = NULL) 

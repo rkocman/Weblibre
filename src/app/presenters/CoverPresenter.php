@@ -42,8 +42,8 @@ final class CoverPresenter extends SignedPresenter
   
   /**
    * Default action
-   * @param int|string $id
-   * @param string $size 
+   * @param int|string $id Book id
+   * @param string $size Selected size ["browse", "book"]
    */
   public function actionDefault($id, $size) 
   {

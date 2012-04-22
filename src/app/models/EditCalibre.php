@@ -17,8 +17,8 @@ final class EditCalibre extends BaseCalibre
   
   /**
    * Get metadata path
-   * @param int $id
-   * @return string
+   * @param int $id Book id
+   * @return string Metadata path
    */
   private function getMetadataPath($id)
   {
@@ -33,9 +33,9 @@ final class EditCalibre extends BaseCalibre
   
   /**
    * Get value of first finded node
-   * @param string $query
-   * @param DOMXPath $xpath
-   * @return string
+   * @param string $query XPath expression
+   * @param DOMXPath $xpath Metadata DOMXPath instance
+   * @return string Result value
    */
   private function getNodeValue($query ,$xpath)
   {
@@ -48,9 +48,9 @@ final class EditCalibre extends BaseCalibre
   
   /**
    * Get values of finded nodes
-   * @param string $query
-   * @param DOMXPath $xpath
-   * @return array
+   * @param string $query XPath expression
+   * @param DOMXPath $xpath Metadata DOMXPath instance
+   * @return array Results in array
    */
   private function getNodesValues($query, $xpath)
   {
@@ -148,7 +148,7 @@ final class EditCalibre extends BaseCalibre
   /**
    * Check database and convert languages array into string
    * @param array $languages
-   * @param int $id
+   * @param int $id Book id
    * @return string
    */
   private function convertLanguages($languages, $id)
@@ -177,8 +177,8 @@ final class EditCalibre extends BaseCalibre
 
   /**
    * Get book metadata
-   * @param int $id
-   * @return array
+   * @param int $id Book id
+   * @return array Result in array
    */
   public function getMetadata($id)
   {
@@ -188,7 +188,7 @@ final class EditCalibre extends BaseCalibre
     // Load OPF
     $opf = new DOMDocument();
     $opf->load($path);
-    $xpath = new DOMXpath($opf);
+    $xpath = new DOMXPath($opf);
     $xpath->registerNamespace("opf", "http://www.idpf.org/2007/opf");
     $xpath->registerNamespace("dc", "http://purl.org/dc/elements/1.1/"); 
     
@@ -249,8 +249,8 @@ final class EditCalibre extends BaseCalibre
   
   /**
    * Save edited metadata
-   * @param array $values
-   * @param int $id
+   * @param array $values EditForm values
+   * @param int $id Book id
    * @return bool
    * @throws Nette\Application\ApplicationException
    */
@@ -304,9 +304,9 @@ final class EditCalibre extends BaseCalibre
   
   /**
    * Create OPF format
-   * @param XMLWriter $opf
-   * @param array $values
-   * @todo Repair date selection
+   * @param XMLWriter $opf Matadata XMLWriter instance
+   * @param array $values EditForm values
+   * @return void
    */
   private function createOPF($opf, $values)
   {

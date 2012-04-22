@@ -60,7 +60,7 @@ final class BookPresenter extends SignedPresenter
   
   /**
    * Book's details
-   * @param int $id 
+   * @param int $id Book id
    * @return void
    * @throws Nette\Application\BadRequestException
    */

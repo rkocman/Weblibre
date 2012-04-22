@@ -503,7 +503,7 @@ final class ConvertPresenter extends SignedPresenter
   /**
    * Convert section
    * @param int $id
-   * @return void
+   * @return void Book id
    * @throws Nette\Application\BadRequestException
    */
   public function actionDefault($id)
@@ -518,8 +518,8 @@ final class ConvertPresenter extends SignedPresenter
   
   /**
    * Render convert section
-   * @param int $id
-   * @param string $format
+   * @param int $id Book id
+   * @param string $format Format name
    * @return void
    */
   public function renderDefault($id, $format = NULL)

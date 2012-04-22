@@ -20,7 +20,7 @@ final class BrowseCalibre extends BaseCalibre
   
   /**
    * Set cache
-   * @param string $db 
+   * @param string $db Database path
    */
   public function __construct($db) 
   {
@@ -33,9 +33,9 @@ final class BrowseCalibre extends BaseCalibre
   
   /**
    * Complete search results about books
-   * @param array $sequence Sequnce of books id
+   * @param array $sequence Sequence of books id
    * @param int $count Number of all matched books
-   * @return array
+   * @return array Results in array
    */
   private function completeSearchResults($sequence, $count) 
   {
@@ -125,9 +125,9 @@ final class BrowseCalibre extends BaseCalibre
   
   /**
    * Request execute Calibre
-   * @param string sortBy
-   * @param string search
-   * @return array
+   * @param string sortBy Sort by form value
+   * @param string search Search form value
+   * @return array Sequence of books id
    * @throws Nette\Application\ApplicationException
    */
   private function requestExecuteCalibre($sortBy, $search) 
@@ -178,9 +178,9 @@ final class BrowseCalibre extends BaseCalibre
   
   /**
    * Request Calibre
-   * @param string sortBy
-   * @param string search
-   * @return array
+   * @param string sortBy Sort by form value
+   * @param string search Search form value
+   * @return array Sequence of books id
    */
   private function requestCalibre($sortBy, $search) 
   {
@@ -214,9 +214,9 @@ final class BrowseCalibre extends BaseCalibre
   
   /**
    * Limit records by page
-   * @param int $page
-   * @param int $records
-   * @return string
+   * @param int $page Current page
+   * @param int $records Number of records on page
+   * @return string Sql LIMIT string
    */
   private function limitDB($page, $records) 
   {
@@ -225,10 +225,10 @@ final class BrowseCalibre extends BaseCalibre
   
   /**
    * Limit calibre records
-   * @param int $page
-   * @param int $records
-   * @param array data
-   * @return array
+   * @param int $page Current page
+   * @param int $records Number of records on page
+   * @param array data Sequence of all matched books id
+   * @return array Sequence of books id
    */
   private function limitCalibre($page, $records, $data) 
   {
@@ -246,9 +246,9 @@ final class BrowseCalibre extends BaseCalibre
   
   /**
    * Get newest books
-   * @param int $page
-   * @param int $records
-   * @return array
+   * @param int $page Current page
+   * @param int $records Number of records on page
+   * @return array Results in array
    */
   public function getNewestBooks($page, $records) 
   {
@@ -278,11 +278,11 @@ final class BrowseCalibre extends BaseCalibre
   
   /**
    * Get all books
-   * @param int $page
-   * @param int $records
-   * @param string $sortBy
-   * @param string $search
-   * @return array
+   * @param int $page Current page
+   * @param int $records Number of records on page
+   * @param string $sortBy Sort by form value
+   * @param string $search Search form value
+   * @return array Results in array
    */
   public function getAllBooks($page, $records, $sortBy, $search) 
   {
@@ -296,7 +296,7 @@ final class BrowseCalibre extends BaseCalibre
   
   /**
    * Get authors
-   * @return array
+   * @return array Results in array
    */
   public function getAuthors() 
   {
@@ -314,8 +314,8 @@ final class BrowseCalibre extends BaseCalibre
   
   /**
    * Get author name
-   * @param int $id
-   * @return string
+   * @param int $id Author id
+   * @return string Author name
    */
   public function getAuthorName($id) 
   {
@@ -328,11 +328,11 @@ final class BrowseCalibre extends BaseCalibre
   
   /**
    * Get author books
-   * @param int $page
-   * @param int $records
-   * @param string $sortBy
-   * @param int $id
-   * @return array
+   * @param int $page Current page
+   * @param int $records Number of records on page
+   * @param string $sortBy Sort by form value
+   * @param int $id Author id
+   * @return array Results in array
    */
   public function getAuthorBooks($page, $records, $sortBy, $id) 
   {
@@ -350,7 +350,7 @@ final class BrowseCalibre extends BaseCalibre
   
   /**
    * Get languages
-   * @return array
+   * @return array Results in array
    */
   public function getLanguages() 
   {
@@ -368,8 +368,8 @@ final class BrowseCalibre extends BaseCalibre
   
   /**
    * Get language name
-   * @param int $id
-   * @return string
+   * @param int $id Language id
+   * @return string Language name
    */
   public function getLanguageName($id) 
   {
@@ -382,11 +382,11 @@ final class BrowseCalibre extends BaseCalibre
   
   /**
    * Get language books
-   * @param int $page
-   * @param int $records
-   * @param string $sortBy
-   * @param int $id
-   * @return array
+   * @param int $page Current page
+   * @param int $records Number of records on page
+   * @param string $sortBy Sort by form value
+   * @param int $id Language id
+   * @return array Results in array
    */
   public function getLanguageBooks($page, $records, $sortBy, $id) 
   {   
@@ -404,7 +404,7 @@ final class BrowseCalibre extends BaseCalibre
   
   /**
    * Get publishers
-   * @return array
+   * @return array Results in array
    */
   public function getPublishers() 
   {
@@ -422,8 +422,8 @@ final class BrowseCalibre extends BaseCalibre
   
   /**
    * Get publisher name
-   * @param int $id
-   * @return string
+   * @param int $id Publisher id
+   * @return string Publisher name
    */
   public function getPublisherName($id) 
   {
@@ -436,11 +436,11 @@ final class BrowseCalibre extends BaseCalibre
   
   /**
    * Get publisher books
-   * @param int $page
-   * @param int $records
-   * @param string $sortBy
-   * @param int $id
-   * @return array
+   * @param int $page Current page
+   * @param int $records Number of records on page
+   * @param string $sortBy Sort by form value
+   * @param int $id Publisher id
+   * @return array Results in array
    */
   public function getPublisherBooks($page, $records, $sortBy, $id) 
   {
@@ -458,7 +458,7 @@ final class BrowseCalibre extends BaseCalibre
   
   /**
    * Get ratings
-   * @return array
+   * @return array Results in array
    */
   public function getRatings() 
   {
@@ -479,8 +479,8 @@ final class BrowseCalibre extends BaseCalibre
   
   /**
    * Get rating name
-   * @param int $id
-   * @return string
+   * @param int $id Rating id
+   * @return string Rating name
    */
   public function getRatingName($id) 
   {
@@ -493,11 +493,11 @@ final class BrowseCalibre extends BaseCalibre
   
   /**
    * Get rating books
-   * @param int $page
-   * @param int $records
-   * @param string $sortBy
-   * @param int $id
-   * @return array
+   * @param int $page Current page
+   * @param int $records Number of records on page
+   * @param string $sortBy Sort by form value
+   * @param int $id Rating id
+   * @return array Results in array
    */
   public function getRatingBooks($page, $records, $sortBy, $id) 
   {
@@ -515,7 +515,7 @@ final class BrowseCalibre extends BaseCalibre
   
   /**
    * Get series
-   * @return array
+   * @return array Results in array
    */
   public function getSeries() 
   {
@@ -533,8 +533,8 @@ final class BrowseCalibre extends BaseCalibre
   
   /**
    * Get series name
-   * @param int $id
-   * @return string
+   * @param int $id Series id
+   * @return string Series name
    */
   public function getSeriesName($id) 
   {
@@ -547,11 +547,11 @@ final class BrowseCalibre extends BaseCalibre
   
   /**
    * Get series books
-   * @param int $page
-   * @param int $records
-   * @param string $sortBy
-   * @param int $id
-   * @return array
+   * @param int $page Current page
+   * @param int $records Number of records on page
+   * @param string $sortBy Sort by form value
+   * @param int $id Series id
+   * @return array Results in array
    */
   public function getSeriesBooks($page, $records, $sortBy, $id) 
   {  
@@ -569,7 +569,7 @@ final class BrowseCalibre extends BaseCalibre
   
   /**
    * Get tags
-   * @return array
+   * @return array Results in array
    */
   public function getTags() 
   {
@@ -586,9 +586,9 @@ final class BrowseCalibre extends BaseCalibre
   }
   
   /**
-   * Get tags name
-   * @param int $id
-   * @return string
+   * Get tag name
+   * @param int $id Tag id
+   * @return string Tag name
    */
   public function getTagName($id) 
   {
@@ -601,11 +601,11 @@ final class BrowseCalibre extends BaseCalibre
   
   /**
    * Get tag books
-   * @param int $page
-   * @param int $records
-   * @param string $sortBy
-   * @param int $id
-   * @return array
+   * @param int $page Current page
+   * @param int $records Number of records on page
+   * @param string $sortBy Sort by form value
+   * @param int $id Tag id
+   * @return array Results in array
    */
   public function getTagBooks($page, $records, $sortBy, $id)
   {

@@ -35,7 +35,7 @@ abstract class BaseCalibre extends Nette\Object
   
   /**
    * Connect to database and save variables
-   * @param string $db 
+   * @param string $db Database path
    */
   public function __construct($db) 
   {
@@ -62,9 +62,9 @@ abstract class BaseCalibre extends Nette\Object
   }
   
   /**
-   * Environment dependent parametr escaping
-   * @param string $param
-   * @return string
+   * Environment dependent parameter escaping
+   * @param string $param Parameter
+   * @return string Escaped parameter
    */
   protected function envEscape($param) 
   {
@@ -84,8 +84,8 @@ abstract class BaseCalibre extends Nette\Object
   
   /**
    * Windows command line escaping
-   * @param string $command
-   * @return string
+   * @param string $command Parameter
+   * @return string Escaped parameter
    */
   private function winCmdEscape($command) 
   {
@@ -99,9 +99,9 @@ abstract class BaseCalibre extends Nette\Object
   
   /**
    * Execute on Widnows
-   * @param string $exe
-   * @param string $command
-   * @return array
+   * @param string $exe Executable file path
+   * @param string $command Additional parameters
+   * @return array Result with return code and output
    * @throws Nette\Application\ApplicationException
    */
   private function executeOnWidnows($exe, $command) 
@@ -141,9 +141,9 @@ abstract class BaseCalibre extends Nette\Object
   
   /**
    * Execute on Unix
-   * @param string $exe
-   * @param string $command
-   * @return array
+   * @param string $exe Executable file path
+   * @param string $command Additional parameters
+   * @return array Result with return code and output
    */
   private function executeOnUnix($exe, $command) 
   {
@@ -159,9 +159,9 @@ abstract class BaseCalibre extends Nette\Object
   
   /**
    * Execute command
-   * @param string $exe
-   * @param string $command
-   * @return array
+   * @param string $exe Executable file selection ["calibredb", "ebook-convert"]
+   * @param string $command Additional parameters
+   * @return array Result with return code and output
    * @throws Nette\Application\ApplicationException
    */
   protected function execute($exe, $command) 
@@ -211,7 +211,7 @@ abstract class BaseCalibre extends Nette\Object
   
   /**
    * Check book
-   * @param int $id
+   * @param int $id Book id
    * @return bool
    */
   public function checkBook($id) 
@@ -226,8 +226,8 @@ abstract class BaseCalibre extends Nette\Object
   
   /**
    * Get book name
-   * @param int $id
-   * @return string
+   * @param int $id Book id
+   * @return string Book name
    */
   public function getBookName($id) 
   {

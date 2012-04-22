@@ -37,7 +37,7 @@ final class DownloadPresenter extends SignedPresenter
   
   /**
    * Handle download request
-   * @param int $id
+   * @param int $id Format id
    * @return void
    * @throws Nette\Application\BadRequestException
    */

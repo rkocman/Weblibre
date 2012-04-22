@@ -66,7 +66,7 @@ final class ViewPresenter extends SignedPresenter
   
   /**
    * View actions
-   * @param int $id
+   * @param int $id Format id
    * @return void
    * @throws Nette\Application\BadRequestException
    */
@@ -83,7 +83,7 @@ final class ViewPresenter extends SignedPresenter
   
   /**
    * Render view
-   * @param int $id
+   * @param int $id Format id
    * @return void
    */
   public function renderDefault($id)

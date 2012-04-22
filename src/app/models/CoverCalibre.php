@@ -33,8 +33,8 @@ final class CoverCalibre extends BaseCalibre
   
   /**
    * Get img path
-   * @param int|string $id
-   * @return string
+   * @param int|string $id Book id or "none"
+   * @return string Cover path
    */
   private function getPath($id) 
   {
@@ -53,7 +53,7 @@ final class CoverCalibre extends BaseCalibre
   
   /**
    * Check if cover exist
-   * @param int|string $id
+   * @param int|string $id Book id or "none"
    * @return bool
    */
   public function checkCover($id) 
@@ -63,9 +63,9 @@ final class CoverCalibre extends BaseCalibre
   
   /**
    * Prepare img to selected max size
-   * @param int|string $id
-   * @param int $width
-   * @param int $height
+   * @param int|string $id Book id or "none"
+   * @param int $width Cover width
+   * @param int $height Cover height
    * @return img 
    * @throws Nette\Application\ApplicationException
    */
@@ -101,8 +101,8 @@ final class CoverCalibre extends BaseCalibre
   
   /**
    * Get img with selected max size
-   * @param int|string $id
-   * @param string $size 
+   * @param int|string $id Book id or "none"
+   * @param string $size Selected size ["browse", "book"]
    * @return img
    */
   private function getImg($id, $size) 
@@ -123,8 +123,8 @@ final class CoverCalibre extends BaseCalibre
   
   /**
    * Load cover
-   * @param int|string $id
-   * @param string $size 
+   * @param int|string $id Book id or "none"
+   * @param string $size Selected size ["browse", "book"]
    */
   public function loadCover($id, $size) 
   {
@@ -160,7 +160,7 @@ final class CoverCalibre extends BaseCalibre
   
   /**
    * Load time
-   * @param int/string $id
+   * @param int|string $id Book id or "none"
    * @return time
    */
   public function loadTime($id) 

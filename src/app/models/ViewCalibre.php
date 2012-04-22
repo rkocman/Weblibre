@@ -24,7 +24,7 @@ final class ViewCalibre extends BaseCalibre
   
   /**
    * Check selected format
-   * @param int $id
+   * @param int $id Format id
    * @return bool
    */
   public function checkViewFormat($id)
@@ -40,8 +40,8 @@ final class ViewCalibre extends BaseCalibre
   
   /**
    * Get format info
-   * @param int $id
-   * @return array
+   * @param int $id Format id
+   * @return array Result in array
    */
   public function getFormatInfo($id)
   {

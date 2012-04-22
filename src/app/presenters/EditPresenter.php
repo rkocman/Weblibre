@@ -132,7 +132,7 @@ final class EditPresenter extends SignedPresenter
   
   /**
    * Metadata editing
-   * @param int $id
+   * @param int $id Book id
    * @return void
    * @throws Nette\Application\BadRequestException
    */
@@ -148,7 +148,7 @@ final class EditPresenter extends SignedPresenter
   
   /**
    * Render metadata editing
-   * @param int $id
+   * @param int $id Book id
    * @return void
    */
   public function renderDefault($id)

@@ -39,7 +39,7 @@ final class RemovePresenter extends SignedPresenter
   
   /**
    * Remove book
-   * @param int $id
+   * @param int $id Book id
    * @return void
    * @throws Nette\Application\BadRequestException
    */
@@ -55,7 +55,7 @@ final class RemovePresenter extends SignedPresenter
   
   /**
    * Remove format
-   * @paramt int $id
+   * @paramt int $id Format id
    * @return void
    * @throws Nette\Application\BadRequestException
    */

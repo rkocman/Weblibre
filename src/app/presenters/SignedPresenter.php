@@ -78,8 +78,8 @@ abstract class SignedPresenter extends BasePresenter
   
   /**
    * Menu check test
-   * @param array $menu
-   * @return array 
+   * @param array $menu Array with menu
+   * @return array Array with tested menu
    */
   private function menuCheckTest($menu) 
   {
@@ -100,8 +100,10 @@ abstract class SignedPresenter extends BasePresenter
   
   /**
    * Add item into navigation
-   * @param string $title
-   * @param string $href
+   * @param string $title Shown title
+   * @param string $href Link - can be empty string
+   * @param bool $translate Should be title translated?
+   * @param int $id Id for specific subsection
    * @return void
    */
   protected function addNavigation($title, $href, $translate=true, $id=NULL) 

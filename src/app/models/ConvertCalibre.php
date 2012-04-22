@@ -28,7 +28,7 @@ final class ConvertCalibre extends BaseCalibre
   
   /**
    * Check if book has convertable format
-   * @param int $id
+   * @param int $id Book id
    * @return bool
    */
   public function checkConvertable($id)
@@ -45,8 +45,8 @@ final class ConvertCalibre extends BaseCalibre
   
   /**
    * Get book's convertable formats
-   * @param int $id
-   * @return array
+   * @param int $id Book id
+   * @return array Results in array
    */
   public function getFormats($id)
   {
@@ -67,8 +67,8 @@ final class ConvertCalibre extends BaseCalibre
   
   /**
    * Convert book
-   * @param array $values
-   * @param int $id
+   * @param array $values ConvertForm values
+   * @param int $id Book id
    * @return bool
    * @throws Nette\Application\ApplicationException
    */
@@ -111,9 +111,9 @@ final class ConvertCalibre extends BaseCalibre
   
   /**
    * Executing conversion
-   * @param string $input_file
-   * @param string $output_file
-   * @param string $values
+   * @param string $input_file Input file path
+   * @param string $output_file Output file path
+   * @param string $values ConvertForm values
    * @return bool
    */
   private function convertExecute($input_file, $output_file, $values)

@@ -17,9 +17,8 @@ final class BookCalibre extends BaseCalibre
   
   /**
    * Get book details from library
-   * @param int $id
-   * @return array
-   * @todo All
+   * @param int $id Book id
+   * @return array Result in array
    */
   public function getBook($id) 
   {  
@@ -122,7 +121,7 @@ final class BookCalibre extends BaseCalibre
   
   /**
    * Format size into string
-   * @param int $size
+   * @param int $size Size in bytes
    * @return string
    */
   private function sizeToString($size) 

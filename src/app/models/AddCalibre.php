@@ -19,7 +19,7 @@ final class AddCalibre extends BaseCalibre
 
   /**
    * Add uploaded books into library
-   * @param array $values
+   * @param array $values AddForm values
    * @return bool
    * @throws Nette\Application\ApplicationException
    */
@@ -30,8 +30,8 @@ final class AddCalibre extends BaseCalibre
   
   /**
    * Add uploaded format into library
-   * @param array $values
-   * @param int $id
+   * @param array $values AddFormatForm values
+   * @param int $id Book id
    * @return bool
    * @throws Nette\Application\ApplicationException
    */
@@ -42,8 +42,8 @@ final class AddCalibre extends BaseCalibre
   
   /**
    * Add uploaded into library
-   * @param array $values 
-   * @param int $id
+   * @param array $values AddForm or AddFormatForm values
+   * @param int $id Book id
    * @return bool
    * @throws Nette\Application\ApplicationException
    */
@@ -131,8 +131,8 @@ final class AddCalibre extends BaseCalibre
   
   /**
    * Add format from file into library
-   * @param string $file
-   * @param int $id
+   * @param string $file File path
+   * @param int $id Book id
    */
   public function addFormatFile($file, $id)
   {

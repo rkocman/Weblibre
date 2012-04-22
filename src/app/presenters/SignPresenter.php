@@ -69,8 +69,8 @@ final class SignPresenter extends BasePresenter
   
   /**
    * Sort languages
-   * @var array $a
-   * @var array $b
+   * @var array $a First language
+   * @var array $b Second language
    * @return int
    */
   private function sortLang($a, $b) 

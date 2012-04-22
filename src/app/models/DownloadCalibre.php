@@ -19,7 +19,7 @@ final class DownloadCalibre extends BaseCalibre
 
   /**
    * Get file path
-   * @param int $id
+   * @param int $id Format id
    * @return string|NULL
    */
   public function getPath($id) 
