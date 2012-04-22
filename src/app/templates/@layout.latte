@@ -86,9 +86,9 @@
               {ifset $item['href']}<a n:href="$item['href']
                  id => $item['id'], search => NULL, page => NULL">{/ifset
                 }{if $item['translate']
-                  }{_($item['title'])
+                  }{_($item['title'])|truncate:50
                 }{else
-                  }{$item['title']
+                  }{$item['title']|truncate:50
                 }{/if
               }{ifset $item['href']}</a>{/ifset}
               {if !$iterator->isLast()}

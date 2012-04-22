@@ -13,24 +13,21 @@
   <div n:foreach="$flashes as $flash" class="flash {$flash->type}">{$flash->message}</div>
 
 </div>
+  
+<h1>{_("Add format")} - {$bookName}</h1>
 
 {form addFormatForm}
-  <table class="add-format">
-    <tr>
-      <td class="head">
-        <h2>{_("Add format for book")} {$bookName}</h2>
-      </td>
-    </tr>
+  <table class="add-content">
     {formContainer 1}
     <tr>
       <td>{input book class => "field", size => 80}</td>
     </tr>
     {/formContainer}
+  </table>
+  <table class="bar">
     <tr>
-      <td class="send">
-        {input send class => "button"}
-        {_("Maximum size")}: {ini_get('post_max_size')}
-      </td>
+      <td>{_("Maximum size")}: {ini_get('post_max_size')}</td>
+      <td>{input send class => "button"}</td>
     </tr>
   </table>
 {/form addFormatForm}

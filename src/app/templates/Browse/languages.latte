@@ -29,10 +29,12 @@
     
     {foreach $result as $line}
       <tr n:class="link, ($iterator->even)? even">
-        <td>
-          <a n:href="this id => $line['id']">
-            <h2>{$line['lang_code']}</h2>
-          </a>
+        <td class="max-width">
+          <div>
+            <a n:href="this id => $line['id']">
+              <h2>{$line['lang_code']}</h2>
+            </a>
+          </div>
         </td>
         <td class="nowrap">
           {include #ratingAvg, lid => $line['id'], rating => $line['rating']}

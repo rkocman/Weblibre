@@ -20,21 +20,21 @@
   <table>
     <tr>
       <th>{label title /}:</th>
-      <td class="middleWidth">{input title class => "field"}</td>
+      <td class="middleWidth">{input title class => "field", tabindex => 100}</td>
       <th>{label title_sort /}:</th>
-      <td>{input title_sort class => "field"}</td>
+      <td>{input title_sort class => "field", tabindex => 101}</td>
     </tr>
     <tr>
       <th>{label authors /}:</th>
-      <td>{input authors class => "field"}</td>
+      <td>{input authors class => "field", tabindex => 102}</td>
       <th>{label author_sort /}:</th>
-      <td>{input author_sort class => "field"}</td>
+      <td>{input author_sort class => "field", tabindex => 103}</td>
     </tr>
     <tr>
       <th>{label series /}:</th>
-      <td>{input series class => "field"}</td>
+      <td>{input series class => "field", tabindex => 104}</td>
       <th>{label series_index /}:</th>
-      <td>{input series_index class => "field"}</td>
+      <td>{input series_index class => "field", tabindex => 105}</td>
     </tr>
     <tr class="comments-label">
       <td colspan="2"></td>
@@ -42,36 +42,36 @@
     </tr>
     <tr>
       <th>{label rating /}:</th>
-      <td>{input rating class => "select"}</td>
-      <td colspan="2" rowspan="7" class="comments">{input comments}</td>
+      <td>{input rating class => "select", tabindex => 106}</td>
+      <td colspan="2" rowspan="7" class="comments">{input comments tabindex => 113}</td>
     </tr>
     <tr>
       <th>{label tags /}:</th>
-      <td>{input tags class => "field"}</td>
+      <td>{input tags class => "field", tabindex => 107}</td>
     </tr>
     <tr>
       <th>{label identifiers /}:</th>
-      <td>{input identifiers class => "field"}</td>
+      <td>{input identifiers class => "field", tabindex => 108}</td>
     </tr>
     <tr>
       <th>{label date /}:</th>
-      <td>{input date class => "field date longRange"}</td>
+      <td>{input date class => "field date longRange", tabindex => 109}</td>
     </tr>
     <tr>
       <th>{label published /}:</th>
-      <td>{input published class => "field date longRange"}</td>
+      <td>{input published class => "field date longRange", tabindex => 110}</td>
     </tr>
     <tr>
       <th>{label publisher /}:</th>
-      <td>{input publisher class => "field"}</td>
+      <td>{input publisher class => "field", tabindex => 111}</td>
     </tr>
     <tr>
       <th>{label languages /}:</th>
-      <td>{input languages class => "field"}</td>
+      <td>{input languages class => "field", tabindex => 112}</td>
     </tr>
     <tr>
       <td colspan="4" class="send">
-        {input send class => "button"}
+        {input send class => "button", tabindex => 114}
       </td>
     </tr>
   </table>

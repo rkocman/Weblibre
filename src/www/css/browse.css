@@ -44,7 +44,7 @@
 }
 #browse #selection .selected,
 #browse #selection a:hover {
-	background-color: #f7f7f7;
+	background-color: #f6f6f6;
 }
 #browse #selection .selected span {
 	visibility: visible;
@@ -79,14 +79,16 @@
 #browse #sort-by .form {
 	float: right;
 	width: 177px;
-	height: 34px;
-	line-height: 34px;
+	height: 30px;
+	line-height: 30px;
+  padding: 2px 0;
 }
 #browse #sort-by select {
 	border: 1px solid #e4e4e4;
 	background: #eeeeee;
 	width: 174px;
 	padding: 4px;
+  margin: 0;
 }
 
 #browse #search {
@@ -259,6 +261,8 @@
 	width: 230px;
 	line-height: 20px;
 	padding-left: 21px;
+  overflow: hidden;
+  word-wrap: break-word;
 }
 #browse #result .modern .info2 {
 	float: left;
@@ -266,6 +270,8 @@
 	line-height: 20px;
 	padding-left: 15px;
 	padding-top: 3px;
+  overflow: hidden;
+  word-wrap: break-word;
 }
 #browse #result .modern h2 {
 	color: Black;
@@ -291,7 +297,7 @@
 }
 #browse #result .classic th {
 	text-align: center;
-	background-color: #F7F7F7;
+	background-color: #f6f6f6;
 	padding: 10px 5px;
 	cursor: default;
 }
@@ -323,7 +329,32 @@
 	font-size: 11px;
 }
 #browse #result .classic .even {
-	background-color: #F7F7F7;
+	background-color: #f6f6f6;
+}
+#browse #result .classic .title-width {
+  width: 310px;
+}
+#browse #result .classic .title-width h2,
+#browse #result .classic .title-width div {
+  width: inherit;
+  overflow: hidden;
+  word-wrap: break-word;
+}
+#browse #result .classic .author-width {
+  width: 150px;
+}
+#browse #result .classic .author-width div {
+  width: inherit;
+  overflow: hidden;
+  word-wrap: break-word;
+}
+#browse #result .classic .series-width {
+  width: 100px;
+}
+#browse #result .classic .series-width div {
+  width: inherit;
+  overflow: hidden;
+  word-wrap: break-word;
 }
 
 #browse #result .select {
@@ -335,7 +366,7 @@
 }
 #browse #result .select th {
 	text-align: center;
-	background-color: #F7F7F7;
+	background-color: #f6f6f6;
 	padding: 10px 5px;
 	cursor: default;
 }
@@ -362,18 +393,26 @@
 #browse #result .select h2 {
 	color: Black;
 	line-height: 16px;
-	padding: 9px 0;
+	padding: 9px 15px;
 }
 #browse #result .select .even {
-	background-color: #F7F7F7;
+	background-color: #f6f6f6;
 }
 #browse #result .select a {
 	color: Black;
 	text-decoration: none;
 	display: block;
-	height: 34px;
+	min-height: 34px;
 	line-height: 34px;
 }
 #browse #result .select .link:hover {
 	background: #ecebe6;
+}
+#browse .max-width {
+  width: 420px;
+}
+#browse .max-width div {
+  width: inherit;
+  overflow: hidden;
+  word-wrap: break-word;
 }

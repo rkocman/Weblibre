@@ -14,14 +14,11 @@
 
 </div>
 
+<a n:href="addEmpty!" class="empty">{_("Add empty book")}</a>
+<h1>{_("Upload books")}</h1>
+
 {form addForm}
-  <table>
-    <tr>
-      <td colspan="2" class="head">
-        <a n:href="addEmpty!">{_("Add empty book")}</a>
-        <h2>{_("Upload books")}</h2>
-      </td>
-    </tr>
+  <table class="add-content">
     {for $i = 1; $i <= 5; $i++}
       {formContainer $i}
       <tr>
@@ -30,11 +27,11 @@
       </tr>
       {/formContainer}
     {/for}
+  </table>
+  <table class="bar">
     <tr>
-      <td colspan="2" class="send">
-        {input send class => "button"}
-        {_("Maximum size")}: {ini_get('post_max_size')}
-      </td>
+      <td>{_("Maximum size")}: {ini_get('post_max_size')}</td>
+      <td>{input send class => "button"}</td>
     </tr>
   </table>
 {/form addForm}

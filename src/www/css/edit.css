@@ -28,6 +28,8 @@
   font-size: 16px;
   color: Black;
   padding-bottom: 15px;
+  overflow: hidden;
+  word-wrap: break-word;
 }
 
 #edit table {

@@ -20,7 +20,7 @@
   {foreach $result['results'] as $book}
     
     <tr n:class="($iterator->even)? even">
-      <td class="first">
+      <td class="first title-width">
         <h2>{$book['title']}</h2>
         <div class="next">
           <a n:href="Book: $book['id']">{_("Details")}</a> |
@@ -39,10 +39,12 @@
           {/if}
         </div>
       </td>
-      <td class="center">
-        {foreach $book['authors'] as $author}
-          {$author['name']}{sep}, {/sep}
-        {/foreach}
+      <td class="center author-width">
+        <div>
+          {foreach $book['authors'] as $author}
+            {$author['name']}{sep}, {/sep}
+          {/foreach}
+        </div>
       </td>
       <td class="rating nowrap">
         {if $book['rating'] > 0}
@@ -60,10 +62,12 @@
       <td class="nowrap center">
         {$book['timestamp']}
       </td>
-      <td class="last">
-        {if !empty($book['series'])}
-          {$book['series']} [{$book['seriescount']}]
-        {/if}
+      <td class="last center series-width">
+        <div>
+          {if !empty($book['series'])}
+            {$book['series']} [{$book['seriescount']}]
+          {/if}
+        </div>
       </td>
     </tr>
   

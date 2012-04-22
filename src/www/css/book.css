@@ -19,6 +19,8 @@
 #book h1 {
   font-size: 16px;
   color: Black;
+  overflow: hidden;
+  word-wrap: break-word;
 }
 #book .cover {
 	float: left;
@@ -30,6 +32,7 @@
 #book .info {
   overflow: auto;
   padding-top: 20px;
+  word-wrap: break-word;
 }
 #book .info p {
   margin-bottom: 10px;
@@ -48,6 +51,7 @@
 #book .comments {
   padding-top: 11px;
   line-height: 19px;
+  word-wrap: break-word;
 }
 
 #book .change-metadata {
@@ -117,7 +121,7 @@
 }
 #book .format-table th {
 	text-align: center;
-	background-color: #F7F7F7;
+	background-color: #f6f6f6;
 	padding: 10px 5px;
 	cursor: default;
 }
@@ -127,5 +131,5 @@
 	line-height: 34px;
 }
 #book .format-table .even {
-	background-color: #F7F7F7;
+	background-color: #f6f6f6;
 }
