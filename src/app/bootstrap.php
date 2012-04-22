@@ -10,6 +10,11 @@
 use Nette\Application\Routers\Route;
 
 
+// Load Weblibre config files
+require_once '../config.php';
+require_once '../lang/lang.php';
+
+
 // Load Nette Framework
 require LIBS_DIR . '/Nette/loader.php';
 
@@ -19,7 +24,7 @@ $configurator = new Nette\Config\Configurator;
 
 // Enable Nette Debugger for error visualisation & logging
 //$configurator->setProductionMode($configurator::AUTO);
-//$configurator->setProductionMode();
+$configurator->setProductionMode(!$wconfig['debug']);
 $configurator->enableDebugger(__DIR__ . '/../log');
 
 // Enable RobotLoader - this will load all classes automatically
@@ -32,10 +37,6 @@ $configurator->createRobotLoader()
 // Configure debuger
 Nette\Diagnostics\Debugger::$maxDepth = 5;
 Nette\Diagnostics\Debugger::$maxLen = 500;
-
-// Load Weblibre config files
-require_once '../config.php';
-require_once '../lang/lang.php';
 
 // Create Dependency Injection container from config.neon file
 $configurator->addConfig(__DIR__ . '/config/config.neon');
@@ -53,7 +54,7 @@ $container->application->errorPresenter = 'Error';
 $container->router[] = new Route('index.php', 
         'Browse:default', Route::ONE_WAY);
 $container->router[] = new Route('', array(
-        'lang' => 'cs', 'presenter' => 'Browse'), Route::ONE_WAY);
+        'lang' => $wconfig['preferedLang'], 'presenter' => 'Browse'), Route::ONE_WAY);
 $container->router[] = new Route('<lang>/', array(
         'presenter' => 'Browse'), Route::ONE_WAY);
 

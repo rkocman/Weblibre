@@ -20,12 +20,24 @@ $wconfig['env'] = "windows";
 
 
 
+// Weblibre debug mode
+$wconfig['debug'] = true;
+
+
+
 // Define caching
 $wconfig['caheResults'] = true;
 
 
 
+// Define prefered language
+//$wconfig['preferedLang'] = "en";
+$wconfig['preferedLang'] = "cs";
+
+
+
 // Define path to Calibre main folder
+// Warning: Relative path "../" refers to folder with this config file
 $wconfig['calibre'] = "../calibre/0.8.34/";
 
 
@@ -34,6 +46,7 @@ $wconfig['calibre'] = "../calibre/0.8.34/";
 // login    - user login
 // password - user password
 // database - path to Calibre library
+// Warning: Relative path "../" refers to folder with this config file
 $wconfig['users'] = array(
 
   array( // User
