@@ -165,10 +165,12 @@ final class BrowseCalibre extends BaseCalibre
     // Handle output
     array_shift($result['output']); // Skip header
     $sequence = array();
-    foreach ($result['output'] as $line) {
-      if (!empty($line)) {
-        $parseLine = explode(" ", $line);
-        $sequence[] = $parseLine[0];
+    foreach ($result['output'] as $line) {  // For each line
+      if (!empty($line)) {                  // If line is not empty
+        $parseLine = explode(" ", $line);   // Parse line to words
+        $id = trim($parseLine[0]);          // Get first word and strip border whitespace
+        if (is_numeric($id))                // Is it number?
+          $sequence[] = $id;                // Save it as book id
       }
     }
     

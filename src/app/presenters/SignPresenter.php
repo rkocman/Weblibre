@@ -25,7 +25,7 @@ final class SignPresenter extends BasePresenter
   public function actionDefault() 
   {
     if ($this->user->isLoggedIn())
-      $this->redirect ('Browse:default');
+      $this->redirect('Browse:default');
   }
   
 	/**
@@ -59,7 +59,7 @@ final class SignPresenter extends BasePresenter
     $msg = $this->context->translator->translate("Wrong login or password!");
 		try {
 			$values = $form->getValues();
-			$this->getUser()->setExpiration('+ 60 minutes', TRUE);
+			$this->getUser()->setExpiration(0, TRUE);
 			$this->getUser()->login($values->login, $values->password);
       $this->redirect('this');
 		} catch (NS\AuthenticationException $e) {
