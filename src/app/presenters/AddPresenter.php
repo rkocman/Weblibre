@@ -140,13 +140,15 @@ final class AddPresenter extends SignedPresenter
       $msg = $this->context->translator->translate(
         "Empty book has been successfully added to your library.");
       $this->flashMessage($msg, 'ok');
+      $id = $this->calibre->getLastId();
+      $this->redirect('Edit:', $id);
     }
     else {
       $msg = $this->context->translator->translate(
         "Error: Weblibre was unable to add empty book into the library!");
       $this->flashMessage($msg, 'error');
+      $this->redirect('this');
     }
-    $this->redirect('this');
   }
   
   
@@ -190,7 +192,7 @@ final class AddPresenter extends SignedPresenter
       $msg = $this->context->translator->translate(
         "Format has been successfully added to your library.");
       $this->flashMessage($msg, 'ok');
-      $this->redirect('this');
+      $this->redirect('Book:', $id);
     }
     else {
       $msg = $this->context->translator->translate(

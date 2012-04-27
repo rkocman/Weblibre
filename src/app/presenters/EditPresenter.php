@@ -121,7 +121,7 @@ final class EditPresenter extends SignedPresenter
       $msg = $this->context->translator->translate(
         "Metadata has been successfully saved.");
       $this->flashMessage($msg, 'ok');
-      $this->redirect('this');
+      $this->redirect('Book:', $id);
     }
     else {
       $msg = $this->context->translator->translate(

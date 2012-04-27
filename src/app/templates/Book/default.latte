@@ -8,6 +8,12 @@
 {block title2}{$book['title']}{/block}
 {block content2}
 
+<div class="status">
+    
+  <div n:foreach="$flashes as $flash" class="flash {$flash->type}">{$flash->message}</div>
+
+</div>
+
 <h1>{$book['title']}</h1>
 
 <div class="cover">

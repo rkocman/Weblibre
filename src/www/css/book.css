@@ -15,6 +15,13 @@
 #book .content2 {
   padding: 22px 28px 26px 28px;
 }
+#book .status {
+
+}
+#book .status .flash {
+  margin: 0 -6px;
+  margin-bottom: 18px;
+}
 
 #book h1 {
   font-size: 16px;

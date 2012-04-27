@@ -48,9 +48,15 @@ final class RemovePresenter extends SignedPresenter
     if (!$this->calibre->checkBook($id))
       throw new NA\BadRequestException('No such book.');
     
-    $this->calibre->removeBook($id);
-    
-    $this->redirect("Browse:");
+    if ($this->calibre->removeBook($id) || !$this->calibre->checkBook($id)) {
+      $this->redirect("Browse:");
+    }
+    else {
+      $msg = $this->context->translator->translate(
+        "Error: Weblibre was unable to remove this book!");
+      $this->flashMessage($msg, 'error');
+      $this->redirect("Book:", $id);
+    }
   }
   
   /**
@@ -65,9 +71,18 @@ final class RemovePresenter extends SignedPresenter
       throw new NA\BadRequestException('No such format.');
     
     $book = $this->calibre->getBookIdFromFormatId($id);
-    $this->calibre->removeFormat($id);
+    if ($this->calibre->removeFormat($id)) {
+      $msg = $this->context->translator->translate(
+        "Selected format has been successfully removed.");
+      $this->flashMessage($msg, 'ok');
+    }
+    else {
+      $msg = $this->context->translator->translate(
+        "Error: Weblibre was unable to remove selected format!");
+      $this->flashMessage($msg, 'error');
+    }
     
-    $this->redirect("Book:", array('id' => $book));
+    $this->redirect("Book:", $book);
   }
   
 }

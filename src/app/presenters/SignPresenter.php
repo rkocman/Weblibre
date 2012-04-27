@@ -25,7 +25,7 @@ final class SignPresenter extends BasePresenter
   public function actionDefault() 
   {
     if ($this->user->isLoggedIn())
-      $this->redirect('Browse:default');
+      $this->redirect('Browse:');
   }
   
 	/**

@@ -133,6 +133,7 @@ final class AddCalibre extends BaseCalibre
    * Add format from file into library
    * @param string $file File path
    * @param int $id Book id
+   * @return bool
    */
   public function addFormatFile($file, $id)
   {
@@ -146,6 +147,20 @@ final class AddCalibre extends BaseCalibre
     
     // Return status
     return ($result['status'] == 0)? true : false;
+  }
+  
+  /**
+   * Get last inserted book id
+   * @return int Book id
+   */
+  public function getLastId()
+  {
+    return dibi::query("
+      SELECT b.id
+      FROM books b
+      ORDER BY b.id DESC
+      LIMIT 1
+    ")->fetchSingle();
   }
   
 }

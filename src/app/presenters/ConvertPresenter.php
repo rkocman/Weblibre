@@ -491,7 +491,7 @@ final class ConvertPresenter extends SignedPresenter
       $msg = $this->context->translator->translate(
         "Book has been successfully converted.");
       $this->flashMessage($msg, 'ok');
-      $this->redirect('this');
+      $this->redirect('Book:', $id);
     }
     else {
       $msg = $this->context->translator->translate(
