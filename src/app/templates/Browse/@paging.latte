@@ -11,21 +11,21 @@
   
 <div class="paging {$class}">
   {if $page != 1}
-    <a n:href="this page => 1" class="first">{_("First")}</a>
-    <a n:href="this page => ($page-1)" class="previous">{_("Previous")}</a>
+    <a n:href="this page => 1" class="first"><span class="arrow"><<&nbsp;</span> {_("First")}&nbsp;&nbsp;</a>
+    <a n:href="this page => ($page-1)" class="previous"><span class="arrow"><&nbsp;</span> {_("Previous")}&nbsp;&nbsp;</a>
   {else}
-    <div class="first">{_("First")}</div>
-    <div class="previous">{_("Previous")}</div>
+    <div class="first"><span class="arrow"><<&nbsp;</span> {_("First")}&nbsp;&nbsp;</div>
+    <div class="previous"><span class="arrow"><&nbsp;</span> {_("Previous")}&nbsp;&nbsp;</div>
   {/if}
   <div class="info">
     {$firstRecord} - {$lastRecord} {_("of")} {$result['count']}
   </div>
   {if $page != $pageMax}
-    <a n:href="this page => ($page+1)" class="next">{_("Next")}</a>
-    <a n:href="this page => ($pageMax)" class="last">{_("Last")}</a>
+    <a n:href="this page => ($page+1)" class="next">&nbsp;&nbsp;{_("Next")} <span class="arrow">&nbsp;></span></a>
+    <a n:href="this page => ($pageMax)" class="last">&nbsp;&nbsp;{_("Last")} <span class="arrow">&nbsp;>></span></a>
   {else}
-    <div class="next">{_("Next")}</div>
-    <div class="last">{_("Last")}</div>
+    <div class="next">&nbsp;&nbsp;{_("Next")} <span class="arrow">&nbsp;></span></div>
+    <div class="last">&nbsp;&nbsp;{_("Last")} <span class="arrow">&nbsp;>></span></div>
   {/if}
 </div>
 

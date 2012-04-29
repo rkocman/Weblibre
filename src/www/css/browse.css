@@ -229,6 +229,12 @@
 #browse .paging .next {
 	margin-right: 3px;
 }
+#browse .paging .arrow {
+	font-family: Arial, Helvetica, sans-serif;
+  font-size: 10px;
+  position: relative;
+  top: -1px;
+}
 
 #browse #result .modern {
 	float: left;
