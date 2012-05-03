@@ -18,6 +18,11 @@ global $wconfig;
 $wconfig['env'] = "windows";
 //$wconfig['env'] = "unix";
 
+// Enable usage of Xvfb on Unix system
+// Xvfb package is required
+// This is essential for various formats conversion
+$wconfig['useXvfb'] = true;
+
 
 
 // Weblibre debug mode

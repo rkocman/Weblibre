@@ -28,6 +28,9 @@ abstract class BaseCalibre extends Nette\Object
   protected $env;
   
   /** @var bool */
+  protected $useXvfb;
+  
+  /** @var bool */
   protected $cacheResults;
   
   /** @var Nette\Caching\Cache */
@@ -49,6 +52,7 @@ abstract class BaseCalibre extends Nette\Object
     $this->calibre = $GLOBALS['wconfig']['calibre'];
     $this->db = $db;
     $this->env = $GLOBALS['wconfig']['env'];
+    $this->useXvfb = $GLOBALS['wconfig']['useXvfb'];
     $this->cacheResults = $GLOBALS['wconfig']['caheResults'];
   }
   
@@ -177,6 +181,8 @@ abstract class BaseCalibre extends Nette\Object
         break;
       case "ebook-convert":
         $exe = escapeshellarg($exePath."ebook-convert");
+        if ($this->env == "unix" && $this->useXvfb)
+          $exe = "xvfb-run ".$exe;
         break;
       default:
         throw new NA\ApplicationException("Bad execute command.");
