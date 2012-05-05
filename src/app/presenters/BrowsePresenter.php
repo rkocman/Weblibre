@@ -285,7 +285,7 @@ final class BrowsePresenter extends SignedPresenter
   private function checkPage() 
   {
     $count = $this->result['count'];
-    $this->pageMax = ceil($count/$this->records);
+    $this->pageMax = ($count == 0)? 1 : ceil($count/$this->records);
     if ($this->page > $this->pageMax && $this->page != 1) {
       $this->page = $this->pageMax;
       $this->redirect('this');
