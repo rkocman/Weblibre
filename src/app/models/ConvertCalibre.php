@@ -19,9 +19,9 @@ final class ConvertCalibre extends BaseCalibre
 
   /** Format support */
   public static $supportedFormats = array(
-    'EPUB', 'FB2', 'HTML', 'HTMLZ', 'LIT', 'LRF',
-    'MOBI', 'PDB', 'PDF',  'PMLZ',  'RB',  'RTF',
-    'SNB',  'TCR', 'TXT',  'TXTZ'
+    'EPUB', 'FB2', 'HTMLZ', 'LIT', 'LRF', 'MOBI', 
+    'PDB',  'PDF', 'PMLZ',  'RB',  'RTF', 'SNB',
+    'TCR', 'TXT',  'TXTZ',  'ZIP'
   );
   
   
