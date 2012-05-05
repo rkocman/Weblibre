@@ -1,10 +1,10 @@
 # Gettext keys exported by GettextTranslator and Translation Panel
-# Created: 2012-04-27 14:50:54
+# Created: 2012-05-05 02:31:37
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2012-04-27 14:50+0200\n"
+"PO-Revision-Date: 2012-05-05 02:31+0200\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -81,6 +81,18 @@ msgstr "Základní velikost písma"
 
 msgid "Base font size must be a numeric value."
 msgstr "Záklední velikost písma musí být číselná hodnota."
+
+msgid "Book 1"
+msgstr "1. kniha"
+
+msgid "Book 2"
+msgstr "2. kniha"
+
+msgid "Book 3"
+msgstr "3. kniha"
+
+msgid "Book 4"
+msgstr "4. kniha"
 
 msgid "Book has been successfully converted."
 msgstr "Kniha byla úspěšně převedena."
@@ -751,6 +763,9 @@ msgstr "Rozdělit do sekcí"
 msgid "Select what style information you want completely removed"
 msgstr "Vyberte jaké styly chcete kompletně odstranit"
 
+msgid "Selected format has been successfully removed."
+msgstr "Zvolený formát byl úspěšně smazán."
+
 msgid "Series"
 msgstr "Série"
 
@@ -1399,6 +1414,6 @@ msgstr "windows"
 msgid "ztxt"
 msgstr "ztxt"
 
-msgid "Selected format has been successfully removed."
-msgstr "Zvolený formát byl úspěšně smazán."
+msgid "Book 5"
+msgstr "5. kniha"
 
