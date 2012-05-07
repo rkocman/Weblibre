@@ -67,21 +67,45 @@ abstract class BaseCalibre extends Nette\Object
   
   /**
    * Environment dependent parameter escaping
-   * @param string $param Parameter
+   * @param string $param Parameter externaly in double quotes
    * @return string Escaped parameter
+   * @example For command 'echo "myData"' pass only myData as argument
    */
   protected function envEscape($param) 
   {
     if ($this->env == "windows") {
       
-      $metachar = array('\"',  '"');
-      $escaped  = array('\\"', '\"');
+      // Split parameter into array of char
+      $arr = preg_split("//u", $param, -1, PREG_SPLIT_NO_EMPTY);
+      $result = "";
+      $count = 0;
       
-      return str_replace($metachar, $escaped, $param);
+      // For all chars in array
+      foreach ($arr as $char) {
+        // If backslash increase count
+        if ($char == "\\") $count++;
+        
+        // If not backslash
+        else {
+          // If char is " escape all backleshes and add one
+          if ($char == '"') $count = $count*2 + 1; 
+          
+          // Pass counted backslashes into result
+          for ($i = 0; $i < $count; $i++) $result .= "\\";
+          $count = 0;
+          
+          // Pass char into result
+          $result .= $char;
+        }
+      }
+      // Escape ended backslashes
+      for ($i = 0; $i < $count*2; $i++) $result .= "\\";
+        
+      return $result;
       
     } else {
       
-      return addcslashes($param, '"\\');
+      return addcslashes($param, '"$`\\');
       
     }
   } 
