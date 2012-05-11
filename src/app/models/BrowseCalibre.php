@@ -329,6 +329,17 @@ final class BrowseCalibre extends BaseCalibre
   }
   
   /**
+   * Get author search string
+   * @param int $id Author id
+   * @return string Search string
+   */
+  public function getAuthorSearch($id)
+  {
+    $author = $this->getAuthorName($id);
+    return 'authors:"='.$this->calibreEscape($author).'"';
+  }
+  
+  /**
    * Get author books
    * @param int $page Current page
    * @param int $records Number of records on page
@@ -338,9 +349,7 @@ final class BrowseCalibre extends BaseCalibre
    */
   public function getAuthorBooks($page, $records, $sortBy, $id) 
   {
-    $author = $this->getAuthorName($id);
-    
-    $search = 'authors:"='.$author.'"';
+    $search = $this->getAuthorSearch($id);
     
     $data = $this->requestCalibre($sortBy, $search);
     
@@ -383,6 +392,17 @@ final class BrowseCalibre extends BaseCalibre
   }
   
   /**
+   * Get language search string
+   * @param int $id Language id
+   * @return string Search string
+   */
+  public function getLanguageSearch($id)
+  {
+    $lang = $this->getLanguageName($id);
+    return 'languages:"='.$this->calibreEscape($lang).'"';
+  }
+  
+  /**
    * Get language books
    * @param int $page Current page
    * @param int $records Number of records on page
@@ -392,9 +412,7 @@ final class BrowseCalibre extends BaseCalibre
    */
   public function getLanguageBooks($page, $records, $sortBy, $id) 
   {   
-    $lang = $this->getLanguageName($id);
-    
-    $search = 'languages:"='.$lang.'"';
+    $search = $this->getLanguageSearch($id);
     
     $data = $this->requestCalibre($sortBy, $search);
     
@@ -437,6 +455,17 @@ final class BrowseCalibre extends BaseCalibre
   }
   
   /**
+   * Get publisher search string
+   * @param int $id Publisher id
+   * @return string Search string
+   */
+  public function getPublisherSearch($id)
+  {
+    $pub = $this->getPublisherName($id);
+    return 'publisher:"='.$this->calibreEscape($pub).'"';
+  }
+  
+  /**
    * Get publisher books
    * @param int $page Current page
    * @param int $records Number of records on page
@@ -446,9 +475,7 @@ final class BrowseCalibre extends BaseCalibre
    */
   public function getPublisherBooks($page, $records, $sortBy, $id) 
   {
-    $pub = $this->getPublisherName($id);
-    
-    $search = 'publisher:"='.$pub.'"';
+    $search = $this->getPublisherSearch($id);
     
     $data = $this->requestCalibre($sortBy, $search);
     
@@ -494,6 +521,17 @@ final class BrowseCalibre extends BaseCalibre
   }
   
   /**
+   * Get rating search string
+   * @param int $id Rating id
+   * @return string Search string
+   */
+  public function getRatingSearch($id)
+  {
+    $rating = $this->getRatingName($id);
+    return 'rating:'.($rating/2);
+  }
+  
+  /**
    * Get rating books
    * @param int $page Current page
    * @param int $records Number of records on page
@@ -502,10 +540,8 @@ final class BrowseCalibre extends BaseCalibre
    * @return array Results in array
    */
   public function getRatingBooks($page, $records, $sortBy, $id) 
-  {
-    $rating = $this->getRatingName($id);
-    
-    $search = 'rating:'.($rating/2);
+  { 
+    $search = $this->getRatingSearch($id);
     
     $data = $this->requestCalibre($sortBy, $search);
     
@@ -548,6 +584,17 @@ final class BrowseCalibre extends BaseCalibre
   }
   
   /**
+   * Get series search string
+   * @param int $id Series id
+   * @return string Search string
+   */
+  public function getSeriesSearch($id)
+  {
+    $series = $this->getSeriesName($id);
+    return 'series:"='.$this->calibreEscape($series).'"';
+  }
+  
+  /**
    * Get series books
    * @param int $page Current page
    * @param int $records Number of records on page
@@ -557,9 +604,7 @@ final class BrowseCalibre extends BaseCalibre
    */
   public function getSeriesBooks($page, $records, $sortBy, $id) 
   {  
-    $series = $this->getSeriesName($id);
-    
-    $search = 'series:"='.$series.'"';
+    $search = $this->getSeriesSearch($id);
     
     $data = $this->requestCalibre($sortBy, $search);
     
@@ -602,6 +647,17 @@ final class BrowseCalibre extends BaseCalibre
   }
   
   /**
+   * Get tag search string
+   * @param int $id Tag id
+   * @return string Search string
+   */
+  public function getTagSearch($id)
+  {
+    $tag = $this->getTagName($id);
+    return 'tags:"='.$this->calibreEscape($tag).'"';
+  }
+  
+  /**
    * Get tag books
    * @param int $page Current page
    * @param int $records Number of records on page
@@ -611,9 +667,7 @@ final class BrowseCalibre extends BaseCalibre
    */
   public function getTagBooks($page, $records, $sortBy, $id)
   {
-    $tag = $this->getTagName($id);
-    
-    $search = 'tags:"='.$tag.'"';
+    $search = $this->getTagSearch($id);
     
     $data = $this->requestCalibre($sortBy, $search);
     

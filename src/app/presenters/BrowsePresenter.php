@@ -29,6 +29,11 @@ final class BrowsePresenter extends SignedPresenter
    */
   public $search;
   
+  /**
+   * @var string
+   */
+  private $suggestion;
+  
   /** 
    * Current page in paging
    * @var int
@@ -173,6 +178,10 @@ final class BrowsePresenter extends SignedPresenter
       ),
     );
     
+    // Set search
+    $value = (empty($this->search)? $this->suggestion : $this->search);
+    $this['searchForm']['search']->setValue($value);
+    
     // Set browse layout
     $this->setLayout('browse');
     
@@ -259,7 +268,7 @@ final class BrowsePresenter extends SignedPresenter
     $form = new UI\Form;
     $form->setTranslator($this->context->translator);
     
-    $form->addText('search')->setValue($this->search);
+    $form->addText('search');
     $form->addSubmit('send', 'Search');
     
     $form->onSuccess[] = callback($this, 'searchFormSubmitted');
@@ -351,10 +360,13 @@ final class BrowsePresenter extends SignedPresenter
   public function actionAuthors($id = NULL) 
   {
     if (!$this->isAjax()) {
-      if ($id === NULL)
+      if ($id === NULL) {
+        $this->suggestion = "authors:true";
         $this->result = $this->calibre->getAuthors();
-      else
+      } else {
+        $this->suggestion = $this->calibre->getAuthorSearch($id);
         $this->result = $this->calibre->getAuthorName($id);
+      }
     }
     else {
       $this->result = $this->calibre->getAuthorBooks(
@@ -393,10 +405,13 @@ final class BrowsePresenter extends SignedPresenter
   public function actionLanguages($id = NULL) 
   {
     if (!$this->isAjax()) {
-      if ($id === NULL)
+      if ($id === NULL) {
+        $this->suggestion = "languages:true";
         $this->result = $this->calibre->getLanguages();
-      else
+      } else {
+        $this->suggestion = $this->calibre->getLanguageSearch($id);
         $this->result = $this->calibre->getLanguageName($id);
+      }
     }
     else {
       $this->result = $this->calibre->getLanguageBooks(
@@ -435,10 +450,13 @@ final class BrowsePresenter extends SignedPresenter
   public function actionPublishers($id = NULL) 
   {
     if (!$this->isAjax()) {
-      if ($id === NULL)
+      if ($id === NULL) {
+        $this->suggestion = "publisher:true";
         $this->result = $this->calibre->getPublishers();
-      else
+      } else {
+        $this->suggestion = $this->calibre->getPublisherSearch($id);
         $this->result = $this->calibre->getPublisherName($id);
+      }
     }
     else {
       $this->result = $this->calibre->getPublisherBooks(
@@ -477,10 +495,13 @@ final class BrowsePresenter extends SignedPresenter
   public function actionRatings($id = NULL) 
   {
     if (!$this->isAjax()) {
-      if ($id === NULL)
+      if ($id === NULL) {
+        $this->suggestion = "rating:true";
         $this->result = $this->calibre->getRatings();
-      else
+      } else {
+        $this->suggestion = $this->calibre->getRatingSearch($id);
         $this->result = $this->calibre->getRatingName($id);
+      }
     }
     else {
       $this->result = $this->calibre->getRatingBooks(
@@ -519,10 +540,13 @@ final class BrowsePresenter extends SignedPresenter
   public function actionSeries($id = NULL) 
   {
     if (!$this->isAjax()) {
-      if ($id === NULL)
+      if ($id === NULL) {
+        $this->suggestion = "series:true";
         $this->result = $this->calibre->getSeries();
-      else
+      } else {
+        $this->suggestion = $this->calibre->getSeriesSearch($id);
         $this->result = $this->calibre->getSeriesName($id);
+      }
     }
     else {
       $this->result = $this->calibre->getSeriesBooks(
@@ -561,10 +585,13 @@ final class BrowsePresenter extends SignedPresenter
   public function actionTags($id = NULL) 
   {
     if (!$this->isAjax()) {
-      if ($id === NULL)
+      if ($id === NULL) {
+        $this->suggestion = "tags:true";
         $this->result = $this->calibre->getTags();
-      else
+      } else {
+        $this->suggestion = $this->calibre->getTagSearch($id);
         $this->result = $this->calibre->getTagName($id);
+      }
     }
     else {
       $this->result = $this->calibre->getTagBooks(

@@ -66,6 +66,17 @@ abstract class BaseCalibre extends Nette\Object
   }
   
   /**
+   * Calibre search escaping
+   * @param string $param Parameter externaly in double quotes
+   * @return string Escaped parameter
+   * @example For search 'authors:"=myA"' pass only myA as argument
+   */
+  protected function calibreEscape($param)
+  {
+    return addcslashes($param, '"');
+  }
+  
+  /**
    * Environment dependent parameter escaping
    * @param string $param Parameter externaly in double quotes
    * @return string Escaped parameter
