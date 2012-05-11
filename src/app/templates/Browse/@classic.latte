@@ -21,9 +21,8 @@
     
     <tr n:class="($iterator->even)? even">
       <td class="first title-width">
-        <h2>{$book['title']}</h2>
+        <h2><a n:href="Book: $book['id']">{$book['title']}</a></h2>
         <div class="next">
-          <a n:href="Book: $book['id']">{_("Details")}</a> |
           {if empty($book['formats'])}
             {_("No format")}
           {else}
@@ -33,9 +32,9 @@
             {/foreach}
           {/if}
           {if !empty($book['tags'])}
-            | {_("Tags")} = [{foreach 
+            | {_("Tags")}: {foreach 
               $book['tags'] as $tag}{$tag['name']
-              }{sep}, {/sep}{/foreach}]
+              }{sep}, {/sep}{/foreach}
           {/if}
         </div>
       </td>

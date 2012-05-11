@@ -1,10 +1,10 @@
 # Gettext keys exported by GettextTranslator and Translation Panel
-# Created: 2012-05-05 13:09:36
+# Created: 2012-05-11 16:12:38
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2012-05-05 13:09+0200\n"
+"PO-Revision-Date: 2012-05-11 16:12+0200\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -898,6 +898,9 @@ msgstr "Vítejte!"
 msgid "Wrong login or password!"
 msgstr "Byl zadán špatný login nebo heslo!"
 
+msgid "ZIP"
+msgstr "ZIP"
+
 msgid "a0"
 msgstr "a0"
 
@@ -1417,6 +1420,6 @@ msgstr "windows"
 msgid "ztxt"
 msgstr "ztxt"
 
-msgid "ZIP"
-msgstr "ZIP"
+msgid "Number of books"
+msgstr "Počet knih"
 

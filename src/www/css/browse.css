@@ -331,6 +331,12 @@
 #browse #result .classic h2 {
 	color: Black;
 }
+#browse #result .classic h2 a {
+	text-decoration: none;
+}
+#browse #result .classic h2 a:hover {
+	text-decoration: underline;
+}
 #browse #result .classic .next {
 	font-size: 11px;
 }

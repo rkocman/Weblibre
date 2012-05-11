@@ -22,7 +22,7 @@
     <tr>
       <th>{_("Language")}</th>
       <th class="ratingWidth">{_("Rating")}</th>
-      <th>{_("Count")}</th>
+      <th>{_("Number of books")}</th>
     </tr>
 
     {includeblock '@ratingAvg.latte'}
@@ -41,7 +41,7 @@
         </td>
         <td class="nowrap">
           <a n:href="this id => $line['id']">
-          [{_("Books")}: {$line['count']}]
+            {$line['count']}
           </a>
         </td>
       </tr>
