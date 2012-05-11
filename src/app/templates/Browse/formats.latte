@@ -1,0 +1,57 @@
+{**
+ * This file is part of the Weblibre
+ *
+ * Copyright (c) 2012 Radim Kocman (xkocma03)
+ * @author  Radim Kocman
+ *}
+
+{block title2}
+  {if !$presenter->isAjax() && isset($id)}
+    {$result} | {_("Formats")}
+  {else}
+    {_("Formats")}
+  {/if}
+{/block}
+{block content2}
+
+{if $id == NULL}
+  
+  <div class="select">
+  <table>
+    
+    <tr>
+      <th>{_("Format")}</th>
+      <th class="ratingWidth">{_("Rating")}</th>
+      <th>{_("Number of books")}</th>
+    </tr>
+
+    {includeblock '@ratingAvg.latte'}
+    
+    {foreach $result as $line}
+      <tr n:class="link, ($iterator->even)? even">
+        <td class="max-width">
+          <div>
+            <a n:href="this id => $line['format']">
+              <h2>{$line['format']}</h2>
+            </a>
+          </div>
+        </td>
+        <td class="nowrap">
+          {include #ratingAvg, lid => $line['format'], rating => $line['rating']}
+        </td>
+        <td class="nowrap">
+          <a n:href="this id => $line['format']">
+            {$line['count']}
+          </a>
+        </td>
+      </tr>
+    {/foreach}
+  
+  </table>
+  </div>
+
+{else}
+
+  {includeblock '@loadAjax.latte'}
+
+{/if}

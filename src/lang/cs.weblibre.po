@@ -1,10 +1,10 @@
 # Gettext keys exported by GettextTranslator and Translation Panel
-# Created: 2012-05-11 16:12:38
+# Created: 2012-05-11 19:33:02
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2012-05-11 16:12+0200\n"
+"PO-Revision-Date: 2012-05-11 19:33+0200\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -588,6 +588,9 @@ msgstr "Číslo"
 
 msgid "Number of TOC links must be a numeric value."
 msgstr "Počet odkazů musí být číselná hodnota."
+
+msgid "Number of books"
+msgstr "Počet knih"
 
 msgid "Number of links to add to Table of Contents"
 msgstr "Počet odkazů, které budou přidány do obsahu"
@@ -1420,6 +1423,6 @@ msgstr "windows"
 msgid "ztxt"
 msgstr "ztxt"
 
-msgid "Number of books"
-msgstr "Počet knih"
+msgid "Identifier"
+msgstr "Identifikátor"
 

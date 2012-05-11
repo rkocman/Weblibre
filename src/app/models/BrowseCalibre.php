@@ -676,4 +676,98 @@ final class BrowseCalibre extends BaseCalibre
     return $this->completeSearchResults($sequence, count($data));
   }
   
+  
+  /**
+   * Get formats
+   * @return array Results in array
+   */
+  public function getFormats() 
+  {
+    return dibi::query("
+      SELECT d.format, COUNT(d.book) count, AVG(r.rating) rating
+      FROM data d
+      LEFT JOIN books_ratings_link br ON d.book = br.book
+      LEFT JOIN ratings r ON br.rating = r.id AND r.rating > 0
+      GROUP BY d.format
+      HAVING COUNT(d.book) > 0
+      ORDER BY d.format
+    ")->fetchAll();
+  }
+  
+  /**
+   * Get format search string
+   * @param string $id Format id
+   * @return string Search string
+   */
+  public function getFormatSearch($id)
+  {
+    return 'formats:"='.$this->calibreEscape($id).'"';
+  }
+  
+  /**
+   * Get format books
+   * @param int $page Current page
+   * @param int $records Number of records on page
+   * @param string $sortBy Sort by form value
+   * @param string $id Format id
+   * @return array Results in array
+   */
+  public function getFormatBooks($page, $records, $sortBy, $id)
+  {
+    $search = $this->getFormatSearch($id);
+    
+    $data = $this->requestCalibre($sortBy, $search);
+    
+    $sequence = $this->limitCalibre($page, $records, $data);
+    
+    return $this->completeSearchResults($sequence, count($data));
+  }
+  
+  
+  /**
+   * Get identifiers
+   * @return array Results in array
+   */
+  public function getIdentifiers() 
+  {
+    return dibi::query("
+      SELECT i.type, COUNT(i.book) count, AVG(r.rating) rating
+      FROM identifiers i
+      LEFT JOIN books_ratings_link br ON i.book = br.book
+      LEFT JOIN ratings r ON br.rating = r.id AND r.rating > 0
+      GROUP BY i.type
+      HAVING COUNT(i.book) > 0
+      ORDER BY i.type
+    ")->fetchAll();
+  }
+  
+  /**
+   * Get identifier search string
+   * @param string $id Identifier id
+   * @return string Search string
+   */
+  public function getIdentifierSearch($id)
+  {
+    return 'identifiers:"='.$this->calibreEscape($id).':"';
+  }
+  
+  /**
+   * Get identifier books
+   * @param int $page Current page
+   * @param int $records Number of records on page
+   * @param string $sortBy Sort by form value
+   * @param string $id Identifier id
+   * @return array Results in array
+   */
+  public function getIdentifierBooks($page, $records, $sortBy, $id)
+  {
+    $search = $this->getIdentifierSearch($id);
+    
+    $data = $this->requestCalibre($sortBy, $search);
+    
+    $sequence = $this->limitCalibre($page, $records, $data);
+    
+    return $this->completeSearchResults($sequence, count($data));
+  }
+  
 }

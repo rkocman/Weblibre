@@ -161,6 +161,14 @@ final class BrowsePresenter extends SignedPresenter
         'href'  => 'Browse:languages',
       ),
       array(
+        'title' => 'Series',
+        'href'  => 'Browse:series',
+      ),
+      array(
+        'title' => 'Formats',
+        'href'  => 'Browse:formats',
+      ),
+      array(
         'title' => 'Publishers',
         'href'  => 'Browse:publishers',
       ),
@@ -169,12 +177,12 @@ final class BrowsePresenter extends SignedPresenter
         'href'  => 'Browse:ratings',
       ),
       array(
-        'title' => 'Series',
-        'href'  => 'Browse:series',
-      ),
-      array(
         'title' => 'Tags',
         'href'  => 'Browse:tags',
+      ),
+      array(
+        'title' => 'Identifiers',
+        'href'  => 'Browse:identifiers',
       ),
     );
     
@@ -619,5 +627,95 @@ final class BrowsePresenter extends SignedPresenter
     
     $this->template->id = $id;
   }
-
+  
+  
+  
+  /**
+   * Action formats
+   * @param string|NULL $id Format id
+   * @return void
+   */
+  public function actionFormats($id = NULL) 
+  {
+    if (!$this->isAjax()) {
+      if ($id === NULL) {
+        $this->suggestion = "formats:true";
+        $this->result = $this->calibre->getFormats();
+      } else {
+        $this->suggestion = $this->calibre->getFormatSearch($id);
+        $this->result = $id;
+      }
+    }
+    else {
+      $this->result = $this->calibre->getFormatBooks(
+        $this->page, $this->records, $this->sortBy, $id);
+      $this->checkPage();
+    }
+  }
+  
+  /**
+   * Render books by formats
+   * @param string|NULL $id Format id
+   * @return void
+   */
+  public function renderFormats($id = NULL) 
+  {
+    // Add navigation
+    if (!$this->isAjax()) {
+      if ($id === NULL)
+        $this->addNavigation('Formats', '');
+      else {
+        $this->addNavigation('Formats', 'Browse:formats');
+        $this->addNavigation($this->result, '', false);
+      }
+    }
+    
+    $this->template->id = $id;
+  }
+  
+  
+  
+  /**
+   * Action identifiers
+   * @param string|NULL $id Identifier id
+   * @return void
+   */
+  public function actionIdentifiers($id = NULL) 
+  {
+    if (!$this->isAjax()) {
+      if ($id === NULL) {
+        $this->suggestion = "identifiers:true";
+        $this->result = $this->calibre->getIdentifiers();
+      } else {
+        $this->suggestion = $this->calibre->getIdentifierSearch($id);
+        $this->result = $id;
+      }
+    }
+    else {
+      $this->result = $this->calibre->getIdentifierBooks(
+        $this->page, $this->records, $this->sortBy, $id);
+      $this->checkPage();
+    }
+  }
+  
+  /**
+   * Render books by identifiers
+   * @param string|NULL $id Identifier id
+   * @return void
+   */
+  public function renderIdentifiers($id = NULL) 
+  {
+    // Add navigation
+    if (!$this->isAjax()) {
+      if ($id === NULL)
+        $this->addNavigation('Identifiers', '');
+      else {
+        $this->addNavigation('Identifiers', 'Browse:identifiers');
+        $this->addNavigation($this->result, '', false);
+      }
+    }
+    
+    $this->template->id = $id;
+  }
+  
 }

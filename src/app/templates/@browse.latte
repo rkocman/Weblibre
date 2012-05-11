@@ -34,7 +34,9 @@
         ($presenter->isLinkCurrent('Browse:publishers') && isset($id)) ||
         ($presenter->isLinkCurrent('Browse:ratings') && isset($id)) ||
         ($presenter->isLinkCurrent('Browse:series') && isset($id)) ||
-        ($presenter->isLinkCurrent('Browse:tags') && isset($id))
+        ($presenter->isLinkCurrent('Browse:tags') && isset($id)) ||
+        ($presenter->isLinkCurrent('Browse:formats') && isset($id)) ||
+        ($presenter->isLinkCurrent('Browse:identifiers') && isset($id))
       }
       <div id="sort-by">
 
