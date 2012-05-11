@@ -28,7 +28,9 @@ $(document).ready(function () {
 
 $(document).ready(function () {
     $("input.date.longRange")
+        .datepicker("option", "showOtherMonths", true)
+        .datepicker("option", "selectOtherMonths", true)
         .datepicker("option", "changeMonth", true)
         .datepicker("option", "changeYear", true)
-        .datepicker("option", "yearRange", 'c-20:c+10');
+        .datepicker("option", "yearRange", '1700:+2');
 });
