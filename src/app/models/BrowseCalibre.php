@@ -315,6 +315,21 @@ final class BrowseCalibre extends BaseCalibre
   }
   
   /**
+   * Check author
+   * @param int Author id
+   * @return bool
+   */
+  public function checkAuthor($id)
+  {
+    $count = dibi::query("
+      SELECT COUNT(*)
+      FROM authors
+      WHERE id=%u
+    ", $id)->fetchSingle();
+    return ($count > 0)? true : false;
+  }
+  
+  /**
    * Get author name
    * @param int $id Author id
    * @return string Author name
@@ -378,6 +393,21 @@ final class BrowseCalibre extends BaseCalibre
   }
   
   /**
+   * Check language
+   * @param int Language id
+   * @return bool
+   */
+  public function checkLanguage($id)
+  {
+    $count = dibi::query("
+      SELECT COUNT(*)
+      FROM languages
+      WHERE id=%u
+    ", $id)->fetchSingle();
+    return ($count > 0)? true : false;
+  }
+  
+  /**
    * Get language name
    * @param int $id Language id
    * @return string Language name
@@ -438,6 +468,21 @@ final class BrowseCalibre extends BaseCalibre
       HAVING COUNT(bp.book) > 0
       ORDER BY p.name
     ")->fetchAll();
+  }
+  
+  /**
+   * Check publisher
+   * @param int Publisher id
+   * @return bool
+   */
+  public function checkPublisher($id)
+  {
+    $count = dibi::query("
+      SELECT COUNT(*)
+      FROM publishers
+      WHERE id=%u
+    ", $id)->fetchSingle();
+    return ($count > 0)? true : false;
   }
   
   /**
@@ -507,6 +552,21 @@ final class BrowseCalibre extends BaseCalibre
   }
   
   /**
+   * Check rating
+   * @param int Rating id
+   * @return bool
+   */
+  public function checkRating($id)
+  {
+    $count = dibi::query("
+      SELECT COUNT(*)
+      FROM ratings
+      WHERE id=%u
+    ", $id)->fetchSingle();
+    return ($count > 0)? true : false;
+  }
+  
+  /**
    * Get rating name
    * @param int $id Rating id
    * @return string Rating name
@@ -567,6 +627,21 @@ final class BrowseCalibre extends BaseCalibre
       HAVING COUNT(bs.book) > 0
       ORDER BY s.sort
     ")->fetchAll();
+  }
+  
+  /**
+   * Check series
+   * @param int Series id
+   * @return bool
+   */
+  public function checkSeries($id)
+  {
+    $count = dibi::query("
+      SELECT COUNT(*)
+      FROM series
+      WHERE id=%u
+    ", $id)->fetchSingle();
+    return ($count > 0)? true : false;
   }
   
   /**
@@ -633,6 +708,21 @@ final class BrowseCalibre extends BaseCalibre
   }
   
   /**
+   * Check tag
+   * @param int Tag id
+   * @return bool
+   */
+  public function checkTag($id)
+  {
+    $count = dibi::query("
+      SELECT COUNT(*)
+      FROM tags
+      WHERE id=%u
+    ", $id)->fetchSingle();
+    return ($count > 0)? true : false;
+  }
+  
+  /**
    * Get tag name
    * @param int $id Tag id
    * @return string Tag name
@@ -695,6 +785,21 @@ final class BrowseCalibre extends BaseCalibre
   }
   
   /**
+   * Check format
+   * @param string Format id
+   * @return bool
+   */
+  public function checkFormat($id)
+  {
+    $count = dibi::query("
+      SELECT COUNT(*)
+      FROM data
+      WHERE format=%s
+    ", $id)->fetchSingle();
+    return ($count > 0)? true : false;
+  }
+  
+  /**
    * Get format search string
    * @param string $id Format id
    * @return string Search string
@@ -739,6 +844,21 @@ final class BrowseCalibre extends BaseCalibre
       HAVING COUNT(i.book) > 0
       ORDER BY i.type
     ")->fetchAll();
+  }
+  
+  /**
+   * Check identifier
+   * @param string Identifier id
+   * @return bool
+   */
+  public function checkIdentifier($id)
+  {
+    $count = dibi::query("
+      SELECT COUNT(*)
+      FROM identifiers
+      WHERE type=%s
+    ", $id)->fetchSingle();
+    return ($count > 0)? true : false;
   }
   
   /**

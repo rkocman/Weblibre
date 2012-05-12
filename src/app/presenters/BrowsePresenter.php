@@ -8,6 +8,7 @@
  */
 
 use Nette\Application\UI;
+use Nette\Application as NA;
 
 /**
  * Browse library presenter
@@ -372,6 +373,9 @@ final class BrowsePresenter extends SignedPresenter
         $this->suggestion = "authors:true";
         $this->result = $this->calibre->getAuthors();
       } else {
+        if (!$this->calibre->checkAuthor($id))
+          throw new NA\BadRequestException('No such author.');
+        
         $this->suggestion = $this->calibre->getAuthorSearch($id);
         $this->result = $this->calibre->getAuthorName($id);
       }
@@ -417,6 +421,9 @@ final class BrowsePresenter extends SignedPresenter
         $this->suggestion = "languages:true";
         $this->result = $this->calibre->getLanguages();
       } else {
+        if (!$this->calibre->checkLanguage($id))
+          throw new NA\BadRequestException('No such language.');
+        
         $this->suggestion = $this->calibre->getLanguageSearch($id);
         $this->result = $this->calibre->getLanguageName($id);
       }
@@ -462,6 +469,9 @@ final class BrowsePresenter extends SignedPresenter
         $this->suggestion = "publisher:true";
         $this->result = $this->calibre->getPublishers();
       } else {
+        if (!$this->calibre->checkPublisher($id))
+          throw new NA\BadRequestException('No such publisher.');
+        
         $this->suggestion = $this->calibre->getPublisherSearch($id);
         $this->result = $this->calibre->getPublisherName($id);
       }
@@ -507,6 +517,9 @@ final class BrowsePresenter extends SignedPresenter
         $this->suggestion = "rating:true";
         $this->result = $this->calibre->getRatings();
       } else {
+        if (!$this->calibre->checkRating($id))
+          throw new NA\BadRequestException('No such rating.');
+        
         $this->suggestion = $this->calibre->getRatingSearch($id);
         $this->result = $this->calibre->getRatingName($id);
       }
@@ -552,6 +565,9 @@ final class BrowsePresenter extends SignedPresenter
         $this->suggestion = "series:true";
         $this->result = $this->calibre->getSeries();
       } else {
+        if (!$this->calibre->checkSeries($id))
+          throw new NA\BadRequestException('No such series.');
+        
         $this->suggestion = $this->calibre->getSeriesSearch($id);
         $this->result = $this->calibre->getSeriesName($id);
       }
@@ -597,6 +613,9 @@ final class BrowsePresenter extends SignedPresenter
         $this->suggestion = "tags:true";
         $this->result = $this->calibre->getTags();
       } else {
+        if (!$this->calibre->checkTag($id))
+          throw new NA\BadRequestException('No such tag.');
+        
         $this->suggestion = $this->calibre->getTagSearch($id);
         $this->result = $this->calibre->getTagName($id);
       }
@@ -642,6 +661,9 @@ final class BrowsePresenter extends SignedPresenter
         $this->suggestion = "formats:true";
         $this->result = $this->calibre->getFormats();
       } else {
+        if (!$this->calibre->checkFormat($id))
+          throw new NA\BadRequestException('No such format.');
+        
         $this->suggestion = $this->calibre->getFormatSearch($id);
         $this->result = $id;
       }
@@ -687,6 +709,9 @@ final class BrowsePresenter extends SignedPresenter
         $this->suggestion = "identifiers:true";
         $this->result = $this->calibre->getIdentifiers();
       } else {
+        if (!$this->calibre->checkIdentifier($id))
+          throw new NA\BadRequestException('No such identifier.');
+        
         $this->suggestion = $this->calibre->getIdentifierSearch($id);
         $this->result = $id;
       }
