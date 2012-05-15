@@ -18,22 +18,40 @@ use Nette\Diagnostics\Debugger;
  */
 abstract class BaseCalibre extends Nette\Object 
 {  
-  /** @var string */
+  /** 
+   * Path to Calibre main folder
+   * @var string
+   */
   protected $calibre;
   
-  /** @var string */
+  /** 
+   * Path to Calibre library
+   * @var string
+   */
   protected $db;
   
-  /** @var string */
+  /** 
+   * Selected environment
+   * @var string
+   */
   protected $env;
   
-  /** @var bool */
+  /** 
+   * Usage of Xvfb
+   * @var bool
+   */
   protected $useXvfb;
   
-  /** @var bool */
+  /** 
+   * Usage of caching
+   * @var bool 
+   */
   protected $cacheResults;
   
-  /** @var Nette\Caching\Cache */
+  /** 
+   * Selected cache
+   * @var Nette\Caching\Cache
+   */
   protected $cache;
   
   /**
@@ -57,8 +75,8 @@ abstract class BaseCalibre extends Nette\Object
   }
   
   /**
-   * Random name
-   * @return string
+   * Generate random name
+   * @return string Random name
    */
   protected function randomName() 
   {

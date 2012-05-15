@@ -14,7 +14,8 @@
  */
 abstract class BasePresenter extends Nette\Application\UI\Presenter 
 {  
-  /** 
+  /**
+   * Selected language
    * @var string
    * @persistent
    */
@@ -40,6 +41,7 @@ abstract class BasePresenter extends Nette\Application\UI\Presenter
   
   /**
    * Add translator into template
+   * @param string|NULL $class
    * @return Nette\Templating\ITemplate
    */
   protected function createTemplate($class = NULL)

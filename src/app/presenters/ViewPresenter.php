@@ -17,18 +17,30 @@ use Nette\Application as NA;
  */
 final class ViewPresenter extends SignedPresenter 
 {
-  /** @var string **/
+  /** 
+   * Current book format
+   * @var string
+   */
   private $format;
   
-  /** @var string **/
+  /** 
+   * Current book id
+   * @var string
+   */
   private $bookId;
   
-  /** @var string **/
+  /** 
+   * Current book name
+   * @var string
+   */
   private $bookName;
   
   
   
-  /** @var ViewCalibre */
+  /** 
+   * ViewCalibre Model
+   * @var ViewCalibre
+   */
   private $calibreModel = NULL;
   
   /**

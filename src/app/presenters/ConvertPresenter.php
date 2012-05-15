@@ -17,15 +17,24 @@ use Nette\Application as NA;
  */
 final class ConvertPresenter extends SignedPresenter 
 {
-  /** @var string **/
+  /** 
+   * Current book name
+   * @var string
+   */
   private $bookName;
   
-  /** @var array **/
+  /** 
+   * Current book metadata
+   * @var array
+   */
   private $metadata;
   
   
   
-  /** @var ConvertCalibre */
+  /** 
+   * ConvertCalibre Model
+   * @var ConvertCalibre
+   */
   private $calibreModel = NULL;
   
   /**
@@ -42,7 +51,10 @@ final class ConvertPresenter extends SignedPresenter
     return $this->calibreModel;
   }
   
-  /** @var EditCalibre */
+  /** 
+   * EditCalibre Model
+   * @var EditCalibre
+   */
   private $calibreEditModel = NULL;
   
   /**
@@ -502,8 +514,8 @@ final class ConvertPresenter extends SignedPresenter
   
   /**
    * Convert section
-   * @param int $id
-   * @return void Book id
+   * @param int $id Book id
+   * @return void
    * @throws Nette\Application\BadRequestException
    */
   public function actionDefault($id)

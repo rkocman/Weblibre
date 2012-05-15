@@ -17,7 +17,10 @@ use Nette\Application as NA;
 final class ConvertCalibre extends BaseCalibre 
 {
 
-  /** Format support */
+  /** 
+   * Format support
+   * @var array
+   */
   public static $supportedFormats = array(
     'EPUB', 'FB2', 'HTMLZ', 'LIT', 'LRF', 'MOBI', 
     'PDB',  'PDF', 'PMLZ',  'RB',  'RTF', 'SNB',

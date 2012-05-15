@@ -18,7 +18,10 @@ use Nette\Application as NA;
 final class DownloadPresenter extends SignedPresenter 
 {
  
-  /** @var DownloadCalibre */
+  /** 
+   * DownloadCalibre Model
+   * @var DownloadCalibre
+   */
   private $calibreModel = NULL;
   
   /**

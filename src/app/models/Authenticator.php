@@ -17,7 +17,10 @@ use Nette\Security as NS;
  */
 final class Authenticator extends Nette\Object implements NS\IAuthenticator
 {
-	/** @var array */
+	/** 
+   * Logins from config file
+   * @var array
+   */
 	private $users;
 
   /**

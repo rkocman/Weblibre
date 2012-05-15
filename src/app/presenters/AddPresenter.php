@@ -18,12 +18,18 @@ use Nette\Application as NA;
 final class AddPresenter extends SignedPresenter 
 {
   
-  /** @var string **/
+  /** 
+   * Current book name
+   * @var string
+   */
   private $bookName;
   
   
 
-  /** @var BrowseCalibre */
+  /** 
+   * BrowseCalibre Model
+   * @var BrowseCalibre
+   */
   private $calibreModel = NULL;
   
   /**

@@ -17,15 +17,24 @@ use Nette\Application as NA;
  */
 final class EditPresenter extends SignedPresenter 
 {
-  /** @var string **/
+  /** 
+   * Current book name
+   * @var string
+   */
   private $bookName;
   
-  /** @var array **/
+  /** 
+   * Current book metadata
+   * @var array
+   */
   private $metadata;
   
   
   
-  /** @var EditCalibre */
+  /** 
+   * EditCalibre Model
+   * @var EditCalibre 
+   */
   private $calibreModel = NULL;
   
   /**

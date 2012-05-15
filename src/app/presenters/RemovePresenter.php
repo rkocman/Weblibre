@@ -18,7 +18,10 @@ use Nette\Application as NA;
 final class RemovePresenter extends SignedPresenter 
 {
   
-  /** @var RemoveCalibre */
+  /** 
+   * RemoveCalibre Model
+   * @var RemoveCalibre
+   */
   private $calibreModel = NULL;
   
   /**
@@ -61,7 +64,7 @@ final class RemovePresenter extends SignedPresenter
   
   /**
    * Remove format
-   * @paramt int $id Format id
+   * @param int $id Format id
    * @return void
    * @throws Nette\Application\BadRequestException
    */

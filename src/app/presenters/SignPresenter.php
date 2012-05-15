@@ -69,8 +69,8 @@ final class SignPresenter extends BasePresenter
   
   /**
    * Sort languages
-   * @var array $a First language
-   * @var array $b Second language
+   * @param array $a First language
+   * @param array $b Second language
    * @return int
    */
   private function sortLang($a, $b) 
@@ -82,7 +82,7 @@ final class SignPresenter extends BasePresenter
 	 * Language selection form component factory
 	 * @return Nette\Application\UI\Form
 	 */
-  protected function createComponentSelectLanguageForm($name) 
+  protected function createComponentSelectLanguageForm() 
   {
     $form = new UI\Form;
     

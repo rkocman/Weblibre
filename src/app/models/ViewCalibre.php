@@ -15,7 +15,10 @@
 final class ViewCalibre extends BaseCalibre 
 {
   
-  /** Format support */
+  /** 
+   * Format support
+   * @var array
+   */
   public static $supportedFormats = array(
     'PDF'
   );

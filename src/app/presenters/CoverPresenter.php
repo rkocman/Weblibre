@@ -17,7 +17,10 @@ use Nette\Application\UI;
 final class CoverPresenter extends SignedPresenter 
 {
  
-  /** @var CoverCalibre */
+  /** 
+   * CoverCalibre Model
+   * @var CoverCalibre
+   */
   private $calibreModel = NULL;
   
   /**
@@ -34,10 +37,16 @@ final class CoverPresenter extends SignedPresenter
     return $this->calibreModel;
   }
   
-  /** @var img */
+  /** 
+   * Current cover
+   * @var img
+   */
   private $cover;
   
-  /** @var time */
+  /** 
+   * Current cover timestamp
+   * @var time 
+   */
   private $time;
   
   /**
@@ -56,6 +65,7 @@ final class CoverPresenter extends SignedPresenter
   
   /**
    * Render cover
+   * @return void
    */
   public function renderDefault() 
   {

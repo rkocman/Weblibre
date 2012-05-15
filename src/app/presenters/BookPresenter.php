@@ -18,11 +18,17 @@ use Nette\Application as NA;
 final class BookPresenter extends SignedPresenter 
 {
   
-  /** @var array */
+  /** 
+   * Results about selected book
+   * @var array
+   */
   private $book;
   
   
-  /** @var BookCalibre */
+  /** 
+   * BookCalibre Model
+   * @var BookCalibre
+   */
   private $calibreModel = NULL;
   
   /**
@@ -74,6 +80,7 @@ final class BookPresenter extends SignedPresenter
   
   /**
    * Book's details render
+   * @return void
    */
   public function renderDefault() 
   {

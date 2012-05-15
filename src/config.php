@@ -26,7 +26,7 @@ $wconfig['useXvfb'] = true;
 
 
 // Weblibre debug mode
-$wconfig['debug'] = true;
+$wconfig['debug'] = false;
 
 
 

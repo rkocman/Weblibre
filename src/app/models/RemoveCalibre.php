@@ -50,7 +50,7 @@ final class RemoveCalibre extends BaseCalibre
   
   /**
    * Remove book
-   * @param $id Book id
+   * @param int $id Book id
    * @return bool
    */
   public function removeBook($id) 
@@ -68,7 +68,7 @@ final class RemoveCalibre extends BaseCalibre
   
   /**
    * Remove format
-   * @param $id Format id
+   * @param int $id Format id
    * @return bool
    */
   public function removeFormat($id) 

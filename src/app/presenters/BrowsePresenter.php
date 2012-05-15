@@ -25,12 +25,14 @@ final class BrowsePresenter extends SignedPresenter
   public $sortBy = 'Title';
   
   /**
+   * Current search string
    * @var string
    * @persistent
    */
   public $search;
   
   /**
+   * Current suggestion string
    * @var string
    */
   private $suggestion;
@@ -42,7 +44,10 @@ final class BrowsePresenter extends SignedPresenter
    */
   public $page = 1;
   
-  /** @var int */
+  /** 
+   * Number of pages
+   * @var int
+   */
   private $pageMax;
   
   /**
@@ -77,7 +82,10 @@ final class BrowsePresenter extends SignedPresenter
   private $result;
   
   
-  /** @var BrowseCalibre */
+  /** 
+   * BrowseCalibre Model
+   * @var BrowseCalibre
+   */
   private $calibreModel = NULL;
   
   /**
@@ -220,8 +228,8 @@ final class BrowsePresenter extends SignedPresenter
   
   /**
    * Sort sortBy
-   * @var array $a First title
-   * @var array $b Second title
+   * @param array $a First title
+   * @param array $b Second title
    * @return int
    */
   private function sortSortBy($a, $b) 
@@ -233,7 +241,7 @@ final class BrowsePresenter extends SignedPresenter
 	 * Sort by form
 	 * @return Nette\Application\UI\Form
 	 */
-  protected function createComponentSortByForm($name) 
+  protected function createComponentSortByForm() 
   {  
     $form = new UI\Form;
     
@@ -272,7 +280,7 @@ final class BrowsePresenter extends SignedPresenter
 	 * Search form
 	 * @return Nette\Application\UI\Form
 	 */
-  protected function createComponentSearchForm($name) 
+  protected function createComponentSearchForm() 
   {  
     $form = new UI\Form;
     $form->setTranslator($this->context->translator);
@@ -365,6 +373,7 @@ final class BrowsePresenter extends SignedPresenter
    * Action authors
    * @param int|NULL $id Author id
    * @return void
+   * @throws Nette\Application\BadRequestException
    */
   public function actionAuthors($id = NULL) 
   {
@@ -413,6 +422,7 @@ final class BrowsePresenter extends SignedPresenter
    * Action languages
    * @param int|NULL $id Language id
    * @return void
+   * @throws Nette\Application\BadRequestException
    */
   public function actionLanguages($id = NULL) 
   {
@@ -461,6 +471,7 @@ final class BrowsePresenter extends SignedPresenter
    * Action publishers
    * @param int|NULL $id Publisher id
    * @return void
+   * @throws Nette\Application\BadRequestException
    */
   public function actionPublishers($id = NULL) 
   {
@@ -509,6 +520,7 @@ final class BrowsePresenter extends SignedPresenter
    * Action ratings
    * @param int|NULL $id Rating id
    * @return void
+   * @throws Nette\Application\BadRequestException
    */
   public function actionRatings($id = NULL) 
   {
@@ -557,6 +569,7 @@ final class BrowsePresenter extends SignedPresenter
    * Action series
    * @param int|NULL $id Series id
    * @return void
+   * @throws Nette\Application\BadRequestException
    */
   public function actionSeries($id = NULL) 
   {
@@ -605,6 +618,7 @@ final class BrowsePresenter extends SignedPresenter
    * Action tags
    * @param int|NULL $id Tag id
    * @return void
+   * @throws Nette\Application\BadRequestException
    */
   public function actionTags($id = NULL) 
   {
@@ -653,6 +667,7 @@ final class BrowsePresenter extends SignedPresenter
    * Action formats
    * @param string|NULL $id Format id
    * @return void
+   * @throws Nette\Application\BadRequestException
    */
   public function actionFormats($id = NULL) 
   {
@@ -701,6 +716,7 @@ final class BrowsePresenter extends SignedPresenter
    * Action identifiers
    * @param string|NULL $id Identifier id
    * @return void
+   * @throws Nette\Application\BadRequestException
    */
   public function actionIdentifiers($id = NULL) 
   {

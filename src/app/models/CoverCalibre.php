@@ -125,6 +125,7 @@ final class CoverCalibre extends BaseCalibre
    * Load cover
    * @param int|string $id Book id or "none"
    * @param string $size Selected size ["browse", "book"]
+   * @return void
    */
   public function loadCover($id, $size) 
   {
